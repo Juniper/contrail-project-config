@@ -147,3 +147,15 @@
       nodes:
         - name: builder
           label: ubuntu-trusty-builder
+
+- job:
+    name: contrail-vnc-docker-provision-centos74
+    voting: False
+    run: playbooks/docker/centos74-provision-systest
+    nodeset:
+      nodes:
+        - name: contrail-aio
+          label: centos-7.4-builder
+    secrets:
+      - ansible_deployer
+
