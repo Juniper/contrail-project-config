@@ -149,7 +149,7 @@
           label: ubuntu-trusty-builder
 
 - job:
-    name: contrail-vnc-docker-provision-centos74
+    name: contrail-systest-centos74-kubernetes
     voting: False
     run: playbooks/docker/centos74-provision-systest
     nodeset:
@@ -157,5 +157,4 @@
         - name: contrail-aio
           label: centos-7.4-builder
     secrets:
-      - ansible_deployer
-
+      - deployer_registry

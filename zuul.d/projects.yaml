@@ -7,7 +7,9 @@
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-vnc-docker-provision-centos74
+    experimental-provision:
+      jobs:
+        - contrail-systest-centos74-kubernetes
 
 - project:
     name: Juniper/contrail-vrouter
