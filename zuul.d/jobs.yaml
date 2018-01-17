@@ -166,6 +166,7 @@
     name: contrail-vnc-build-containers-centos74
     parent: contrail-base
     voting: False
+    pre-run: playbooks/docker/docker-pre
     run: playbooks/docker/centos74
     nodeset:
       nodes:

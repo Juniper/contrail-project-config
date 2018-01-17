@@ -1,0 +1,27 @@
+- name: Install build dependencies
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - docker
+    - iproute
+  become: True
+  become_user: root
+
+- name: Configure docker insecure registries
+  copy:
+    content: |
+      {
+        "insecure-registries": ["{{ docker_registry.fqdn }}:{{ docker_registry.port }}"]
+      }
+    dest: /etc/docker/daemon.json
+  become: True
+  become_user: root
+
+- name: Ensure that docker daemon is running
+  service:
+    name: docker
+    state: started
+  become: True
+  become_user: root
+
