@@ -10,6 +10,7 @@
     - start-zuul-console
     - configure-hosts-entries
     - validate-host
+    - yum-repos-prepare
 - hosts: all
   roles:
     - role: configure-hosts-entries
