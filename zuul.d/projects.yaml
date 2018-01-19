@@ -54,6 +54,12 @@
         - contrail-vnc-build-package-ubuntu-xenial
 
 - project:
+    name: Juniper/contrail-packaging
+    check:
+      jobs:
+        - contrail-vnc-build-package-centos74
+
+- project:
     name: Juniper/contrail-sandesh
     check:
       jobs:
@@ -87,12 +93,6 @@
 
 - project:
     name: Juniper/contrail-nova-vif-driver
-    check:
-      jobs:
-        - noop
-
-- project:
-    name: Juniper/contrail-packaging
     check:
       jobs:
         - noop
