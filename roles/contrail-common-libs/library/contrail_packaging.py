@@ -48,8 +48,10 @@ def main():
         version['debian'] = "~{change}.{patchset}~{date}".format(
             change=change, patchset=patchset, date=date
         )
+        repo_name = "{change}-{patchset}".format(change=change, patchset=patchset)
     elif release_type == ReleaseType.NIGHTLY:
         version['debian'] = "~{date}".format(date=date)
+        repo_name = "{upstream}-{date}".format(upstream=version['upstream'],date=date)
     else:
         module.fail_json(
             msg="Unknown release_type: %s" % (release_type,), **result
@@ -76,6 +78,7 @@ def main():
         'full_version': full_version,
         'version': version,
         'target_dir': target_dir,
+        'repo_name': repo_name,
     }
 
     module.exit_json(ansible_facts={'packaging': packaging}, **result)

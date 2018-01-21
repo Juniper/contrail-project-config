@@ -9,8 +9,9 @@
 
 - hosts: "{{ site_pulp.fqdn }}"
   vars:
-    reponame: "{{ zuul.change }}-{{ zuul.patchset }}"
+    release_type: continuous-integration
     executor_package_dir: "{{ zuul.executor.work_root }}/packages"
   roles:
+    - role: contrail-common-libs
     - role: packaging-publish-el
 
