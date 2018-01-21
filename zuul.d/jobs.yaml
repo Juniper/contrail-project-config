@@ -100,7 +100,6 @@
 - job:
     name: contrail-vnc-build-package-el-base
     parent: contrail-vnc-base
-    voting: False
     description: |
       Job that tests Contrail VNC (controller, analytics, etc.) packaging
 
@@ -116,7 +115,6 @@
 
 - job:
     name: contrail-vnc-build-package-centos74
-    voting: False
     parent: contrail-vnc-build-package-el-base
     irrelevant-files:
       - specs/.*
@@ -181,7 +179,6 @@
 - job:
     name: contrail-vnc-build-containers-centos74
     parent: contrail-src-base
-    voting: False
     description: |
       A job that builds the Contrail containers using contrail-container-builder
       and uploads them to a Docker registry.
@@ -202,7 +199,6 @@
 - job:
     name: contrail-systest-centos74-kubernetes
     parent: contrail-src-base
-    voting: False
     description: |
       A job that deploys Contrail containers and a Kubernetes cluster
       using contrail-ansible-deployer.
@@ -221,7 +217,6 @@
 - job:
     name: contrail-systest-centos74-kolla-ocata
     parent: contrail-src-base
-    voting: False
     description: |
       A job that deploys Contrail containers using contrail-ansible-deployer,
       OpenStack using Kolla and runs the CI sanity testsuite.
