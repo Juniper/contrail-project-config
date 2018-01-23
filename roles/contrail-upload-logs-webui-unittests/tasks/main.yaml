@@ -1,0 +1,47 @@
+- name: Create the log directory on executor
+  file:
+    path: "{{ zuul.executor.log_root }}/webui-unittests-logs"
+    state: directory
+  delegate_to: localhost
+
+- stat:
+    path: "{{ ansible_env.HOME }}/logs"
+  register: testrunner_logdir
+  become: true
+
+- name: Fetch WebUI unittests runner logs
+  synchronize:
+    src: "{{ ansible_env.HOME }}/logs"
+    dest: "{{ zuul.executor.log_root }}/webui-unittests-logs"
+    mode: pull
+    recursive: yes
+  when: testrunner_logdir.stat.isdir is defined and testrunner_logdir.stat.isdir
+  become: true
+
+- stat:
+  path: "{{ ansible_env.HOME }}/test-reports"
+  register: test_reports_dir
+  become: true
+
+- name: Fetch test-reports logs
+  synchronize:
+    src: "{{ ansible_env.HOME}}/test-reports"
+    dest: "{{ zuul.executor.log_root }}/webui-unittests-logs"
+    mode: pull
+    recursive: yes
+  when: test_reports_dir.stat.isdir is defined and test_reports_dir.stat.isdir
+  become: true
+
+- stat:
+  path: "{{ ansible_env.HOME }}/coverage-reports"
+  register: coverage_reports_dir
+  become: true
+
+- name: Fetch coverage-reports logs
+  synchronize:
+    src: "{{ ansible_env.HOME}}/coverage-reports"
+    dest: "{{ zuul.executor.log_root }}/webui-unittests-logs"
+    mode: pull
+    recursive: yes
+  when: coverage_reports_dir.stat.isdir is defined and coverage_reports_dir.stat.isdir
+  become: true
