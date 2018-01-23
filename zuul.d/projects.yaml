@@ -248,6 +248,9 @@
     name: Juniper/contrail-container-builder
     templates:
       - systests
+    check:
+      jobs:
+        - contrail-vnc-build-containers-ubuntu
 
 - project:
     name: Juniper/contrail-web-core
