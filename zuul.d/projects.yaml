@@ -59,7 +59,9 @@
       - systests
     check:
       jobs:
-        - contrail-vnc-specs-linter-subdir
+        - contrail-vnc-specs-linter:
+           files:
+             - specs/.*
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74-nightly
@@ -84,9 +86,6 @@
     templates:
       - unittests
       - systests
-    check:
-      jobs:
-        - contrail-vnc-specs-linter-subdir
     experimental-provision:
       jobs:
         - contrail-systest-centos74-kolla-ocata
