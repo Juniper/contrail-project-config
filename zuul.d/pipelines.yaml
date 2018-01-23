@@ -92,7 +92,11 @@
     manager: independent
     trigger:
       timer:
-        - time: "0 0 * * *"
+        - time: "*/30 * * * *"
+    success:
+      mysql:
+    failure:
+      mysql:
 
 - pipeline:
     name: experimental
