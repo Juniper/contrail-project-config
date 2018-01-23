@@ -212,6 +212,13 @@
       - docker_registry
 
 - job:
+    name: contrail-vnc-build-containers-ubuntu
+    voting: false
+    parent: contrail-vnc-build-containers-centos74-nightly
+    vars:
+      linux_distribution: ubuntu
+
+- job:
     name: contrail-systest-centos74-kubernetes
     parent: contrail-src-base
     description: |
