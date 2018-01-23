@@ -157,8 +157,6 @@
 - job:
     name: contrail-vnc-specs-linter-subdir
     voting: false
-    files:
-      - specs/.*
 
 - job:
     name: contrail-vnc-build-unittest-ubuntu-trusty
