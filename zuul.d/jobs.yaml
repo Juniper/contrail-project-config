@@ -207,6 +207,26 @@
       - docker_registry
 
 - job:
+    name: contrail-vnc-build-containers-centos74-dev
+    parent: contrail-src-base
+    description: |
+      A job that builds the Contrail containers using contrail-container-builder
+      and uploads them to a Docker registry.
+    irrelevant-files:
+      - specs/.*
+    required-projects:
+      - Juniper/contrail-container-builder
+    pre-run: playbooks/docker-dev/docker-pre
+    run: playbooks/docker-dev/centos74
+    nodeset:
+      nodes:
+        - name: builder
+          label: centos-7-4-builder
+    secrets:
+      - site_pulp
+      - docker_registry
+
+- job:
     name: contrail-systest-centos74-kubernetes
     parent: contrail-src-base
     description: |

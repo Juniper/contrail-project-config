@@ -1,0 +1,12 @@
+- hosts: all
+  roles:
+    - docker-dependencies
+
+- hosts: localhost
+  roles:
+    - role: add-fileserver
+      fileserver: "{{ site_pulp }}"
+
+- hosts: site_pulp
+  roles:
+    - setup-docker-registry
