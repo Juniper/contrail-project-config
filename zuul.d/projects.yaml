@@ -62,12 +62,11 @@
         - contrail-vnc-specs-linter:
            files:
              - specs/.*
-    experimental:
-      jobs:
-        - contrail-vnc-build-package-centos74-nightly
     periodic-nightly:
       jobs:
-        - contrail-vnc-build-package-centos74-nightly
+        - contrail-vnc-build-package-centos74:
+            vars:
+              release_type: nightly
 
 - project:
     name: Juniper/contrail-common

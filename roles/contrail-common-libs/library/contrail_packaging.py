@@ -33,8 +33,6 @@ def main():
     release_type = module.params['release_type']
 
     branch = zuul['branch']
-    change = zuul['change']
-    patchset = zuul['patchset']
     date = datetime.now().strftime("%Y%m%d%H%M%S")
 
     version = {'epoch': None}
@@ -45,6 +43,8 @@ def main():
 
     if release_type == ReleaseType.CONTINUOUS_INTEGRATION:
         # Versioning in CI consists of change id, pachset and date
+        change = zuul['change']
+        patchset = zuul['patchset']
         version['debian'] = "~{change}.{patchset}~{date}".format(
             change=change, patchset=patchset, date=date
         )

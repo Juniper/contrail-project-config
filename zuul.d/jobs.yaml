@@ -124,12 +124,6 @@
           label: centos-7-4-builder
 
 - job:
-    name: contrail-vnc-build-package-centos74-nightly
-    parent: contrail-vnc-build-package-centos74
-    vars:
-      release_type: nightly
-
-- job:
     name: contrail-vnc-build-package-ubuntu-trusty
     parent: contrail-vnc-build-package-ubuntu-base
     nodeset:
