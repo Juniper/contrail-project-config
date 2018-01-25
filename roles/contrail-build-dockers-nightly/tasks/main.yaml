@@ -1,0 +1,40 @@
+- name: Set paths
+  set_fact:
+    docker_build_dir: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/contrail-container-builder"
+    rpm_repo_config_dir: /etc/yum.repos.d
+
+- name: Prepare build configuration - common.env
+  copy:
+    content: |
+      CONTRAIL_VERSION={{ contrail_container_tag }}
+      CONTRAIL_REGISTRY={{ docker_registry.fqdn }}:{{ docker_registry.port }}
+      CONTRAIL_REPOSITORY={{ contrail_package_repository }}
+      OPENSTACK_VERSION={{ openstack_version }}
+      OPENSTACK_SUBVERSION={{ openstack_subversion }}
+    dest: "{{ docker_build_dir }}/common.env"
+
+- name: copy the repo files to containers build context
+  synchronize:
+    src: "{{ rpm_repo_config_dir }}/"
+    dest: "{{ docker_build_dir }}/containers/{{ item }}"
+  delegate_to: "{{ inventory_hostname }}"
+  with_items:
+    - base
+    - test/test
+
+- name: Create log dir
+  file:
+    path: "{{ ansible_env.HOME }}/docker-logs"
+    state: directory
+
+- name: Prepare container list
+  shell: ./build.sh list | grep -v INFO
+  become: true
+  register: docker_list
+  args:
+    chdir: "{{ docker_build_dir }}/containers"
+
+- name: Build microservices
+  include: build_container.yaml
+  with_items: "{{ docker_list.stdout_lines }}"
+

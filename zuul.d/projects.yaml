@@ -67,12 +67,12 @@
              - specs/.*
     periodic-nightly:
       jobs:
-        - contrail-vnc-build-package-centos74:
+        - contrail-vnc-build-package-centos74-nightly:
             vars:
               release_type: nightly
-        - contrail-vnc-build-containers-centos74:
+        - contrail-vnc-build-containers-centos74-nightly:
             dependencies:
-              - contrail-vnc-build-package-centos74
+              - contrail-vnc-build-package-centos74-nightly
             vars:
               release_type: nightly
 
