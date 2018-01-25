@@ -37,3 +37,10 @@
   file:
     path: /root/{{ packaging.repo_name }}
     state: absent
+
+- name: Return repository location back to zuul for children jobs
+  zuul_return:
+    data:
+      contrail_package_repository: "http://{{ site_pulp.fqdn }}/pulp/repos/{{ packaging.repo_name }}"
+  delegate_to: localhost
+
