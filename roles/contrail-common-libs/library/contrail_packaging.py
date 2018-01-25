@@ -45,12 +45,12 @@ def main():
         # Versioning in CI consists of change id, pachset and date
         change = zuul['change']
         patchset = zuul['patchset']
-        version['debian'] = "~{change}.{patchset}~{date}".format(
+        version['distrib'] = "ci{change}.{patchset}".format(
             change=change, patchset=patchset, date=date
         )
         repo_name = "{change}-{patchset}".format(change=change, patchset=patchset)
     elif release_type == ReleaseType.NIGHTLY:
-        version['debian'] = "~{date}".format(date=date)
+        version['distrib'] = "{date}".format(date=date)
         repo_name = "{upstream}-{date}".format(upstream=version['upstream'],date=date)
     else:
         module.fail_json(
@@ -70,7 +70,7 @@ def main():
     debian_dir = os.path.join(debian_dir, "debian/contrail/debian")
     target_dir = "contrail-%s" % (version['upstream'],)
 
-    full_version = "{upstream}-{debian}".format(**version)
+    full_version = "{upstream}~{distrib}".format(**version)
 
     packaging = {
         'name': 'contrail',
