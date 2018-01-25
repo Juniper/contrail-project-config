@@ -2,7 +2,7 @@
   shell: |
     rpmbuild \
       --define "_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/" \
-      --define "_buildTag {{ zuul.change }}.{{ zuul.patchset }}" \
+      --define "_buildTag {{ packaging.version.distrib }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
       --define "_skuTag mitaka" \
       {{ item.extra|default('') }} \

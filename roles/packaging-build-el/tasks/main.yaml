@@ -20,7 +20,7 @@
       --define '_sbtop {{ ansible_env.HOME }}/{{ packaging.target_dir }}' \
       --define "_opt production" \
       --define "_kVers {{ kver.stdout }}" \
-      --define "_buildTag {{ zuul.change }}.{{ zuul.patchset }}" \
+      --define "_buildTag {{ packaging.version.distrib }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
       -ba tools/packages/rpm/contrail/contrail.spec
   args:
@@ -33,7 +33,7 @@
     rpmbuild \
       --define '_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}' \
       --define '_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller' \
-      --define "_buildTag {{ zuul.change }}.{{ zuul.patchset }}" \
+      --define "_buildTag {{ packaging.version.distrib }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
       -ba {{ ansible_env.HOME }}/{{ packaging.target_dir }}/tools/packaging/common/rpm/contrail-nodemgr.spec
   args:
@@ -43,7 +43,7 @@
   shell: |
     rpmbuild \
       --define "_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/" \
-      --define "_buildTag {{ zuul.change }}.{{ zuul.patchset }}" \
+      --define "_buildTag {{ packaging.version.distrib }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
       --define "_skuTag mitaka" \
       --define "_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller" \
@@ -76,7 +76,7 @@
     make package REPO=../{{ item }}
     rpmbuild \
       --define "_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/BUILD" \
-      --define "_buildTag {{ zuul.change }}.{{ zuul.patchset }}" \
+      --define "_buildTag {{ packaging.version.distrib }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
       --bb {{ ansible_env.HOME }}/{{ packaging.target_dir }}/tools/packaging/common/rpm/{{ item }}.spec
   args:
