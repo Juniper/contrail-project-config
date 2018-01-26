@@ -303,3 +303,16 @@
       nodes:
         - name: builder
           label: centos-7-4-builder
+- job:
+    name: contrail-vnc-publish-containers-nightly
+    description: |
+      A job for publishing Docker containers to DockerHub.
+    run: playbooks/docker/publish-nightly
+    nodeset:
+      nodes:
+        - name: builder
+          label: centos-7-4-builder
+    secrets:
+      - site_pulp
+      - docker_registry
+      - dockerhub
