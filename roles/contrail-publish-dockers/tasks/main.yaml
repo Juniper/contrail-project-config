@@ -1,0 +1,30 @@
+- name: Get container list
+  shell: |
+    for repo in $(curl -s {{ docker_registry.fqdn }}:{{ docker_registry.port }}/v2/_catalog | jq -r '.[] | join(" ")' | sed -e 's/\S*kolla\S*//g'); do
+      for tag in $(curl -s {{ docker_registry.fqdn }}:{{ docker_registry.port }}/v2/$repo/tags/list | jq -r '.tags | sort | .[-1]'); do
+        echo $repo:$tag
+      done
+    done
+  register: container_list
+
+- name: Pull containers
+  shell: "docker pull {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }}"
+  with_items: "{{ container_list.stdout_lines }}"
+
+- name: Log in to dockerhub
+  shell: "docker login -u {{ dockerhub.username }} -p {{ dockerhub.password }}"
+  no_log: true
+
+- name: Retag containers
+  shell: "docker tag {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }} {{ dockerhub.namespace }}/{{ item }}"
+  with_items: "{{ container_list.stdout_lines }}"
+
+- name: Push containers
+  shell: "docker push {{ dockerhub.namespace }}/{{ item }}"
+  with_items: "{{ container_list.stdout_lines }}"
+
+- name: Remove containers
+  shell: |
+    docker rmi {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }}
+    docker rmi {{ dockerhub.namespace }}/{{ item }}
+  with_items: "{{ container_list.stdout_lines }}"

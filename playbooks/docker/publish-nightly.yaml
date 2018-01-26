@@ -1,0 +1,3 @@
+- hosts: "{{ site_pulp.fqdn }}"
+  roles:
+    - contrail-publish-dockers
