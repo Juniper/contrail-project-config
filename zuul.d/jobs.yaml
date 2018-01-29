@@ -13,7 +13,7 @@
       - playbooks/base/post-ssh
       - playbooks/base/post-logs
     roles:
-      - zuul: codilime/zuul-jobs
+      - zuul: Juniper/zuul-jobs
     timeout: 28800
     nodeset:
       nodes:
