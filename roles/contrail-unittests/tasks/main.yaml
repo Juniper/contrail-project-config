@@ -60,6 +60,21 @@
     CONTRAIL_COMPILE_WITHOUT_SYMBOLS: yes
     LC_ALL: "C"
 
+- name: Gather unittest target list to prebuild
+  shell: "{{ ansible_env.HOME }}/contrail-unittests-gather.rb"
+  register: targets
+  when: prebuild_tests == true
+
+- name: Prebuild test targets
+  shell: "scons -j {{ ansible_processor_vcpus }} {{ targets.stdout }}"
+  become: yes
+  become_user: root
+  environment:
+    BUILD_ONLY: 1
+    CONTRAIL_COMPILE_WITHOUT_SYMBOLS: yes
+    LC_ALL: "C"
+  when: prebuild_tests == true
+
 - name: Run unittest script
   shell: "{{ ansible_env.HOME }}/contrail-unittests-job.sh"
   become: yes

@@ -84,6 +84,8 @@
     templates:
       - unittests
       - systests
+    check:
+      - contrail-vnc-build-unittest-ubuntu-trusty-prebuilt
 
 - project:
     name: Juniper/contrail-build
