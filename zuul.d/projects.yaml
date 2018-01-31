@@ -70,7 +70,7 @@
         - contrail-vnc-build-package-centos74-nightly:
             vars:
               release_type: nightly
-        - contrail-vnc-build-containers-centos74-nightly:
+        - contrail-vnc-build-containers-centos74-ocata-nightly:
             dependencies:
               - contrail-vnc-build-package-centos74-nightly
             vars:
@@ -78,6 +78,11 @@
         - contrail-vnc-publish-containers-nightly:
             dependencies:
               - contrail-vnc-build-containers-centos74-nightly
+        - contrail-vnc-build-containers-centos74-newton-nightly:
+            dependencies:
+              - contrail-vnc-build-package-centos74-nightly
+            vars:
+              release_type: nightly
 
 - project:
     name: Juniper/contrail-common
