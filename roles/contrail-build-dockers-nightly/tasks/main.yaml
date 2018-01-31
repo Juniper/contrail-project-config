@@ -6,7 +6,7 @@
 - name: Prepare build configuration - common.env
   copy:
     content: |
-      CONTRAIL_VERSION={{ contrail_container_tag }}
+      CONTRAIL_VERSION={{ contrail_container_tag }}-{{ openstack_version }}
       CONTRAIL_REGISTRY={{ docker_registry.fqdn }}:{{ docker_registry.port }}
       CONTRAIL_REPOSITORY={{ contrail_package_repository }}
       OPENSTACK_VERSION={{ openstack_version }}
