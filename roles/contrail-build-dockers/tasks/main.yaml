@@ -37,6 +37,7 @@
   with_items:
     - base
     - test/test
+    - external/kafka
 
 - name: Create log dir
   file:
