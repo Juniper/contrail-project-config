@@ -94,6 +94,17 @@
       This is a base job for testing packaging of Contrail VNC for Ubuntu-base
       distributions. Release-based variants of this job are then added
       to the Juniper/contrail-packages project.
+    required-projects:
+      - Juniper/contrail-build
+      - Juniper/contrail-controller
+      - Juniper/contrail-generateDS
+      - Juniper/contrail-third-party
+      - Juniper/contrail-packages
+      - Juniper/contrail-sandesh
+      - Juniper/contrail-vrouter
+      - Juniper/contrail-nova-vif-driver
+      - Juniper/contrail-common
+      - Juniper/contrail-analytics
     files:
       - ^debian/contrail/.*$
     run: playbooks/packaging/contrail-vnc
