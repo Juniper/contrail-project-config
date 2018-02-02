@@ -38,6 +38,7 @@ def main():
     version = {'epoch': None}
     if branch == 'master':
         version['upstream'] = MASTER_RELEASE
+        version['docker_upstream'] = 'master'
     else:
         version['upstream'] = branch[1:]
 
