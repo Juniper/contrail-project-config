@@ -27,6 +27,7 @@
           - Juniper/contrail-generateDS
           - Juniper/contrail-heat
           - Juniper/contrail-horizon
+          - Juniper/contrail-kolla-ansible
           - Juniper/contrail-neutron-plugin
           - Juniper/contrail-nova-vif-driver
           - Juniper/contrail-packages
