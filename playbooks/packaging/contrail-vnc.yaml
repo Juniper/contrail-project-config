@@ -4,3 +4,5 @@
     - contrail-controller-hacks
     - packaging-prepare-contrail
     - packaging-build
+    - fetch-packages-deb
+    - packaging-publish
