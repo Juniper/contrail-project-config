@@ -1,7 +1,11 @@
 - name: Set paths
   set_fact:
     docker_build_dir: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/contrail-container-builder"
-    rpm_repo_config_dir: /etc/yum.repos.d
+    {% if linux_distribution == 'centos' %}
+    repo_config_dir: /etc/yum.repos.d
+    {% elif linux_distribution == 'ubuntu' %}
+    repo_config_dir: /etc/apt/sources.list.d
+    {% endif %}
 
 - name: Check if Zuul overrode the registry port
   stat:
@@ -27,11 +31,12 @@
       CONTRAIL_REPOSITORY={{ contrail_package_repository }}
       OPENSTACK_VERSION={{ openstack_version }}
       OPENSTACK_SUBVERSION={{ openstack_subversion }}
+      LINUX_DISTR={{ linux_distribution }}
     dest: "{{ docker_build_dir }}/common.env"
 
 - name: copy the repo files to containers build context
   synchronize:
-    src: "{{ rpm_repo_config_dir }}/"
+    src: "{{ repo_config_dir }}/"
     dest: "{{ docker_build_dir }}/containers/{{ item }}"
   delegate_to: "{{ inventory_hostname }}"
   with_items:
