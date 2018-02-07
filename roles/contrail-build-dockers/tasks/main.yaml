@@ -30,13 +30,10 @@
     dest: "{{ docker_build_dir }}/common.env"
 
 - name: copy the repo files to containers build context
-  synchronize:
+  assemble:
     src: "{{ rpm_repo_config_dir }}/"
-    dest: "{{ docker_build_dir }}/containers/{{ item }}"
+    dest: "{{ docker_build_dir }}/contrail.repo.template"
   delegate_to: "{{ inventory_hostname }}"
-  with_items:
-    - base
-    - test/test
 
 - name: Create log dir
   file:
