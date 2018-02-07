@@ -222,10 +222,10 @@
           label: centos-7-4-builder
 
 - job:
-    name: contrail-vnc-build-containers-centos74
+    name: contrail-vnc-build-containers-base
     parent: contrail-src-base
     description: |
-      A job that builds the Contrail containers using contrail-container-builder
+      Builds the Contrail microservices using contrail-container-builder
       and uploads them to a Docker registry.
     irrelevant-files:
       - specs/.*
@@ -234,14 +234,54 @@
     pre-run:
       - playbooks/docker/setup-docker-registry
       - playbooks/docker/docker-pre
-    run: playbooks/docker/centos74
+    run: playbooks/docker/build-containers
+    secrets:
+      - site_pulp
+      - docker_registry
+
+- job:
+    name: contrail-vnc-build-containers-centos74-base
+    parent: contrail-vnc-build-containers-base
     nodeset:
       nodes:
         - name: builder
           label: centos-7-4-builder
-    secrets:
-      - site_pulp
-      - docker_registry
+    vars:
+      linux_distribution: centos
+
+- job:
+    name: contrail-vnc-build-containers-ubuntu16-base
+    parent: contrail-vnc-build-containers-base
+    nodeset:
+      nodes:
+        - name: builder
+          label: ubuntu-xenial-builder
+    vars:
+      linux_distribution: ubuntu
+
+- job:
+    name: contrail-vnc-build-containers-centos74-ocata
+    parent: contrail-vnc-build-containers-centos74-base
+    vars:
+      openstack_version: ocata
+
+- job:
+    name: contrail-vnc-build-containers-centos74-newton
+    parent: contrail-vnc-build-containers-centos74-base
+    vars:
+      openstack_version: newton
+
+- job:
+    name: contrail-vnc-build-containers-ubuntu16-ocata
+    parent: contrail-vnc-build-containers-ubuntu16-base
+    vars:
+      openstack_version: ocata
+
+- job:
+    name: contrail-vnc-build-containers-ubuntu16-newton
+    parent: contrail-vnc-build-containers-ubuntu16-base
+    vars:
+      openstack_version: newton
 
 - job:
     name: contrail-systest-centos74-kubernetes

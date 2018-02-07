@@ -19,15 +19,15 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-vnc-build-containers-centos74:
+        - contrail-vnc-build-containers-centos74-ocata:
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-systest-centos74-kolla-ocata:
             dependencies:
-              - contrail-vnc-build-containers-centos74
+              - contrail-vnc-build-containers-centos74-ocata
         #- contrail-systest-centos74-kubernetes:
         #    dependencies:
-        #      - contrail-vnc-build-containers-centos74
+        #      - contrail-vnc-build-containers-centos74-ocata
     gate:
       queue: contrail-vnc
       jobs:
@@ -38,12 +38,12 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-vnc-build-containers-centos74:
+        - contrail-vnc-build-containers-centos74-ocata:
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-systest-centos74-kolla-ocata:
             dependencies:
-              - contrail-vnc-build-containers-centos74
+              - contrail-vnc-build-containers-centos74-ocata
 
 - project-template:
     name: noops
@@ -260,7 +260,7 @@
       jobs:
         - contrail-systest-centos74-kubernetes:
             dependencies:
-              - contrail-vnc-build-containers-centos74
+              - contrail-vnc-build-containers-centos74-ocata
 
 - project:
     name: Juniper/contrail-container-builder
@@ -268,6 +268,13 @@
       - systests
     experimental:
       jobs:
+        - contrail-vnc-build-package-ubuntu-xenial
+        - contrail-vnc-build-containers-ubuntu16-ocata:
+            dependencies:
+            - contrail-vnc-build-package-ubuntu-xenial
+        - contrail-vnc-build-containers-ubuntu16-newton:
+            dependencies:
+            - contrail-vnc-build-package-ubuntu-xenial
         - contrail-vnc-build-containers-ubuntu1604-ocata-nightly
         - contrail-vnc-build-containers-centos74-dev
         - contrail-systest-centos74-kolla-ocata-dev:
