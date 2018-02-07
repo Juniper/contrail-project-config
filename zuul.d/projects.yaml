@@ -324,3 +324,18 @@
     name: Juniper/contrail-zuul-jobs
     templates:
       - noops
+
+- project:
+    name: Juniper/contrail-kolla-ansible
+    templates:
+      - systests
+    check:
+      jobs:
+        - contrail-systest-centos74-kubernetes:
+            dependencies:
+              - contrail-vnc-build-containers-centos74
+
+- project:
+    name: Juniper/contrail-helm-deployer
+    templates:
+      - noops
