@@ -29,20 +29,13 @@
       OPENSTACK_SUBVERSION={{ openstack_subversion }}
     dest: "{{ docker_build_dir }}/common.env"
 
-- name: (Transition) Ensure that general-base directory exists
-  file:
-    state: directory
-    path: "{{ docker_build_dir }}/containers/general-base"
-
 - name: copy the repo files to containers build context
-  synchronize:
-    src: "{{ rpm_repo_config_dir }}/"
-    dest: "{{ docker_build_dir }}/containers/{{ item }}"
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ docker_build_dir }}/{{ item.path }}.template"
+    mode: "{{ item.mode }}"
+  with_filetree: "{{ rpm_repo_config_dir }}/"
   delegate_to: "{{ inventory_hostname }}"
-  with_items:
-    - base
-    - test/test
-    - general-base
 
 - name: Create log dir
   file:
