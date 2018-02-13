@@ -8,6 +8,14 @@
     - "ansible"
     - "python2-jinja2"
 
+- name: Set facts timeout
+  copy:
+    content: |
+      [defaults]
+      gather_timeout = 300
+    dest: /etc/ansible/ansible.cfg
+    become: true
+
 - name: Copy Kolla config files
   copy:
     src: "{{ item }}.original"
