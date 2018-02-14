@@ -29,10 +29,16 @@
     content: |
       CONTRAIL_VERSION={{ contrail_version }}
       CONTRAIL_REGISTRY={{ contrail_docker_registry }}
-      CONTRAIL_REPOSITORY={{ contrail_package_repository }}
+      CONTRAIL_REPOSITORY={{ repository_url }}{{ repository_path }}
       OPENSTACK_VERSION={{ openstack_version }}
       LINUX_DISTR={{ linux_distribution }}
     dest: "{{ docker_build_dir }}/common.env"
+
+- name: copy repo file to slave system
+  content: |
+    deb [trusted=yes] {{ repository_url }}{{ repository_path }} xenial main
+    deb [trusted=yes] http://repo01-jnpr.opencontrail.org/ubuntu xenial-master main
+  dest: "{{ repo_config_dir }}/contrail.list"
 
 - name: copy the repo files to containers build context
   synchronize:
