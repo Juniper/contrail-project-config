@@ -50,9 +50,10 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-vnc-build-containers-centos74:
-            dependencies:
-              - contrail-vnc-build-package-centos74
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - noop
 
 - project-template:
     name: noops
@@ -76,9 +77,6 @@
              - specs/.*
     periodic-nightly:
       jobs:
-        - contrail-vnc-build-package-ubuntu-xenial:
-            vars:
-              release_type: nightly
         - contrail-vnc-build-package-centos74-nightly:
             vars:
               release_type: nightly
@@ -123,11 +121,6 @@
     experimental:
       jobs:
         - contrail-vnc-build-unittest-ubuntu-trusty-prebuilt
-    periodic-nightly:
-      jobs:
-        - contrail-vnc-build-package-ubuntu-xenial:
-            vars:
-              release_type: nightly
 
 - project:
     name: Juniper/contrail-generateDS
@@ -142,11 +135,10 @@
       - systests
     experimental:
       jobs:
-        - contrail-vnc-build-containers-ubuntu16-newton-experimental
-        #        - contrail-vnc-build-package-ubuntu-xenial
-        #        - contrail-vnc-build-containers-ubuntu16-newton-experimental:
-        #            dependencies:
-        #              - contrail-vnc-build-package-ubuntu-xenial
+        - contrail-vnc-build-package-ubuntu-xenial
+        - contrail-vnc-build-containers-ubuntu16-newton-experimental:
+            dependencies:
+              - contrail-vnc-build-package-ubuntu-xenial
 
 - project:
     name: Juniper/contrail-packaging
