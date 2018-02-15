@@ -102,6 +102,17 @@
       stats:
 
 - pipeline:
+    name: periodic-sanity
+    manager: independent
+    trigger:
+      timer:
+        - time: "0 0 */7 * *"
+    success:
+      stats:
+    failure:
+      stats:
+
+- pipeline:
     name: experimental
     description: On-demand pipeline for testing jobs.
     manager: independent
