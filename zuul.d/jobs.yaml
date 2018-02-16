@@ -258,7 +258,7 @@
 
 - job:
     name: contrail-systest-ubuntu1604-base
-    parent: contrail-systest-base
+    parent: base
     nodeset:
       nodes:
         - name: builder
