@@ -146,6 +146,8 @@
       job are then added to the Juniper/contrail-packages project.
     run: playbooks/packaging/contrail-vnc-el
     post-run: playbooks/packaging/post-vnc-el
+    vars:
+      build_debuginfo: no
     irrelevant-files:
       - specs/.*
     secrets:
@@ -400,6 +402,8 @@
       job are then added to the Juniper/contrail-packages project.
     run: playbooks/packaging/contrail-vnc-el
     post-run: playbooks/packaging/post-vnc-el-nightly
+    vars:
+      build_debuginfo: yes
     irrelevant-files:
       - specs/.*
     secrets:
