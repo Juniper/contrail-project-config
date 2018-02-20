@@ -1,5 +1,5 @@
 - name: Get info on last commits for each repo
-  script: |
+  shell: |
     /usr/bin/git \
     --git-dir={{ item.value.src_dir }}/.git/ \
     log --pretty=format:"%h%x09%ad%x09%aE%x09%s" \
