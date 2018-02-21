@@ -15,6 +15,7 @@
       with_items:
         - python2-requests
   roles:
+    - acquire-ip-address
     - role: contrail-ansible-deployer
       cloud_orchestrator: openstack
       openstack_version: ocata
