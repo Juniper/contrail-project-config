@@ -1,12 +1,19 @@
+- name: Prepare packaging variables
+  contrail_packaging:
+    zuul: "{{ zuul }}"
+    release_type: "{{ release_type }}"
+
 - name: set registry name
   set_fact:
-    registry_name: "registry_{{ zuul.change }}_{{ zuul.patchset }}_{{ zuul.buildset[0:10] }}"
+    registry_name: "registry_{{ packaging.build_tag }}_{{ zuul.buildset[0:10] }}"
+
 - name: start docker registry
   docker_container:
     name: "{{ registry_name }}"
     image: 'registry:2'
     state: started
     published_ports: all
+
 - name: get registry port
   shell: "docker ps --format '{% raw %}{{ .Ports }}{% endraw %}' --filter 'name={{ registry_name }}' 2>&1 | sed -r 's/.*:([0-9]+)->.*/\\1/'"
   register: registry_port
