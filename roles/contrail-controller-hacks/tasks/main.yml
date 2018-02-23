@@ -25,8 +25,3 @@
     - contrail-common
     - contrail-analytics
 
-- name: Checkout Juniper/contrail-nova-extensions from github.com
-  git:
-    repo: "https://github.com/Juniper/contrail-nova-extensions.git"
-    dest: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/contrail-nova-extensions/"
-
