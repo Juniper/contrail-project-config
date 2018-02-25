@@ -29,10 +29,10 @@
 - name: Build binary & source packages for contrail-vnc
   shell: |
     rpmbuild \
-      --define '_sbtop {{ ansible_env.HOME }}/{{ packaging.target_dir }}' \
-      --define "_opt production" \
+      --define "_buildTag {{ build_tag | default(packaging.version.distrib) }}" \
       --define "_kVers {{ kver.stdout }}" \
-      --define "_buildTag {{ packaging.version.distrib }}" \
+      --define "_opt production" \
+      --define '_sbtop {{ ansible_env.HOME }}/{{ packaging.target_dir }}' \
       --define "_srcVer {{ packaging.version.upstream }}" \
       -ba tools/packages/rpm/contrail/contrail.spec
   args:
@@ -43,10 +43,10 @@
 - name: Build binary & source packages for contrail-nodemgr
   shell: |
     rpmbuild \
-      --define '_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}' \
       --define '_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller' \
-      --define "_buildTag {{ packaging.version.distrib }}" \
+      --define "_buildTag {{ build_tag | default(packaging.version.distrib) }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
+      --define '_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}' \
       -ba {{ ansible_env.HOME }}/{{ packaging.target_dir }}/tools/packaging/common/rpm/contrail-nodemgr.spec
   args:
     chdir: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller"
@@ -54,11 +54,11 @@
 - name: "Build binary package for contrail-setup"
   shell: |
     rpmbuild \
-      --define "_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/" \
-      --define "_buildTag {{ packaging.version.distrib }}" \
-      --define "_srcVer {{ packaging.version.upstream }}" \
-      --define "_skuTag mitaka" \
       --define "_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller" \
+      --define "_buildTag {{ packaging.version.distrib }}" \
+      --define "_skuTag mitaka" \
+      --define "_srcVer {{ packaging.version.upstream }}" \
+      --define "_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/" \
       -bb {{ ansible_env.HOME }}/{{ packaging.target_dir }}/tools/packaging/common/rpm/contrail-setup.spec
   args:
     chdir: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller"
@@ -88,10 +88,10 @@
 - name: "Build binary package for ironic-notification-manager"
   shell: |
     rpmbuild \
-      --define "_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/" \
       --define "_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/controller" \
-      --define "_buildTag {{ packaging.version.distrib }}" \
+      --define "_buildTag {{ build_tag | default(packaging.version.distrib) }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
+      --define "_topdir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/" \
       -bb {{ ansible_env.HOME }}/{{ packaging.target_dir }}/tools/packaging/common/rpm/ironic-notification-manager.spec
   args:
     chdir: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/"
@@ -101,7 +101,7 @@
     make package REPO=../{{ item.name }}{{ item.component }}
     rpmbuild \
       --define "_builddir {{ ansible_env.HOME }}/{{ packaging.target_dir }}/BUILD" \
-      --define "_buildTag {{ packaging.version.distrib }}" \
+      --define "_buildTag {{ build_tag | default(packaging.version.distrib) }}" \
       --define "_srcVer {{ packaging.version.upstream }}" \
       --bb {{ ansible_env.HOME }}/{{ packaging.target_dir }}/tools/packaging/common/rpm/{{ item.name }}.spec
   args:
@@ -118,4 +118,3 @@
       - --no-motd
       - --quiet
   delegate_to: "{{ inventory_hostname }}"
-

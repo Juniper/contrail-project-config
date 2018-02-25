@@ -1,0 +1,9 @@
+- name: Prepare build_tag variable
+  contrail_packaging:
+    zuul: "{{ zuul }}"
+    build_cache_db_connection_info: "{{ build_cache_db }}"
+ 
+- name: Save the build tag for subsequent jobs in the pipeline
+  zuul_return:
+    data:
+      build_tag: "{{ build_tag }}"

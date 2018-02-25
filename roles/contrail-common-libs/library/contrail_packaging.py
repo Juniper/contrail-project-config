@@ -53,7 +53,7 @@ def main():
         argument_spec=dict(
             zuul=dict(type='dict', required=True),
             release_type=dict(type='str', required=False, default=ReleaseType.CONTINUOUS_INTEGRATION),
-            build_cache_db_connection_info=dict(type='dict', required=False, default={'user': None, 'passwd': None, 'db': None, 'host': None})
+            build_cache_db_connection_info=dict(type='dict', required=False, default={})
         )
     )
 
@@ -74,6 +74,10 @@ def main():
         version['upstream'] = branch[1:]
         docker_version = version['upstream']
 
+    if build_cache_db_connection_info:
+        build_number = get_build_number(zuul['buildset'], docker_version, build_cache_db_connection_info)
+        module.exit_json(ansible_facts={'build_tag': build_number}, **result)
+
     if release_type == ReleaseType.CONTINUOUS_INTEGRATION:
         # Versioning in CI consists of change id, pachset and date
         change = zuul['change']
@@ -83,7 +87,6 @@ def main():
         )
         repo_name = "{change}-{patchset}".format(change=change, patchset=patchset)
     elif release_type == ReleaseType.NIGHTLY:
-        build_number = get_build_number(zuul['buildset'], docker_version, build_cache_db_connection_info)
         version['distrib'] = "{}".format(build_number)
         docker_version = '{}-{:04}'.format(docker_version, build_number)
         repo_name = docker_version
