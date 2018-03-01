@@ -4,10 +4,8 @@
     release_type: "{{ release_type }}"
   delegate_to: localhost
 
-- debug:
-    var: packaging
-
-- set_fact:
+- name: Set the executor_sandbox_path fact
+  set_fact:
     executor_sandbox_path: "{{ zuul.executor.work_root }}/{{ packaging.target_dir }}"
   delegate_to: localhost
 
@@ -70,4 +68,5 @@
   synchronize:
     src: "{{ executor_sandbox_path }}"
     dest: "{{ ansible_env.HOME }}"
+  no_log: true
 
