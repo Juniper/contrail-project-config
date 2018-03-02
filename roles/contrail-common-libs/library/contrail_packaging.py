@@ -41,7 +41,7 @@ def main():
     branch = zuul['branch']
     if not version_branch_regex.match(branch):
         branch = 'master'
-    date = datetime.now().strftime("%Y%m%d%H%M%S")
+        date = datetime.now().strftime("%Y%m%d%H%M%S")
 
     version = {'epoch': None}
     if branch == 'master':
@@ -57,10 +57,13 @@ def main():
         # Versioning in CI consists of change id, pachset and date
         change = zuul['change']
         patchset = zuul['patchset']
+        buildset = zuul['buildset']
         version['distrib'] = "ci{change}.{patchset}".format(
             change=change, patchset=patchset, date=date
         )
-        repo_name = "{change}-{patchset}".format(change=change, patchset=patchset)
+        repo_name = "{change}-{patchset}-{buildset}".format(change=change,
+                                                            patchset=patchset,
+                                                            buildset=buildset[0:10])
     elif release_type == ReleaseType.NIGHTLY:
         version['distrib'] = "{}".format(build_number)
         docker_version = '{}-{}'.format(docker_version, build_number)
@@ -74,9 +77,9 @@ def main():
     for project in zuul['projects']:
         if project['short_name'] == 'contrail-packages':
             debian_dir = project['src_dir']
-    if debian_dir:
-        debian_dir = os.path.join(debian_dir, "debian/contrail/debian")
-    target_dir = "contrail-%s" % (version['upstream'],)
+            if debian_dir:
+                debian_dir = os.path.join(debian_dir, "debian/contrail/debian")
+                target_dir = "contrail-%s" % (version['upstream'],)
 
     full_version = "{upstream}~{distrib}".format(**version)
 
