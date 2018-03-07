@@ -26,6 +26,28 @@
   with_items:
     - ansible
 
+- set_fact:
+    container_tag: "{{ openstack_version }}-{{ zuul.change }}-{{ zuul.patchset }}"
+
+- name: TRANSITION: Try pulling a container image with the old tag
+  docker_image:
+    name: "{{ docker_registry.fqdn }}:{{ registry_port }}/contrail-openstack-neutron-init:{{ container_tag }}"
+  ignore_errors: true
+  register: test_pull
+
+- name: TRANSITION: print pull result
+  debug:
+    var: test_pull
+
+- name: TRANSITION: fall back to old container tag
+  set_fact:
+    container_tag: "{{ zuul.change }}-{{ zuul.patchset }}-centos7-{{ openstack_version }}"
+  when: test_pull.failed
+
+- name: TRANSITION: print final tag
+  debug:
+    var: container_tag
+
 - name: Copy hosts template
   template:
     src: inventory/hosts.j2
