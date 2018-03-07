@@ -4,7 +4,8 @@
     release_type: "{{ release_type }}"
   delegate_to: localhost
 
-- debug:
+- name: Print packaging variables
+  debug:
     var: packaging
 
 - set_fact:

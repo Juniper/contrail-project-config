@@ -4,7 +4,8 @@
     state: directory
   delegate_to: localhost
 
-- stat:
+- name: Check for logs directory existence
+  stat:
     path: /root/contrail-test-runs
   register: testrunner_logdir
   become: true
@@ -18,7 +19,8 @@
   when: testrunner_logdir.stat.isdir is defined and testrunner_logdir.stat.isdir
   become: true
 
-- stat:
+- name: Check for contrail logs directory existence
+  stat:
     path: /var/log/contrail
   register: contrail_logdir
   become: true
@@ -32,7 +34,8 @@
   when: contrail_logdir.stat.isdir is defined and contrail_logdir.stat.isdir
   become: true
 
-- stat:
+- name: Check for kolla logs directory existence
+  stat:
     path: /var/lib/docker/volumes/kolla_logs/_data
   register: kolla_logdir
   become: true

@@ -1,8 +1,24 @@
 - name: Add review.opencontrail.org remote
-  shell: git remote add gerrit https://review.opencontrail.org/Juniper/{{ item }}
-  args:
-    chdir: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/{{ item }}"
-  failed_when: False
+  git_config:
+    name: remote.gerrit.url
+    value: https://review.opencontrail.org/Juniper/{{ item }}
+    repo: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/{{ item }}"
+    scope: local
+  with_items:
+    - contrail-controller
+    - contrail-build
+    - contrail-vrouter
+    - contrail-sandesh
+    - contrail-generateDS
+    - contrail-common
+    - contrail-analytics
+
+- name: Add review.opencontrail.org remote
+  git_config:
+    name: remote.gerrit.fetch
+    value: "+refs/heads/*:refs/remotes/gerrit/*"
+    repo: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/{{ item }}"
+    scope: local
   with_items:
     - contrail-controller
     - contrail-build
@@ -29,4 +45,5 @@
   git:
     repo: "https://github.com/Juniper/contrail-nova-extensions.git"
     dest: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/contrail-nova-extensions/"
+    version: master
 
