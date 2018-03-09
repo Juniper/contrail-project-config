@@ -43,7 +43,7 @@
     - skip_ansible_lint # ANSIBLE0013
   when: zuul.project.short_name == "contrail-test" or release_type == "nightly"
 
-- name: Build container contrail-test-test (and push it)
+- name: Build container contrail-test-test {{ item }} (and push it)
   shell: |
     ./build-container.sh test \
     --tag {{ item }}-{{ contrail_container_tag }} \
