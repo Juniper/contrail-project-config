@@ -8,6 +8,14 @@
     paths: "{{ rpm_repo_config_dir }}/"
   register: repo_file_list
 
+- name: Prepare base mirrors (include role)
+  include_role:
+    name: docker-prepare-mirrors
+    vars:
+      repo_dst_dir: "{{ item }}"
+  with_items:
+     - "{{ test_container_build_dir }}/docker/base/"
+
 - name: Copy the repo files to containers build context
   copy:
     src: "{{ item.path }}"

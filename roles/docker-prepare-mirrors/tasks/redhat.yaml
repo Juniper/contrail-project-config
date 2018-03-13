@@ -1,0 +1,15 @@
+- name: Set repo_config_dir
+  set_fact:
+    repo_config_dir: /etc/yum.repos.d
+
+- name: Get a list of repo files
+  find:
+    paths: "{{ repo_config_dir }}/"
+  register: repo_file_list
+
+- name: Copy repo files to container build context
+  copy:
+    src: "{{ item.path }}"
+    dest: "{{ repo_dst_dir }}/{{ item.path | basename }}"
+    remote_src: true
+  with_items: "{{ repo_file_list.files }}"

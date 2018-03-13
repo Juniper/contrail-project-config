@@ -1,0 +1,2 @@
+- name: Copy repo files to {{ repo_dst_dir }}
+  include: "{{ ansible_os_family | lower }}.yaml"
