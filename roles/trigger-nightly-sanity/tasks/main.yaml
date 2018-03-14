@@ -1,8 +1,9 @@
 - name: Trigger full sanity jenkins job
   uri:
-    url: "http://{{ sanity_jenkins.fqdn }}/job/test_job"
+    url: "http://{{ sanity_jenkins.fqdn }}:8080/job/test_job/buildWithParameters"
     method: POST
     user: "{{ sanity_jenkins.user }}"
     password: "{{ sanity_jenkins.password }}"
     body: "TAG={{ build_number }}"
+    follow_redirects: all
     force_basic_auth: yes
