@@ -447,6 +447,7 @@
       - noops
 
 - project:
-    name: Juniper/contrail-dpdk
+    name: review.opencontrail.org/Juniper/contrail-dpdk
     templates:
       - systests
+
