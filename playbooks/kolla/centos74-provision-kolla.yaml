@@ -25,3 +25,6 @@
       openstack_version: "ocata"
       kolla_version: "4.0.0"
     - contrail-sanitytests
+      cloud_orchestrator: openstack
+      openstack_version: "ocata"
+      kolla_version: "4.0.0"
