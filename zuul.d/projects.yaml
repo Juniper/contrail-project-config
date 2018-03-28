@@ -358,6 +358,13 @@
         - contrail-vnc-build-containers-centos74:
             dependencies:
               - contrail-vnc-build-package-centos74
+        - contrail-vnc-build-test-container:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-systest-centos74-kolla-ocata:
+            dependencies:
+              - contrail-vnc-build-containers-centos74
+              - contrail-vnc-build-test-container
         - contrail-sanity-centos7-kolla-ocata:
             dependencies:
               - contrail-vnc-build-containers-centos74
