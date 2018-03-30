@@ -361,6 +361,7 @@
         - contrail-sanity-centos7-kolla-ocata:
             dependencies:
               - contrail-vnc-build-containers-centos74
+        - contrail-sanity-centos7-kolla-ocata-dev
 
 - project:
     name: Juniper/contrail-container-builder
