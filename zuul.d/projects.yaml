@@ -347,16 +347,28 @@
 
 - project:
     name: Juniper/contrail-ansible-deployer
-    templates:
-      - systests
     check:
       jobs:
-        - contrail-systest-centos74-kubernetes:
+        - contrail-vnc-build-package-centos74
+        - contrail-vnc-build-containers-centos74:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-systest-centos74-kolla-ocata:
             dependencies:
               - contrail-vnc-build-containers-centos74
         - contrail-sanity-centos7-kolla-ocata:
             dependencies:
               - contrail-vnc-build-containers-centos74
+        - contrail-vnc-build-test-container:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-systest-centos74-kubernetes:
+            dependencies:
+              - contrail-vnc-build-containers-centos74
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - noop
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
