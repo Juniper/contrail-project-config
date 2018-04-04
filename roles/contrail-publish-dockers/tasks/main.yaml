@@ -26,10 +26,12 @@
 
 - name: Retag containers - ci-repo/latest
   # ci-repo/master-5-centos7-ocata -> ci-repo/latest
-  command: "docker tag {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }} {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item | regex_replace(':.*$',':latest') }}"
-  when: item | search(container_latest_release)
+  block:
+    - command: "docker tag {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }} {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item | regex_replace(':.*$',':latest') }}"
+      when: item | search(container_latest_release)
+      become: true
+  when: item | search('master')
   with_items: "{{ container_list.stdout_lines }}"
-  become: true
 
 - name: Retag containers - add dockerhub namespace
   command: "docker tag {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }} {{ dockerhub.namespace }}/{{ item }}"
@@ -52,10 +54,12 @@
 
 - name: Retag containers - dockerhub/latest
   # ci-repo/master-5-centos7-ocata -> opencontrailnightly/latest
-  command: "docker tag {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }} {{ dockerhub.namespace }}/{{ item | regex_replace(':.*$', ':latest') }}"
-  when: item | search(container_latest_release)
+  block:
+    - command: "docker tag {{ docker_registry.fqdn }}:{{ docker_registry.port }}/{{ item }} {{ dockerhub.namespace }}/{{ item | regex_replace(':.*$', ':latest') }}"
+      when: item | search(container_latest_release)
+      become: true
   with_items: "{{ container_list.stdout_lines }}"
-  become: true
+  when: item | search('master')
 
 - name: Log in to dockerhub
   command: "docker login -u {{ dockerhub.username }} -p {{ dockerhub.password }}"
