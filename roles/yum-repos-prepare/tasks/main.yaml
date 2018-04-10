@@ -5,6 +5,13 @@
     - "{{ ansible_os_family | lower }}.yaml"
     - "default.yaml"
 
+- name: Install yum-plugin-priorities
+  yum:
+    name: yum-plugin-priorities
+    state: installed
+  become: yes
+  become_user: root
+
 - name: Remove the upstream yum repos
   yum_repository:
     name: "{{ item.name }}"
@@ -22,6 +29,7 @@
     baseurl: "{{ repos_baseurl }}/{{ item.repo }}/"
     enabled: yes
     gpgcheck: no
+    priority: "{{ item.priority|default(omit) }}"
   with_items: "{{ repos_add }}"
   become: yes
   become_user: root
