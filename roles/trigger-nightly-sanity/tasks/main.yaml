@@ -38,8 +38,8 @@
            DOCKER_BUILD=1"
     follow_redirects: all
     force_basic_auth: true
+    status_code: 201
   # We need to ignore errors - Jenkins sends 201 after enqueuing the job
-  ignore_errors: true
   with_items:
     - ocata
     - newton
