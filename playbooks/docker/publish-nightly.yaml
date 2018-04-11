@@ -1,8 +1,5 @@
-- hosts: localhost
+- hosts: all
   roles:
-    - role: add-fileserver
-      fileserver: "{{ site_pulp }}"
-
-- hosts: "{{ site_pulp.fqdn }}"
-  roles:
+    - install-docker-daemon
+    - add-insecure-registry
     - contrail-publish-dockers
