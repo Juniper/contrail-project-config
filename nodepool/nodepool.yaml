@@ -55,6 +55,7 @@ labels:
     min-ready: 0
     provides:
       - name: juniper-contrail-ci
+      - name: juniper-contrail-ci-c
 
 providers:
   - name: juniper-contrail-ci
@@ -150,6 +151,11 @@ providers:
           - name: c7-systest-c
             flavor-name: m1.32g_80g_8vcpu
             diskimage: centos-7-4
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: rhel-7-4-builder
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: rhel-7
             console-log: True
             key-name: ci-infra-shared-key
           - name: xenial-small-c
