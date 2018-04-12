@@ -10,48 +10,13 @@ zookeeper-servers:
     port: 3389
 
 labels:
-  - name: ubuntu-xenial-small
-    image: ubuntu-xenial
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci
-  - name: ubuntu-xenial-builder
-    image: ubuntu-xenial
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci
-  - name: ubuntu-xenial-builder-xxlarge
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci
-  - name: ubuntu-trusty-builder
-    image: ubuntu-trusty
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci
-  - name: centos-7-4-builder
-    image: centos-7-4
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci
-  - name: centos-7-4-builder-xxlarge
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci
-  - name: centos-7-4-builder-c
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci-c
-  - name: c7-systest-c
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci-c
-  - name: xenial-small-c
-    min-ready: 0
-    provides:
-      - name: juniper-contrail-ci-c
+  - name: centos-7-builder
+  - name: centos-7-builder-xxlarge
   - name: rhel-7-builder
-    min-ready: 0
+  - name: ubuntu-trusty-builder
+  - name: ubuntu-xenial-small
+  - name: ubuntu-xenial-builder
+  - name: ubuntu-xenial-builder-xxlarge
 
 providers:
   - name: juniper-contrail-ci
@@ -66,10 +31,10 @@ providers:
     image-name-format: 'template-{image_name}-{timestamp}'
     hostname-format: '{label.name}-{provider.name}-{node.id}'
     diskimages:
-      - name: ubuntu-xenial
-      - name: ubuntu-trusty
-      - name: centos-7-4
+      - name: centos-7
       - name: rhel-7
+      - name: ubuntu-trusty
+      - name: ubuntu-xenial
     pools:
       - name: ci-zuulv3
         max-servers: 30
@@ -79,39 +44,26 @@ providers:
           - ci-zuulv3-internal
           - contrail-dataplane
         labels:
+          # UBUNTU TRUSTY
+          - name: ubuntu-trusty-builder
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: ubuntu-trusty
+            console-log: True
+            key-name: ci-infra-shared-key
+          # UBUNTU XENIAL
           - name: ubuntu-xenial-small
             flavor-name: m1.small
             diskimage: ubuntu-xenial
             console-log: True
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-builder
-            flavor-name: m1.16g_40g_8vcpu
+            flavor-name: m1.16g_80g_8vcpu
             diskimage: ubuntu-xenial
             console-log: True
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-builder-xxlarge
-            flavor-name: m1.ci-systest
+            flavor-name: m1.32g_80g_8vcpu
             diskimage: ubuntu-xenial
-            console-log: True
-            key-name: ci-infra-shared-key
-          - name: ubuntu-trusty-builder
-            flavor-name: m1.16g_80g_8vcpu
-            diskimage: ubuntu-trusty
-            console-log: True
-            key-name: ci-infra-shared-key
-          - name: rhel-7-builder
-            flavor-name: m1.16g_40g_8vcpu
-            diskimage: rhel-7
-            console-log: True
-            key-name: ci-infra-shared-key
-          - name: centos-7-4-builder
-            flavor-name: m1.16g_40g_8vcpu
-            diskimage: centos-7-4
-            console-log: True
-            key-name: ci-infra-shared-key
-          - name: centos-7-4-builder-xxlarge
-            flavor-name: m1.ci-systest
-            diskimage: centos-7-4
             console-log: True
             key-name: ci-infra-shared-key
   - name: juniper-contrail-ci-c
@@ -126,10 +78,10 @@ providers:
     image-name-format: 'template-{image_name}-{timestamp}'
     hostname-format: '{label.name}-{provider.name}-{node.id}'
     diskimages:
-      - name: centos-7-4
-      - name: ubuntu-xenial
-      - name: ubuntu-trusty
+      - name: centos-7
       - name: rhel-7
+      - name: ubuntu-trusty
+      - name: ubuntu-xenial
     pools:
       - name: ci-zuulv3-c
         max-servers: 50
@@ -139,30 +91,26 @@ providers:
           - ci-zuulv3-internal
           - contrail-dataplane
         labels:
-          - name: centos-7-4-builder-c
+          # CENTOS 7
+          - name: centos-7-builder
             flavor-name: m1.16g_80g_8vcpu
-            diskimage: centos-7-4
+            diskimage: centos-7
             console-log: True
             key-name: ci-infra-shared-key
-          - name: c7-systest-c
+          - name: centos-7-builder-xxlarge
             flavor-name: m1.32g_80g_8vcpu
-            diskimage: centos-7-4
+            diskimage: centos-7
             console-log: True
             key-name: ci-infra-shared-key
-          - name: xenial-small-c
-            flavor-name: m1.small
-            diskimage: ubuntu-xenial
-            console-log: True
-            key-name: ci-infra-shared-key
+          # RHEL 7
           - name: rhel-7-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: rhel-7
             console-log: True
             key-name: ci-infra-shared-key
 
-
 diskimages:
-  - name: centos-7-4
+  - name: centos-7
     elements:
       - centos-minimal
       - vm
@@ -204,14 +152,14 @@ diskimages:
       REG_METHOD: portal
       REG_POOL_ID: 12345
       DIB_LOCAL_IMAGE: /opt/cloud_images/image.qcow2
-  - name: ubuntu-xenial
+  - name: ubuntu-trusty
     elements:
       - ubuntu
       - vm
       - growroot
       - nodepool-base
       - contrail-builder
-    release: xenial
+    release: trusty
     formats:
       - qcow2
     env-vars:
@@ -224,14 +172,14 @@ diskimages:
       DIB_DISTRIBUTION_MIRROR: 'http://10.84.5.38:8000/ubuntu'
       DIB_DEBOOTSTRAP_EXTRA_ARGS: '--no-check-gpg'
       DIB_DEBIAN_COMPONENTS: 'main,universe'
-  - name: ubuntu-trusty
+  - name: ubuntu-xenial
     elements:
       - ubuntu
       - vm
       - growroot
       - nodepool-base
       - contrail-builder
-    release: trusty
+    release: xenial
     formats:
       - qcow2
     env-vars:
