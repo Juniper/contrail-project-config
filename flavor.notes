@@ -1,0 +1,22 @@
+labels:
+  - name: ubuntu-xenial-small
+    m1.small
+  - name: ubuntu-xenial-builder
+    m1.16g_40g_8vcpu
+  - name: ubuntu-xenial-builder-xxlarge
+    m1.ci-systest
+  - name: ubuntu-trusty-builder
+    16/80/8
+  - name: centos-7-4-builder
+    16/40/8
+  - name: centos-7-4-builder-xxlarge
+    ci-systest
+
+  - name: centos-7-4-builder-c
+    16/80/8
+  - name: c7-systest-c
+    32/80/8
+  - name: xenial-small-c
+    small
+  - name: rhel-7-builder
+    16/80/8
