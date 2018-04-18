@@ -1,8 +1,8 @@
 - name: Include OS-specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "{{ ansible_distribution | lower}}.yaml"
-    - "{{ ansible_os_family | lower }}.yaml"
+    - "{{ ansible_distribution | lower }}.yaml"
+    - "{{ ansible_os_distribution | lower }}.yaml"
     - "default.yaml"
 
 - name: Disable subscription-manager on RHEL
