@@ -339,6 +339,7 @@
 
 - project:
     name: Juniper/contrail-project-config
+    queue: contrail-ci
     templates:
       - noops
     check:
