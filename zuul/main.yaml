@@ -4,8 +4,7 @@
     source:
       github:
         untrusted-projects:
-          - Juniper/zuul-jobs:
-              shadow: Juniper/contrail-project-config
+          - Juniper/zuul-jobs
           - Juniper/contrail-nova-extensions
           - Juniper/contrail-publisher
       gerrit:
