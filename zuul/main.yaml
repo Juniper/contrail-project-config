@@ -67,3 +67,4 @@
               exclude:  ['pipeline', 'job', 'semaphore', 'project', 'secret', 'project-template', 'nodeset']
           - Juniper/puppet-contrail
           - Juniper/vijava
+          - Juniper/zuul-jobs
