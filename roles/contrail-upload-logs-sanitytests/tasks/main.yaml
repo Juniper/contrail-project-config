@@ -53,6 +53,7 @@
   command: 'docker ps -a --format "{% raw %}{{.Names}}{% endraw %}"'
   become: true
   register: container_list
+  failed_when: false # do not fail when docker is not available
 
 - name: Create container logdir
   file:
