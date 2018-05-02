@@ -1,26 +1,34 @@
 ---
 
-- name: 'List running containers'
-  command: 'docker ps -a --format "{% raw %}{{.Names}}{% endraw %}"'
-  become: true
-  register: container_list
+- name: 'Check whether docker is installed'
+  command: 'which docker'
+  changed_when: false
+  failed_when: false
+  register: docker_check
 
-- name: 'Create container logdir'
-  file:
-    path: '{{ container_logs_dir }}'
-    state: 'directory'
+- block:
+  - name: 'List running containers'
+    command: 'docker ps -a --format "{% raw %}{{.Names}}{% endraw %}"'
+    become: true
+    register: container_list
 
-- name: 'Dump container logs'
-  shell: 'docker logs {{ item }} 1> {{ container_logs_dir }}/{{ item }}.log 2>&1'
-  become: true
-  with_items: '{{ container_list.stdout_lines }}'
+  - name: 'Create container logdir'
+    file:
+      path: '{{ container_logs_dir }}'
+      state: 'directory'
 
-- name: 'Fetch container logs'
-  synchronize:
-    src: '{{ container_logs_dir }}/'
-    dest: '{{ zuul.executor.log_root }}/container-logs'
-    mode: 'pull'
-    recursive: yes
-  become: true
+  - name: 'Dump container logs'
+    shell: 'docker logs {{ item }} 1> {{ container_logs_dir }}/{{ item }}.log 2>&1'
+    become: true
+    with_items: '{{ container_list.stdout_lines }}'
+
+  - name: 'Fetch container logs'
+    synchronize:
+      src: '{{ container_logs_dir }}/'
+      dest: '{{ zuul.executor.log_root }}/container-logs'
+      mode: 'pull'
+      recursive: true
+    become: true
+  when: docker_check.rc == 0
 
 ...
