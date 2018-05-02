@@ -50,7 +50,7 @@
   become: true
 
 - name: List running containers
-  command: 'docker ps -a --format "{% raw %}{{.Names}}{% endraw %}"'
+  shell: 'command -v docker > /dev/null && docker ps -a --format "{% raw %}{{.Names}}{% endraw %}"'
   become: true
   register: container_list
 
