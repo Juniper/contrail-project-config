@@ -18,6 +18,27 @@ def get_head_branch(path):
     return head[:-1]
 
 
+def verify_head_sha(path, project_name, manifest_revision):
+    """Verify whether the revision specified in manifest.xml file matches
+    the one checked out by Zuul"""
+    head_sha = get_head_commit_sha(path)
+    manifest_sha = subprocess.check_output(
+        ['git', 'rev-parse', 'refs/heads/{}'.format(manifest_revision)],
+        cwd=path).strip()
+    if not manifest_sha == head_sha:
+        msg = "Revision mismatch for project: {}!\n".format(project_name)
+        msg += "Manifest revision: \t{}\n".format(manifest_sha)
+        msg += "Zuul revision: \t{}\n".format(head_sha)
+        msg += "The revision checked-out by Zuul should be the same as the\
+                revision coming from the Android Repo's manifest.xml file.\
+                To change the Zuul revision, you can use the 'override-checkout'\
+                config option under specific entry in the 'required-projects'\
+                section of the project configuration. See\
+                https://docs.openstack.org/infra/zuul/user/config.html#attr-job.override-checkout\
+                for details."
+        raise RuntimeError(msg)
+
+
 def dump_xml(node):
     return etree.tostring(node, pretty_print=True).decode()
 
@@ -104,10 +125,14 @@ def snapshot(args):
         zuul_var = yaml.load(zuul_var_file)
     for project in manifest.xpath('//project'):
         name = project.attrib['name']
+        manifest_revision = project.attrib['revision'] if 'revision' in project.attrib else 'master'
+
         zuul_project = get_project(zuul_var, name)
-        sha = get_head_commit_sha(
-            zuul_var['executor']['work_root'] +
-            '/' + zuul_project['src_dir'])
+        project_path = '{}/{}'.format(
+            zuul_var['executor']['work_root'],
+            zuul_project['src_dir'])
+        verify_head_sha(project_path, name, manifest_revision)
+        sha = get_head_commit_sha(project_path)
         project.attrib['revision'] = sha
     return manifest
 
