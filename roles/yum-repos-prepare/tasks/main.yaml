@@ -1,3 +1,7 @@
+- name: Define tpc repo name
+    set_fact:
+      tpc_branch: "{{ zuul.branch | match('^R\\d(\\.\\d+)+$') | ternary(zuul.branch, 'master') }}"
+
 - name: Include OS-specific variables
   include_vars: "{{ item }}"
   with_first_found:
@@ -48,7 +52,7 @@
     name: contrail-tpc
     description: Contrail third-party dependencies
     file: contrail-tpc
-    baseurl: "http://{{ docker_registry.fqdn }}/pulp/repos/opencontrail-tpc-{{ zuul.branch }}/"
+    baseurl: "http://{{ docker_registry.fqdn }}/pulp/repos/opencontrail-tpc-{{ tpc_branch }}/"
     enabled: yes
     gpgcheck: no
   become: yes
