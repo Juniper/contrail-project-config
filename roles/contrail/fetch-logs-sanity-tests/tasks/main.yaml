@@ -1,23 +1,6 @@
-- name: Create the log directory on executor
-  file:
-    path: "{{ zuul.executor.log_root }}/sanity-logs"
-    state: directory
-  delegate_to: localhost
+---
 
-- name: 'Check whether test runner log dir exists'
-  stat:
-    path: /root/contrail-test-runs
-  register: testrunner_logdir
-  become: true
-
-- name: Fetch testrunner logs
-  synchronize:
-    src: /root/contrail-test-runs
-    dest: "{{ zuul.executor.log_root }}/sanity-logs"
-    mode: pull
-    recursive: yes
-  when: testrunner_logdir.stat.isdir is defined and testrunner_logdir.stat.isdir
-  become: true
+- include: sanity-logs.yaml
 
 - name: 'Check whether contrail log dir exists'
   stat:
@@ -27,8 +10,8 @@
 
 - name: Fetch contrail logs
   synchronize:
-    src: /var/log/contrail
-    dest: "{{ zuul.executor.log_root }}/sanity-logs"
+    src: /var/log/contrail/
+    dest: "{{ zuul.executor.log_root }}/contrail-logs"
     mode: pull
     recursive: yes
   when: contrail_logdir.stat.isdir is defined and contrail_logdir.stat.isdir
@@ -42,8 +25,8 @@
 
 - name: Fetch kolla logs
   synchronize:
-    src: /var/lib/docker/volumes/kolla_logs/_data
-    dest: "{{ zuul.executor.log_root }}/sanity-logs"
+    src: /var/lib/docker/volumes/kolla_logs/_data/
+    dest: "{{ zuul.executor.log_root }}/kolla-logs"
     mode: pull
     recursive: yes
   when: kolla_logdir.stat.isdir is defined and kolla_logdir.stat.isdir
@@ -66,8 +49,8 @@
 
 - name: Fetch container logs
   synchronize:
-    src: /tmp/container_logs
-    dest: "{{ zuul.executor.log_root }}/sanity-logs"
+    src: /tmp/container_logs/
+    dest: "{{ zuul.executor.log_root }}/container-logs"
     mode: pull
     recursive: yes
   become: true
