@@ -516,8 +516,9 @@
 
 - project:
     name: Juniper/contrail-third-party-packages
-    templates:
-      - noops
+    check:
+      jobs:
+        - build-third-party-packages-centos7
 
 - project:
     name: Juniper/openshift-ansible
