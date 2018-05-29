@@ -540,4 +540,5 @@
 - project:
     name: tungstenfabric/contrail-ci-test
     templates:
-      - noops
+      - unittests
+      - systests
