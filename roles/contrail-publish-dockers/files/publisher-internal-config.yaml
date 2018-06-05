@@ -44,12 +44,20 @@ image_overrides:
     distribution: rhel
     source_tag: "rhel-{{ openstack_release_lhs }}{{ release }}-{{ build_no }}"
 
-  # contrail-go is pushed with {{ release }}-{{ build_no }}
+  - image_matcher: contrail-go
+    source_tag: "master-{{ build_no }}"
+    release_tags:
+      - "master-{{ build_no }}"
+      - "master-latest"
+      - "latest"
+    registries:
+      - ci-repo-public
+
   - image_matcher: contrail-go
     source_tag: "{{ release }}-{{ build_no }}"
     release_tags:
-      - "latest"
       - "{{ release }}-{{ build_no }}"
+      - "{{ release }}-latest"
     registries:
       - ci-repo-public
 
@@ -61,8 +69,9 @@ image_overrides:
   - image_matcher: "^.*$"
     tag_matcher: "^ocata-master-.*$"
     release_tags:
-      - "ocata-{{ release }}-{{ build_no }}"
-      - "{{ release }}-{{ build_no }}"
+      - "ocata-master-{{ build_no }}"
+      - "master-{{ build_no }}"
+      - "master-latest"
       - "latest"
 
   - image_matcher: "^.*$"
@@ -70,6 +79,7 @@ image_overrides:
     release_tags:
       - "ocata-{{ release }}-{{ build_no }}"
       - "{{ release }}-{{ build_no }}"
+      - "{{ release }}-latest"
 
 # rhel_marker and openstack_release have two variants: _lhs and _rhs depending
 # on how they are used:
