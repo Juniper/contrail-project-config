@@ -26,13 +26,17 @@
     start:
       gerrit:
         Verified: 0
+      smtp:
+      stats:
     success:
       gerrit:
         Verified: 1
+      smtp:
       stats:
     failure:
       gerrit:
         Verified: -1
+      smtp:
       stats:
     footer-message: |
 
