@@ -26,6 +26,7 @@
     start:
       gerrit:
         Verified: 0
+      stats:
     success:
       gerrit:
         Verified: 1
@@ -119,10 +120,15 @@
     trigger:
       timer:
         - time: "0 2 * * *"
+    start:
+      stats:
+      smtp:
     success:
       stats:
+      smtp:
     failure:
       stats:
+      smtp:
 
 - pipeline:
     name: periodic-sanity
