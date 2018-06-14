@@ -188,12 +188,12 @@
               - contrail-vnc-publish-containers-nightly
     periodic-sanity:
       jobs:
-        - contrail-vnc-build-package-centos74-nightly:
+        - contrail-vnc-build-package-centos74:
             vars:
               release_type: nightly
         - contrail-vnc-build-containers-centos7-ocata:
             dependencies:
-              - contrail-vnc-build-package-centos74-nightly
+              - contrail-vnc-build-package-centos74
         - contrail-systest-full-centos74-kolla-ocata:
             dependencies:
               - contrail-vnc-build-containers-centos7-ocata
