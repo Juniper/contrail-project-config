@@ -79,12 +79,12 @@ def main():
 
     full_version = "{upstream}~{distrib}".format(**version)
     openstack_suffix = ('-' + openstack_version) if openstack_version else ''
-    repo_name += openstack_suffix
 
     repo_names = {
         "CentOS": repo_name + '-centos' + openstack_suffix,
         "RedHat": repo_name + '-rhel' + openstack_suffix,
     }
+    repo_name += openstack_suffix
 
     packaging = {
         'name': 'contrail',
