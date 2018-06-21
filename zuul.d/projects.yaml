@@ -34,6 +34,10 @@
             dependencies:
               - contrail-vnc-build-containers-centos7-ocata
               - contrail-vnc-build-test-containers
+        - contrail-sanity-centos7-kolla-ocata-multinode:
+            dependencies:
+              - contrail-vnc-build-containers-centos7-ocata
+              - contrail-vnc-build-test-containers
     gate:
       queue: contrail-vnc
       jobs:
@@ -71,6 +75,10 @@
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-sanity-centos7-kolla-ocata:
+            dependencies:
+              - contrail-vnc-build-containers-centos7-ocata
+              - contrail-vnc-build-test-containers
+        - contrail-sanity-centos7-kolla-ocata-multinode:
             dependencies:
               - contrail-vnc-build-containers-centos7-ocata
               - contrail-vnc-build-test-containers
@@ -220,6 +228,7 @@
     experimental-provision:
       jobs:
         - contrail-sanity-centos7-kolla-ocata
+        - contrail-sanity-centos7-kolla-ocata-multinode
     experimental:
       jobs:
         - trigger-nightly-sanity:
@@ -407,6 +416,10 @@
               - contrail-vnc-build-containers-centos7-ocata
               - contrail-vnc-build-test-containers
         - contrail-sanity-centos7-k8s:
+            dependencies:
+              - contrail-vnc-build-containers-centos7-ocata
+              - contrail-vnc-build-test-containers
+        - contrail-sanity-centos7-kolla-ocata-multinode:
             dependencies:
               - contrail-vnc-build-containers-centos7-ocata
               - contrail-vnc-build-test-containers
