@@ -563,3 +563,8 @@
     name: tungstenfabric/contrail-ci-test
     templates:
       - noops
+
+- project:
+    name: github.com/kklimonda/tungsten-test-runner
+    templates:
+      - noops
