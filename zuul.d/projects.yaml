@@ -329,7 +329,7 @@
 - project:
     name: Juniper/contrail-vcenter-plugin
     templates:
-      - noops
+      - systests
 
 - project:
     name: Juniper/contrail-horizon
@@ -552,7 +552,7 @@
 - project:
     name: Juniper/contrail-vcenter-manager
     templates:
-      - noops
+      - systests
 
 - project:
     name: Juniper/contrail-windows
