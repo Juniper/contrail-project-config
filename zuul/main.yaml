@@ -8,7 +8,6 @@
               shadow: Juniper/contrail-project-config
           - Juniper/contrail-nova-extensions
           - Juniper/contrail-publisher
-          - kklimonda/tungsten-test-runner
       gerrit:
         config-projects:
           - Juniper/contrail-project-config
@@ -75,3 +74,4 @@
           - Juniper/puppet-contrail
           - Juniper/vijava
           - tungstenfabric/contrail-ci-test
+          - tungstenfabric/tungsten-test-runner
