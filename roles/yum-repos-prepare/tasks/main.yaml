@@ -14,6 +14,16 @@
     repos_add: "{{ repos_add }} + {{ openstack_repos_add }}"
   when: 'ansible_distribution == "RedHat"'
 
+- when: install_openshift | bool
+  block:
+
+  - name: include OpenShift-specific repos
+    include_vars: '{{ ansible_distribution | lower }}_openshift.yaml'
+
+  - name: add OpenShift repos to repos_add
+    set_fact:
+      repos_add: '{{ repos_add }} + {{ openshift_repos_add }}'
+
 - name: disable subscription-manager on RHEL
   command: subscription-manager config --rhsm.manage_repos=0
   become: yes
