@@ -316,6 +316,12 @@
     name: Juniper/contrail-test
     templates:
       - systests
+    check:
+      jobs:
+        - contrail-sanity-centos7-k8s:
+            dependencies:
+              - contrail-vnc-build-containers-centos7-ocata
+              - contrail-vnc-build-test-containers
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
@@ -416,7 +422,6 @@
             dependencies:
               - contrail-vnc-build-containers-centos7-ocata
               - contrail-vnc-build-test-containers
-            voting: false
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
