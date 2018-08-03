@@ -106,6 +106,23 @@
         - noop
 
 - project-template:
+    name: openshift-systests
+    check:
+      jobs:
+        - contrail-vnc-build-package-centos74
+        - contrail-vnc-build-containers-centos7-ocata:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-vnc-build-test-containers:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-sanity-centos7-openshift-3.7:
+            voting: false
+            dependencies:
+              - contrail-vnc-build-containers-centos7-ocata
+              - contrail-vnc-build-test-containers
+
+- project-template:
     name: systests-nogate
     check:
       jobs:
@@ -601,7 +618,7 @@
 - project:
     name: Juniper/openshift-ansible
     templates:
-      - noops
+      - openshift-systests
 
 - project:
     name: Juniper/contrail-windows-docker-driver
