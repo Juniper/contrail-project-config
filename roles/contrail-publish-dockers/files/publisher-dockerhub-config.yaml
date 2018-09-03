@@ -76,6 +76,13 @@ image_overrides:
     registries:
       - dockerhub
 
+  - image_matcher: "^.*$"
+    tag_matcher: "^queens-master-.*$"
+    release_tags:
+      - "queens-master-{{ build_no }}"
+    registries:
+      - dockerhub
+
 # rhel_marker and openstack_release have two variants: _lhs and _rhs depending
 # on how they are used:
 #
