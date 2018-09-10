@@ -236,3 +236,17 @@
     failure:
       stats:
     #  gerrit: {}
+
+- pipeline:
+    name: merge
+    description: Checking if build were sucessfully merged into master
+    post-review: true
+    manager: supercedent
+    trigger:
+      gerrit:
+        - event: ref-updated
+          ref: ^refs/heads/.*$
+      success:
+        mysql:
+      failure:
+        mysql:
