@@ -390,3 +390,21 @@
     timeout: 28800
     secrets:
       - site_pulp
+
+- job:
+    name: publish-infra-doc-test
+    description: |
+      Run roles that are used for packaging jobs to prevent regressions for test.
+    parent: build-infra-doc
+    # Required to test repo-sandbox-prepare role
+    required-projects:
+      - Juniper/contrail-zuul-jobs
+    run: tests/fetch-upload-infra-doc.yaml
+    files:
+      - ^roles/fetch-docs/.*
+      - ^roles/upload-docs/.*
+      # - ^roles/publish-infra-doc/.*
+      - ^tests/.*
+    nodeset: builder-centos-7
+    secrets:
+      - site_logs
