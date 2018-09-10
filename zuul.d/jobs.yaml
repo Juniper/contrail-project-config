@@ -390,3 +390,26 @@
     timeout: 28800
     secrets:
       - site_pulp
+
+- job:
+    name: publish-infra-doc
+    description: |
+      This job is posting infra-doc html.
+    parent: build-infra-doc
+    required-projects:
+      - contrail-zuul-jobs
+    post-run: playbooks/publish-infra-doc/post
+    nodeset: builder-centos-7
+    secrets:
+      - site_logs
+
+- job:
+    name: publish-infra-doc-unit-test
+    description: |
+      This job is running unit tests for fetch-docs and upload-docs roles
+    run: tests/fetch-upload-docs.yaml
+    required-projects:
+      - contrail-zuul-jobs
+    files:
+      - ^roles/fetch-docs/.*
+      - ^roles/upload-docs/.*
