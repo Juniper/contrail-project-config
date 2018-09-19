@@ -247,6 +247,11 @@
             voting: False
             vars:
               release_type: nightly
+        - create-windows-containers:
+            dependencies:
+              - build-variables-init
+            vars:
+              release_type: nightly
     periodic-sanity:
       jobs:
         - contrail-vnc-build-package-centos74-nightly:
