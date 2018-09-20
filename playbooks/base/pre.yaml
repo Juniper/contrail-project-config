@@ -8,6 +8,7 @@
     - add-build-sshkey
     - configure-hosts-entries
     - configure-mirrors
+    - configure-maven-nexus-proxy
     - validate-host
     - prepare-workspace
     - gitlog-upload
