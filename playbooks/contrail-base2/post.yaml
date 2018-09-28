@@ -1,6 +1,9 @@
 - hosts: all
   roles:
     - fetch-artifacts
+    - role: docker-push-containers
+      registry: "{{ docker_registry }}"
+      when: publish_containers
 
 - hosts: localhost
   roles:
