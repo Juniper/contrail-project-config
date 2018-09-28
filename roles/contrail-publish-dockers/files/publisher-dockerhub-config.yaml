@@ -60,6 +60,15 @@ image_overrides:
     registries:
       - dockerhub
 
+  - image_matcher: "^contrail-windows.*$"
+    source_tag: "master-{{ build_no }}"
+    release_tags:
+      - "latest"
+      - "master-{{ build_no }}"
+      - "mester-latest"
+    registries:
+      - dockerhub
+
   - image_matcher: "^.*$"
     tag_matcher: "^newton-master-.*$"
     release_tags:
@@ -82,6 +91,7 @@ image_overrides:
       - "queens-master-{{ build_no }}"
     registries:
       - dockerhub
+
 
 # rhel_marker and openstack_release have two variants: _lhs and _rhs depending
 # on how they are used:
