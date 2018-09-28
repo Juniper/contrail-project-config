@@ -80,6 +80,14 @@ image_overrides:
     registries:
       - ci-repo-public
 
+- image_matcher: "^contrail-windows.*$"
+    source_tag: "master-{{ build_no }}"
+    release_tags:
+      - "latest"
+      - "master-{{ build_no }}"
+    registries:
+      - ci-repo-public
+
   - image_matcher: "^.*$"
     tag_matcher: "^newton-.*$"
     release_tags:
