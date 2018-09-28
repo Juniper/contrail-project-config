@@ -1,0 +1,4 @@
+- hosts: all
+  roles:
+    - role: docker-push-containers
+      registry: "{{ docker_registry }}"
