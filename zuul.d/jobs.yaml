@@ -269,6 +269,7 @@
           label: centos-7-4-builder
 
 - job:
+<<<<<<< HEAD
     name: contrail-systest-base
     parent: base
     pre-run:
@@ -335,19 +336,6 @@
     timeout: 28800
     secrets:
       - site_pulp
-
-- job:
-    name: contrail-vnc-build-containers-ci-base
-    parent: contrail-vnc-build-containers-base
-    description: |
-      A job containing access infomation for docker registry used for reviews.
-    post-run: playbooks/docker/push-images
-    vars:
-      setup_docker_registry: false
-      contrail_docker_registry: '{{ nexus.fqdn }}:{{ nexus.registry.tungsten_ci }}'
-    secrets:
-      - name: pipeline_docker_registry
-        secret: registry_tungsten_ci
 
 - job:
     name: publish-infra-doc
