@@ -649,3 +649,9 @@
     templates:
       - noops
 
+- project:
+    name: Juniper/contrail-go-api
+    templates:
+      - noops
+
+
