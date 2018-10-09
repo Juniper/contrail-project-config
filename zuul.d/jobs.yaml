@@ -269,26 +269,6 @@
           label: centos-7-4-builder
 
 - job:
-    name: contrail-systest-base
-    parent: base
-    pre-run:
-      - playbooks/docker/setup-docker-registry
-    post-run: playbooks/sanitytest/post
-    secrets:
-      - site_pulp
-      - docker_registry
-
-- job:
-    name: contrail-systest-ubuntu1604-base
-    parent: contrail-systest-base
-    pre-run:
-      - playbooks/sanitytest/pre.yaml
-    nodeset:
-      nodes:
-        - name: helm-aio
-          label: ubuntu-xenial-builder-xxlarge
-
-- job:
     name: contrail-systest-full-centos74-kolla-ocata
     parent: contrail-src-base
     description: |
@@ -390,19 +370,6 @@
     timeout: 28800
     secrets:
       - site_pulp
-
-- job:
-    name: contrail-vnc-build-containers-ci-base
-    parent: contrail-vnc-build-containers-base
-    description: |
-      A job containing access infomation for docker registry used for reviews.
-    post-run: playbooks/docker/push-images
-    vars:
-      setup_docker_registry: false
-      contrail_docker_registry: '{{ nexus.fqdn }}:{{ nexus.registry.tungsten_ci }}'
-    secrets:
-      - name: pipeline_docker_registry
-        secret: registry_tungsten_ci
 
 - job:
     name: publish-infra-doc
