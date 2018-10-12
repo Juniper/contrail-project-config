@@ -166,7 +166,7 @@
     post-review: true
     trigger:
       timer:
-        - time: "0 2 * * *"
+        - time: "0 6/18 * * *"
     start:
       stats:
       smtp:
