@@ -52,6 +52,28 @@
       queue: contrail-vnc
       jobs:
         - noop
+    experimental-sanity:
+      jobs:
+        - contrail-sanity-centos7-kolla-ocata:
+            vars:
+              contrail_version: master-latest
+              contrail_docker_registry: 10.84.5.81:5000
+              setup_docker_registry: false
+        - contrail-sanity-centos7-kolla-queens:
+            vars:
+              contrail_version: master-latest
+              contrail_docker_registry: 10.84.5.81:5000
+              setup_docker_registry: false
+        - contrail-sanity-centos7-kolla-queens-multinode:
+            vars:
+              contrail_version: master-latest
+              contrail_docker_registry: 10.84.5.81:5000
+              setup_docker_registry: false
+        - contrail-sanity-centos7-k8s:
+            vars:
+              contrail_version: master-latest
+              contrail_docker_registry: 10.84.5.81:5000
+              setup_docker_registry: false
 
 - project-template:
     name: helm-systests
@@ -72,6 +94,17 @@
       queue: contrail-vnc
       jobs:
         - noop
+    experimental-sanity:
+      jobs:
+        - contrail-sanity-ubuntu1604-helm-ocata:
+            vars:
+              contrail_version: master-latest
+              container_tag: ocata-master-latest
+              contrail_registry:
+                fqdn: 10.84.5.81
+                port: 5000
+              contrail_docker_registry: 10.84.5.81:5000
+              setup_docker_registry: false
 
 - project-template:
     name: openshift-systests
@@ -97,22 +130,13 @@
       queue: contrail-vnc
       jobs:
         - noop
-
-- project-template:
-    name: systests-nogate
-    check:
+    experimental-sanity:
       jobs:
-        - contrail-vnc-build-package-centos74
-        - contrail-vnc-build-containers-centos7-ocata:
-            dependencies:
-              - contrail-vnc-build-package-centos74
-        - contrail-vnc-build-test-containers:
-            dependencies:
-              - contrail-vnc-build-package-centos74
-        - contrail-sanity-centos7-kolla-ocata:
-            dependencies:
-              - contrail-vnc-build-containers-centos7-ocata
-              - contrail-vnc-build-test-containers
+        - contrail-sanity-rhel7-openshift-3.9:
+            vars:
+              contrail_version: master-latest
+              contrail_docker_registry: 10.84.5.81:5000
+              setup_docker_registry: false
 
 - project-template:
     name: build
