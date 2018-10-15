@@ -6,3 +6,4 @@
     - role: add-insecure-registry
       new_registry: "{{ contrail_docker_registry }}"
     - contrail-publish-dockers
+    - publish-windows-containers
