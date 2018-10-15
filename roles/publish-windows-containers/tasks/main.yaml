@@ -1,0 +1,74 @@
+---
+- name: Add bazel repository
+  yum_repository:
+    description: Bazel repository
+    name: bazel_repo
+    file: bazel_repo
+    baseurl: https://copr-be.cloud.fedoraproject.org/results/vbatts/bazel/epel-7-$basearch/
+    gpgcheck: yes
+    gpgkey: https://copr-be.cloud.fedoraproject.org/results/vbatts/bazel/pubkey.gpg
+    enabled: yes
+
+- name: Install packages
+  package:
+    name: '{{ item }}'
+    state: present
+  become: yes
+  with_items:
+    - bazel
+    - git
+    - gcc
+
+- name: Clone containerregistry
+  git:
+    repo: 'https://github.com/pmarcinkiewicz1/containerregistry.git'
+    dest: '{{ ansible_env.HOME }}/bazel'
+    clone: yes
+
+- name: Build tools using bazel
+  command: "bazel build :{{ item }}"
+  args:
+    chdir: "{{ ansible_env.HOME }}/bazel"
+  with_items:
+  - puller
+  - pusher
+
+- name: Create directories for containers layers
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+    mode: 0775
+  with_items: "{{ container_name }}"
+
+- name: Get containers from temporary registry
+  command: "./puller --name {{ contrail_docker_registry }}/{{ item }}:{{ contrail_container_tag }} --directory {{ ansible_env.HOME }}/{{ item }} --stderrthreshold ERROR "
+  args:
+    chdir: "{{ ansible_env.HOME }}/bazel/bazel-bin"
+  with_items: "{{ container_name }}"
+  ignore_errors: yes
+
+- name: Get list of layers
+  shell: "for i in `ls {{ ansible_env.HOME }}/{{ item }}/*.tar.gz`; do echo -ne --layer $i ''; done"
+  with_items: "{{ container_name }}"
+  ignore_errors: True
+  register: layers
+
+- name: Get list of digest
+  shell: "for i in `ls {{ ansible_env.HOME }}/{{ item }}/*.sha256`; do echo -ne --digest $i ''; done"
+  with_items: "{{ container_name }}"
+  ignore_errors: True
+  register: digest
+
+- name: Push containers to registry
+  shell: "./pusher --config {{ ansible_env.HOME }}/{{ item.1 }}/config.json --protocol http --name {{ registry }}/{{ item.1 }}:{{ contrail_container_tag }} {{ layers.results[item.0].stdout }} {{ digest.results[item.0].stdout }}"
+  args:
+    chdir: "{{ ansible_env.HOME }}/bazel/bazel-bin"
+  with_indexed_items: "{{ container_name }}"
+  ignore_errors: yes
+
+- name: Push containers to dockerhub
+  shell: "./pusher --config {{ ansible_env.HOME }}/{{ item.1 }}/config.json --protocol https --name {{ dockerhub }}/{{ item.1 }}:{{ contrail_container_tag }} {{ layers.results[item.0].stdout }} {{ digest.results[item.0].stdout }}"
+  args:
+    chdir: "{{ ansible_env.HOME }}/bazel/bazel-bin"
+  with_indexed_items: "{{ container_name }}"
+  ignore_errors: yes

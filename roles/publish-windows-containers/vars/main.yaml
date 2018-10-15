@@ -1,0 +1,7 @@
+---
+container_name:
+    - contrail-windows-docker-driver
+    - contrail-windows-vrouter
+registry: 10.84.5.81:5000
+dockerhub: index.docker.io/opencontrailnightly
+
