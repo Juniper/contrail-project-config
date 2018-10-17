@@ -5,6 +5,8 @@
         - contrail-vnc-build-unittest-ubuntu-trusty
         - contrail-vnc-unittest-centos7:
             voting: False
+        - contrail-vnc-unittest-centos7-tntestr
+            voting: False
     gate:
       queue: contrail-vnc
       jobs:
