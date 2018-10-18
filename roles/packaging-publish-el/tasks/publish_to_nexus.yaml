@@ -1,0 +1,29 @@
+---
+
+- name: upload rpms
+  block:
+    - name: create a credentials file
+      copy:
+        content: '--user {{ credentials.user }}:{{ credentials.pass }}'
+        dest: '{{ zuul.executor.work_root }}/nexus-creds'
+      delegate_to: localhost
+      no_log: true
+
+    - name: upload rpm to nexus repo
+      command: 'curl -K {{ zuul.executor.work_root }}/nexus-creds --upload-file {{ item }} http://{{ nexus.fqdn }}/repository/{{ nexus.repos.yum }}/{{ repo_name }}/'
+      with_items: "{{ package_list | json_query('files[*].path') }}"
+      delegate_to: localhost
+
+    - name: return repository location back to zuul for children jobs
+      zuul_return:
+        data:
+          contrail_package_repository: "http://{{ nexus.fqdn }}/repository/{{ nexus.repos.yum }}/{{ repo_name }}/"
+          contrail_container_tag: "{{ packaging.docker_version }}"
+      delegate_to: localhost
+
+  always:
+    - name: remove credentials file
+      file:
+        path: '{{ zuul.executor.work_root }}/nexus-creds'
+        state: 'absent'
+      no_log: true
