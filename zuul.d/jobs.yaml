@@ -340,3 +340,17 @@
     nodeset: builder-centos-7
     secrets:
       - site_logs
+
+- job:
+    name: post-third-party-packages
+    parent: 
+    description: |
+      This job is posting rpms to nexus repository.
+    required-projects:
+      - Juniper/contrail-zuul-jobs
+    run: playbooks/build-third-party-rpms-base/run
+    post-run: playbooks/post-third-party-packages/post
+    secrets:
+      - site_pulp
+      - name: nexus_credentials
+        secret: registry_tungsten_ci
