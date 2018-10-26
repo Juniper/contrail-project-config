@@ -1,0 +1,14 @@
+---
+- hosts: builder
+  roles:
+  - role: fetch-packages
+
+- hosts: localhost
+  roles:
+    - role: add-fileserver
+      fileserver: "{{ site_pulp }}"
+
+- hosts: "{{ site_pulp.fqdn }}"
+  roles:
+    - contrail-common-libs
+    - packaging-rpm-nexus
