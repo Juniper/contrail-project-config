@@ -1,0 +1,9 @@
+---
+- hosts: builder
+  roles:
+    - fetch-packages
+
+- hosts: localhost
+  roles:
+    - contrail-common-libs
+    - packaging-rpm-nexus
