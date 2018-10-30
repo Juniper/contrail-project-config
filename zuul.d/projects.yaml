@@ -261,7 +261,6 @@
         - create-windows-containers:
             dependencies:
               - build-variables-init
-            voting: False
             branches: master
             vars:
               release_type: nightly
