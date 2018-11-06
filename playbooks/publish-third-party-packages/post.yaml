@@ -5,4 +5,6 @@
 
 - hosts: localhost
   roles:
-    - publish-rpm-nexus
+    - role: publish-rpm-nexus
+      vars:
+        contrail_built_rpms_src: "{{ zuul.projects | selectattr('short_name', 'equalto', 'contrail-third-party-packages') | map(attribute='src_dir') | list | first }}/../RPMS"
