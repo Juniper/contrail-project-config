@@ -1,5 +1,6 @@
 - hosts: all
   roles:
+    - skip-job
     - contrail-common-libs
     - contrail-controller-hacks
     - packaging-prepare-contrail
