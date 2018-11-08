@@ -1,0 +1,6 @@
+- name: create a credentials file to run gerrit commands
+  copy:
+    content: '--user {{ review_opencontrail_org.user }}:{{ review_opencontrail_org.password }}'
+    dest: '{{ zuul.executor.work_root }}/review-creds'
+  delegate_to: localhost
+  no_log: false
