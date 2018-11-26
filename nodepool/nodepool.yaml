@@ -53,7 +53,7 @@ providers:
       - name: ubuntu-xenial
     pools:
       - name: ci-zuulv3
-        max-servers: 30
+        max-servers: 20
         availability-zones:
           - opencontrail-ci-zone
         networks:
