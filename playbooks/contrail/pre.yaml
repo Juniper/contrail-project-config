@@ -10,7 +10,8 @@
     - start-zuul-console
     - configure-hosts-entries
     - validate-host
-    - yum-repos-prepare
+    - role: yum-repos-prepare
+      tpc_location: binary
     - gitlog-upload
 - hosts: all
   roles:
