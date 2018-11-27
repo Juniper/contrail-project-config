@@ -248,6 +248,8 @@
       nodes:
         - name: builder
           label: ubuntu-trusty-builder
+    secrets:
+      - review_opencontrail_org
 
 - job:
     name: contrail-vnc-build-unittest-ubuntu-trusty-prebuilt
