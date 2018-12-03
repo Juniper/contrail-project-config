@@ -10,7 +10,7 @@ nexus:
     proxy: 5005
     access: 5010
   repos:
-    yum: 'yum-tungsten'
+    yum: 'yum-tungsten-tpc'
     maven: 'maven-public'
 docker_registry:
   fqdn: 10.84.5.81
