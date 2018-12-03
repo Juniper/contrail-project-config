@@ -15,6 +15,7 @@
       - scons_test-FAIL.log
       - scons_test.log
       - scons_test_retry.log
+      - ut_failed_targets.log
   register: loglist
 
 - name: Gzip summary log files
