@@ -169,6 +169,7 @@
       jobs:
         - noop
 
+
 - project:
     name: Juniper/contrail-analytics
     templates:
@@ -656,8 +657,9 @@
 
 - project:
     name: Juniper/contrail-go-api
-    templates:
-      - noops
+    check:
+      jobs:
+        - Travis-ci
 
 - project:
     name: Juniper/contrail-infra
