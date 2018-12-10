@@ -168,6 +168,11 @@
       queue: contrail-vnc
       jobs:
         - noop
+        
+- project-template:
+    name: Travis
+    check:
+      jobs: Travis-ci
 
 - project:
     name: Juniper/contrail-analytics
@@ -657,7 +662,7 @@
 - project:
     name: Juniper/contrail-go-api
     templates:
-      - noops
+        - Travis
 
 - project:
     name: Juniper/contrail-infra
