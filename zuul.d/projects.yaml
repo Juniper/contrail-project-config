@@ -656,8 +656,9 @@
 
 - project:
     name: Juniper/contrail-go-api
-    templates:
-      - noops
+    check:
+       jobs:
+        - Travis
 
 - project:
     name: Juniper/contrail-infra
