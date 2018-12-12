@@ -52,7 +52,9 @@
     parent: null
     description: |
       A base job that prepares the builder
-    pre-run: playbooks/contrail/pre
+    pre-run: 
+      - playbooks/contrail/pre
+      - playbooks/base-tpc/pre
     post-run:
       - playbooks/contrail/post
       - playbooks/base/post-ssh
