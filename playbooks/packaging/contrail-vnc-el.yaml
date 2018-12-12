@@ -4,4 +4,3 @@
   roles:
     - contrail-common-libs
     - packaging-build-el-makefile
-
