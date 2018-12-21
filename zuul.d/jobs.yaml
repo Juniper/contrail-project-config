@@ -606,4 +606,4 @@
       setup_docker_registry: true
       manifest_file: windows.xml
     secrets:
-      - jenkins_winci_credentials_2
+      - jenkins_winci_credentials
