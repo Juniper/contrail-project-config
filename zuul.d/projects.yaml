@@ -169,6 +169,17 @@
       jobs:
         - noop
 
+- project-template:
+    name: windows-jenkins
+    check:
+      jobs:
+        - test-run-jenkins-job:
+            voting: False
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - noop
+
 - project:
     name: Juniper/contrail-analytics
     templates:
@@ -273,8 +284,7 @@
 - project:
     name: Juniper/contrail-controller
     templates:
-      - unittests
-      - systests
+      - windows-jenkins
 
 - project:
     name: Juniper/contrail-generateDS
