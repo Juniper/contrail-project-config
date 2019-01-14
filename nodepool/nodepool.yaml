@@ -272,6 +272,7 @@ diskimages:
       - ubuntu
       - vm
       - growroot
+      - pip-and-virtualenv
       - nodepool-base
       - contrail-builder
     release: xenial
