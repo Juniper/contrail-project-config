@@ -609,7 +609,7 @@
     name: Juniper/contrail-third-party-packages
     check:
       jobs:
-        - build-third-party-rpms-centos7:
+        - ctpp-per-review:
             files:
               - upstream/rpm/.*
     gate:
