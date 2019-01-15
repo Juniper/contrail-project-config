@@ -1,0 +1,11 @@
+#This playbook will override default urls from rpm building and uploading roles.
+#That will let us to use rpms with changes per build.
+---
+- hosts: builder
+  roles:
+    - role: install-third-party-toolchain
+    - role: build-third-party-rpms
+      build_dir: 'smth'
+    - role: publish-rpm-nexus
+      nexus_repo_url: 'http://{{ nexus.fqdn }}/repository/{{ repo_per_review }}'
+      build_dir: 'smth'
