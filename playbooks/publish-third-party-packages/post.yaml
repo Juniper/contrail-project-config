@@ -7,4 +7,7 @@
   roles:
     - role: publish-rpm-nexus
       remote_repo_path: '{{ nexus.repos.yum_tpc }}/{{ zuul.branch }}/source'
-
+      when: zuul.pipeline == 'post-merge'
+    - role: publish-rpm-nexus
+      remote_repo_path: 'yum-tpc-test'
+      when: zuul.pipeline == 'experimental'
