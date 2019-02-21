@@ -10,16 +10,11 @@
     - python36
 
 - name: install virtualenv for publisher
-  command: python36 -m venv venv
-  args:
-    chdir: "{{ publisher_path }}"
-
-- name: install requirements
-  shell: |
-    . venv/bin/activate
-    pip install -r requirements.txt
-  args:
-    chdir: "{{ publisher_path }}"
+  pip:
+    requirements: "{{ publisher_path }}/requirements.txt"
+    virtualenv: "{{ publisher_path }}/venv"
+    virtualenv_python: python3.6
+  register: publisher_venv
 
 - name: copy publisher config
   copy:
@@ -30,9 +25,14 @@
     - dockerhub
 
 - name: Push to internal registry
-  shell: |
-    . venv/bin/activate
-    python36 publisher.py --config publisher-internal-config.yaml --build-registry 10.84.5.81:{{ docker_registry_port }} --release {{ contrail_packaging.version.public }} --build {{ build_number }} --openstack_release {{ item }}
+  command: >
+    {{ publisher_venv.virtualenv }}/bin/python
+    publisher.py
+    --config publisher-internal-config.yaml
+    --build-registry 10.84.5.81:{{ docker_registry_port }}
+    --release {{ contrail_packaging.version.public }}
+    --build {{ build_number }}
+    --openstack_release {{ item }}
   become: true
   args:
     chdir: "{{ publisher_path }}"
@@ -51,9 +51,14 @@
       become: true
 
     - name: Push to Dockerhub
-      shell: |
-        . venv/bin/activate
-        python36 publisher.py --config publisher-dockerhub-config.yaml --build-registry 10.84.5.81:{{ docker_registry_port }} --release {{ contrail_packaging.version.public }} --build {{ build_number }} --openstack_release {{ item }}
+      command: >
+        {{ publisher_venv.virtualenv }}/bin/python
+        publisher.py
+        --config publisher-dockerhub-config.yaml
+        --build-registry 10.84.5.81:{{ docker_registry_port }}
+        --release {{ contrail_packaging.version.public }}
+        --build {{ build_number }}
+        --openstack_release {{ item }}
       become: true
       args:
         chdir: "{{ publisher_path }}"

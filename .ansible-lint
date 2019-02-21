@@ -2,3 +2,5 @@
 rulesdir:
   - ../contrail-zuul-jobs/ansible-lint-rules/
 use_default_rules: true
+skip_list:
+  - '306'
