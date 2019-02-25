@@ -4,6 +4,6 @@
   roles:
     - zuul-include-vars
     - role: push-docker-images
-      credentials: "{{ pipeline_docker_registry }}"
+      credentials: "{{ registry_credentials }}"
       registry: "{{ contrail_docker_registry }}"
 

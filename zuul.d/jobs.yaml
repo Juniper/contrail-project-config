@@ -300,15 +300,30 @@
       - site_pulp
 
 - job:
+    name: contrail-docker-push-base
+    parent: docker-base
+    description: |
+      Prepares basic docker configuration - proxy and insecure registries.
+      Post-run treats the local `docker images` as results
+      and pushes them all to the registry.
+      Requires nodeset, run playbook.
+    post-run: playbooks/contrail-docker-push-base/post.yaml
+    vars:
+      setup_docker_registry: false
+    secrets:
+      - name: registry_credentials
+        secret: registry_tungsten_ci
+
+- job:
     name: contrail-build-containers-ci-base
     parent: contrail-build-containers-base
     description: |
       A job containing access infomation for docker registry used for reviews.
-    post-run: playbooks/contrail-build-containers-ci-base/post.yaml
+    post-run: playbooks/contrail-docker-push-base/post.yaml
     vars:
       setup_docker_registry: false
     secrets:
-      - name: pipeline_docker_registry
+      - name: registry_credentials
         secret: registry_tungsten_ci
 
 - job:
