@@ -28,6 +28,7 @@
   with_items:
     - internal
     - dockerhub
+    - nexus
 
 - name: Push to internal registry
   shell: |
@@ -41,6 +42,31 @@
     - ocata
     - queens
     - rocky
+
+- name: Log in to internal Nexus docker registry
+  command: "docker login -u '{{ registry_tungsten_ci.user }}' -p '{{ registry_tungsten_ci.password }}'  '{{ nexus.fqdn }}:{{ nexus.registry.tungsten_nightly }}'"
+  no_log: true
+  become: true
+  when: zuul is defined and zuul.pipeline is defined and zuul.pipeline == 'periodic-nightly-test'
+
+- name: Push to internal Nexus registry
+  shell: |
+    . venv/bin/activate
+    python36 publisher.py --config publisher-nexus-config.yaml --build-registry 10.84.5.81:{{ docker_registry_port }} --release {{ contrail_packaging.version.public }} --build {{ build_number }} --openstack_release {{ item }}
+  become: true
+  args:
+    chdir: "{{ publisher_path }}"
+  with_items:
+    - newton
+    - ocata
+    - queens
+    - rocky
+  when: zuul is defined and zuul.pipeline is defined and zuul.pipeline == 'periodic-nightly-test'
+
+- name: Log out from internal Nexus docker registry
+  command: "docker logout '{{ nexus.fqdn }}:{{ nexus.registry.tungsten_nightly }}'"
+  become: true
+  when: zuul is defined and zuul.pipeline is defined and zuul.pipeline == 'periodic-nightly-test'
 
 - name: Push build to dockerhub
   when: "contrail_packaging.version.public == 'master'"

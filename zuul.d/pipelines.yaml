@@ -200,6 +200,36 @@
       Dockerhub: https://hub.docker.com/u/opencontrailnightly/
 
 - pipeline:
+    name: periodic-nightly-test
+    description: |
+      Test version of the periodic-nightly pipeline.
+      It is intended to be manually triggered with the `zuul enqueue-ref` command.
+    manager: independent
+    precedence: high
+    post-review: true
+    trigger:
+      timer:
+        - time: "0 8 29 2 *"
+    start:
+      stats:
+      smtp:
+        to: juniper-devops@codilime.com
+        subject: "[periodic-nightly-test] Starting jobs - {change.branch}"
+    success:
+      stats:
+      smtp:
+        to: juniper-devops@codilime.com
+        subject: "[periodic-nightly-test] SUCCESS - {change.branch}"
+    failure:
+      stats:
+      smtp:
+        to: juniper-devops@codilime.com
+        subject: "[periodic-nightly-test] FAILURE - {change.branch}"
+    footer-message: |
+
+      Dockerhub: https://hub.docker.com/u/opencontrailnightly/
+
+- pipeline:
     name: experimental
     description: On-demand pipeline for testing jobs.
     manager: independent
