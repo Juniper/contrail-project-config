@@ -38,60 +38,82 @@ distribution: centos
 image_overrides:
   # contrail-go is pushed with {{ release }}-{{ build_no }}
   - image_matcher: "^contrail-go$"
-    source_tag: "master-{{ build_no }}"
+    source_tag: "5.1.0-0.{{ build_no }}"
     release_tags:
+      - "5.1.0-0.{{ build_no }}"
       - "latest"
-      - "master-{{ build_no }}"
     registries:
       - dockerhub
 
   - image_matcher: developer-sandbox
-    source_tag: "master-{{ build_no }}"
+    source_tag: "5.1.0-0.{{ build_no }}"
     release_tags:
+      - "5.1.0-0.{{ build_no }}"
+      - "5.1.0-latest"
+      - "5.1.0"
       - "latest"
+      # keep old tags for now
+      - "master-{{ build_no }}"
       - "master"
-      - "master-{{ build_no }}"
     registries:
       - dockerhub
 
   - image_matcher: developer-sandbox
-    source_tag: "{{ release }}-{{ build_no }}"
+    source_tag: "{{ release }}-0.{{ build_no }}"
     release_tags:
+      - "{{ release }}-0.{{ build_no }}"
+      - "{{ release }}-latest"
+      - "{{ release }}"
+      # keep old tags for now
       - "{{ release }}"
       - "{{ release }}-{{ build_no }}"
     registries:
       - dockerhub
 
   - image_matcher: "^.*$"
-    tag_matcher: "^newton-master-.*$"
+    tag_matcher: "^5\.1\.0-0\.d+-newton$"
     release_tags:
+      - "5.1.0-0.{{ build_no }}-newton"
+      - "5.1.0-latest-newton"
+      # keep old tags for now
       - "newton-master-{{ build_no }}"
       - "newton-master-latest"
     registries:
       - dockerhub
 
   - image_matcher: "^.*$"
-    tag_matcher: "^ocata-master-.*$"
+    tag_matcher: "^5\.1\.0-0\.d+-ocata$"
     release_tags:
+      - "5.1.0-0.{{ build_no }}-ocata"
+      - "5.1.0-latest-ocata"
+      # keep old tags for now
       - "ocata-master-{{ build_no }}"
       - "ocata-master-latest"
     registries:
       - dockerhub
 
   - image_matcher: "^.*$"
-    tag_matcher: "^queens-master-.*$"
+    tag_matcher: "^5\.1\.0-0\.d+-queens$"
     release_tags:
+      - "5.1.0-0.{{ build_no }}-queens"
+      - "5.1.0-0.{{ build_no }}"
+      - "5.1.0-latest-queens"
+      - "5.1.0-latest"
+      - "latest"
+      # keep old tags for now
       - "queens-master-{{ build_no }}"
       - "queens-master-latest"
       - "master-{{ build_no }}"
       - "master-latest"
-      - "latest"
     registries:
       - dockerhub
 
   - image_matcher: "^.*$"
-    tag_matcher: "^rocky-master-.*$"
+    tag_matcher: "^5\.1\.0-0\.d+-rocky$"
     release_tags:
+      - "5.1.0-0.{{ build_no }}-rocky"
+      - "5.1.0-latest-rocky"
+      # keep old tags for now
       - "rocky-master-{{ build_no }}"
       - "rocky-master-latest"
     registries:
