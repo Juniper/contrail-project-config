@@ -557,6 +557,11 @@
       - windows-sanity
 
 - project:
+    name: Juniper/contrail-windows-test
+    templates:
+      - noops
+
+- project:
     name: tungstenfabric/docs
     templates:
       - noops
