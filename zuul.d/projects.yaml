@@ -55,6 +55,7 @@
       queue: contrail-vnc
       jobs:
         - contrail-vnc-build-package-centos74
+        - contrail-vnc-build-unittest-ubuntu-trusty
     experimental-sanity:
       jobs:
         - contrail-sanity-centos7-kolla-ocata:
