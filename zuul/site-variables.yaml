@@ -17,6 +17,8 @@ nexus:
   scripts:
     yum_tpc:
       rebuild_metadata: '277418cf-cbc4-4219-a86b-9be48cdd0c2c'
+    yum_tpc_test:
+      rebuild_metadata: 'fff750d5-6d67-41d5-8cce-e65d97bb730e'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000
