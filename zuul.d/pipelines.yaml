@@ -76,8 +76,8 @@
     precedence: high
     require:
       gerrit:
-        open: True
-        current-patchset: True
+        open: true
+        current-patchset: true
         approval:
           - Verified: [1, 2]
             username: ^zuulv3$

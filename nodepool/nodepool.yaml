@@ -67,52 +67,52 @@ providers:
           - name: centos-7-4-builder
             flavor-name: m1.16g_40g_8vcpu
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-m1-large
             flavor-name: m1.large
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-m1-medium
             flavor-name: m1.medium
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-builder-xxlarge
             flavor-name: m1.ci-systest
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: rhel-7-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: rhel-7
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: rhel-7-sanity
             flavor-name: m1.32g_80g_8vcpu
             diskimage: rhel-7
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-trusty-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: ubuntu-trusty
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-small
             flavor-name: m1.small
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-builder
             flavor-name: m1.16g_40g_8vcpu
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-builder-xxlarge
             flavor-name: m1.32g_80g_8vcpu
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
   - name: juniper-contrail-ci-c
     region-name: "RegionOne"
@@ -143,67 +143,67 @@ providers:
           - name: centos-7-4-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-builder-xxlarge
             flavor-name: m1.32g_80g_8vcpu
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-builder-c
             flavor-name: m1.16g_80g_8vcpu
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: c7-systest-c
             flavor-name: m1.32g_80g_8vcpu
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-m1-large
             flavor-name: m1.large
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: centos-7-4-m1-medium
             flavor-name: m1.medium
             diskimage: centos-7-4
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: rhel-7-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: rhel-7
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: rhel-7-sanity
             flavor-name: m1.32g_80g_8vcpu
             diskimage: rhel-7
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-trusty-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: ubuntu-trusty
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-small
             flavor-name: m1.small
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-builder
             flavor-name: m1.16g_80g_8vcpu
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: ubuntu-xenial-builder-xxlarge
             flavor-name: m1.32g_80g_8vcpu
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
           - name: xenial-small-c
             flavor-name: m1.small
             diskimage: ubuntu-xenial
-            console-log: True
+            console-log: true
             key-name: ci-infra-shared-key
 
 diskimages:

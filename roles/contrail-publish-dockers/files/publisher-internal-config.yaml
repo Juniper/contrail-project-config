@@ -11,11 +11,11 @@
 registries:
   - name: build
     url: 10.84.5.81:32000
-    source: True
-    untrusted: True
+    source: true
+    untrusted: true
   - name: ci-repo-public
     url: 10.84.5.81:5000
-    untrusted: True
+    untrusted: true
 
 # the default distribution for images
 distribution: centos
