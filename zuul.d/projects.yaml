@@ -353,6 +353,7 @@
     check:
       jobs:
         - zuul-jobs-linters
+        - generate-build-change-info
     gate:
       queue: contrail-ci
       jobs:
