@@ -354,3 +354,19 @@
       manifest_file: windows.xml
     secrets:
       - jenkins_winci_credentials
+
+- job:
+    name: generate-build-change-info
+    parent: contrail-src-base
+    description: |
+      This job generates a HTML report of changes included in the last nightly
+      build.
+    run: playbooks/generate-build-change-info/run.yaml
+    required-projects:
+      - Juniper/contrail-zuul-jobs
+      - name: tungsten-infra/ci-utils
+        override-checkout: build-change-info-additional-features
+    nodeset: builder-centos-7
+    secrets:
+      - name: db_credentials
+        secret: zuul_db
