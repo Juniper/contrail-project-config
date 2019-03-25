@@ -21,4 +21,4 @@ nexus:
       rebuild_metadata: 'fff750d5-6d67-41d5-8cce-e65d97bb730e'
 docker_registry:
   fqdn: 10.84.5.81
-  port: 5000
+  port: 5010
