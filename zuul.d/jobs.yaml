@@ -382,6 +382,10 @@
       - tungsten-infra/containerregistry
     description: This jobs starts Jenkins job in Windows CI to create Windows containers.
     vars:
-      jenkins_job: ci-contrail-windows-nighly-build
-    secrets:
-      - dockerhub
+      jenkins_job: test-windows-containers-pm
+      build_number: 1234
+      contrail_container_tag: master-1222
+      contrail_docker_registry: 10.84.5.81:35981
+      jenkins_winci_credentials:
+        user: 'pma-testuser'
+        password: 'qwerty123'
