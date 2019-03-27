@@ -351,6 +351,7 @@
     check:
       jobs:
         - zuul-jobs-linters
+        - create-windows-containers
     gate:
       queue: contrail-ci
       jobs:
