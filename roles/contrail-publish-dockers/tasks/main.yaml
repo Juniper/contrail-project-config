@@ -27,7 +27,6 @@
     dest: "{{ publisher_path }}/publisher-{{ item }}-config.yaml"
   with_items:
     - internal
-    - dockerhub
     - nexus
 
 - name: Push to internal registry
