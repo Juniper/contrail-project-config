@@ -239,6 +239,24 @@
       stats:
 
 - pipeline:
+    name: manual
+    description: |
+      For manually triggered builds. 
+      It is intended to be manually triggered with the `zuul enqueue-ref` command.
+    manager: independent
+    precedence: high
+    post-review: true
+    trigger:
+      timer:
+        - time: "0 8 29 2 *"
+    start:
+      stats:
+    success:
+      stats:
+    failure:
+      stats:
+
+- pipeline:
     name: experimental
     description: On-demand pipeline for testing jobs.
     manager: independent
