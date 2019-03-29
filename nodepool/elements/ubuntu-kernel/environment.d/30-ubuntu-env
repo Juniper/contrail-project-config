@@ -1,0 +1,1 @@
+export DIB_KERNEL_VERSION=${DIB_KERNEL_VERSION:-4.4.0-143-generic}

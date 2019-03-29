@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -e
+
+kernel_version=$(uname -r)
+
+echo $kernel_version
+echo $DIB_KERNEL_VERSION
+
+if [ "$kernel_version" = "$DIB_KERNEL_VERSION" ];
+then
+  echo "Installed kernel has required version"
+  exit 0
+fi
+
+echo "Running kernel: $kernel_version"
+echo "Required kernel: $DIB_KERNEL_VERSION"
+echo "Reinstalling kernel"
+
+echo "Removing unneeded kernels"
+kernels_to_remove=$(dpkg -l 'linux-image*generic' | grep ii | awk '{print $2}')
+
+for kernel in $kernels_to_remove;
+do
+  echo "Removing $kernel along with headers"
+  major_version=$(echo $kernel | grep -Po "\d+(\.\d+){2}")
+  minor_version=$(echo $kernel | grep -Po "(?<=-)[^-]\d+(?=-)")
+  apt-get purge -y "linux-image-${major_version}-${minor_version}-generic" \
+                   "linux-headers-${major_version}-${minor_version}" \
+                   "linux-headers-${major_version}-${minor_version}-generic"
+done
+
+echo "Installing $DIB_KERNEL_VERSION with headers"
+major_version=$(echo $DIB_KERNEL_VERSION | grep -Po "\d+(\.\d+){2}")
+minor_version=$(echo $DIB_KERNEL_VERSION | grep -Po "(?<=-)[^-]\d+(?=-)")
+
+apt-get install "linux-image-${major_version}-${minor_version}-generic" \
+                "linux-headers-${major_version}-${minor_version}" \
+                "linux-headers-${major_version}-${minor_version}-generic"

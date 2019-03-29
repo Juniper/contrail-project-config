@@ -272,6 +272,7 @@ diskimages:
       - ubuntu
       - vm
       - growroot
+      - ubuntu-kernel
       - pip-and-virtualenv
       - tox
       - nodepool-base
@@ -290,6 +291,7 @@ diskimages:
       DIB_DEBOOTSTRAP_EXTRA_ARGS: '--no-check-gpg'
       DIB_DEBIAN_COMPONENTS: 'main,universe'
       DIB_TOX_VERSION: '3.1.3'
+      DIB_KERNEL_VERSION: '4.4.0-112-generic'
   - name: ubuntu-trusty
     elements:
       - ubuntu
