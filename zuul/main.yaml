@@ -71,6 +71,7 @@
           - Juniper/contrail-windows
           - Juniper/contrail-windows-docker-driver
           - Juniper/contrail-windows-test
+          - Juniper/contrail-windows-ci-infra
           - Juniper/contrail-vcenter-manager
           - Juniper/contrail-vcenter-plugin
           - Juniper/contrail-vnc
