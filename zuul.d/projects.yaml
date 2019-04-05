@@ -174,6 +174,15 @@
       jobs:
         - contrail-build-win2016
 
+- project-template:
+    name: windows-all-tests
+    check:
+      jobs:
+        - contrail-alltests-win2016
+    gate:
+      jobs:
+        - noop
+
 - project:
     name: Juniper/contrail-analytics
     templates:
@@ -557,7 +566,7 @@
 - project:
     name: Juniper/contrail-windows-test
     templates:
-      - noops
+      - windows-all-tests
 
 - project:
     name: tungstenfabric/docs
