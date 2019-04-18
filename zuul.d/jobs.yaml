@@ -78,12 +78,8 @@
 
 - job:
     name: contrail-vnc-base
-    branches:
-      - ^R5\.0$
-      - ^contrail_dpdk_17_11_3$
-      - ^release-3.9-contrail$
+    branches: ^R5\.0$
     parent: contrail-base-untrusted
-    override-checkout: R5.0
     description: |
       A base job that prepares Contrail VNC sandbox using Android repo,
       as opposed to the contrail-src-base job that copies the sources directly.
@@ -126,7 +122,7 @@
 
 - job:
     name: contrail-vnc-base
-    branches: ^(?!(R5\.0|contrail_dpdk_17_11_3|release-3\.9-contrail)).*$
+    branches: ^(?!R5\.0).*$
     parent: contrail-base-untrusted
     description: |
       A base job that prepares Contrail VNC sandbox using Android repo,
@@ -193,9 +189,7 @@
 
 - job:
     name: contrail-vnc-build-unittest-ubuntu-trusty
-    branches:
-      - ^R5\.0$
-      - ^contrail_dpdk_17_11_3$
+    branches: ^R5\.0$
     required-projects:
       - Juniper/contrail-api-client
       - Juniper/contrail-build
@@ -223,7 +217,7 @@
 
 - job:
     name: contrail-vnc-build-unittest-ubuntu-trusty
-    branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
+    branches: ^(?!R5\.0).*$
     required-projects:
       - Juniper/contrail-api-client
       - Juniper/contrail-build
@@ -284,6 +278,7 @@
     secrets:
       - site_pulp
       - docker_registry
+      - dockerhub
       - registry_tungsten_ci
 
 # Transition to contrail-base when all jobs are ported
@@ -373,6 +368,7 @@
       - Juniper/contrail-windows-docker-driver
       - Juniper/contrail-windows-test
     nodeset: ubuntu-xenial
+    timeout: 10800
     vars:
       setup_docker_registry: true
       manifest_file: windows.xml
