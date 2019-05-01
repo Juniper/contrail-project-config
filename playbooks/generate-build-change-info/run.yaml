@@ -2,4 +2,6 @@
 
 - hosts: all
   roles:
-    - generate-build-change-info
+    - role: generate-build-change-info
+      zuul.branch: 'master'
+      build_number: '706'
