@@ -391,6 +391,7 @@
       jenkins_job: ci-contrail-windows-nighly-build
     secrets:
       - dockerhub
+
 - job:
     name: generate-build-change-info
     parent: contrail-src-base
@@ -402,7 +403,9 @@
       - Juniper/contrail-zuul-jobs
       - tungsten-infra/ci-utils
     nodeset: builder-centos-7
+    voting: false
     secrets:
       - name: db_credentials
         secret: zuul_db
-
+    files:
+      - ^tests/.*    
