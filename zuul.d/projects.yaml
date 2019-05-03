@@ -364,9 +364,6 @@
       queue: contrail-ci
       jobs:
         - zuul-jobs-linters
-    experimental:
-      jobs:
-        - generate-build-change-info
 
 - project:
     name: Juniper/contrail-ansible-deployer
