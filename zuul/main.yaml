@@ -73,6 +73,7 @@
           - Juniper/contrail-windows-test
           - Juniper/contrail-windows-ci-infra
           - Juniper/contrail-vcenter-manager
+          - Juniper/contrail-vcenter-fabric-manager
           - Juniper/contrail-vcenter-plugin
           - Juniper/contrail-vnc
           - Juniper/horizon
