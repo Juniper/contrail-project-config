@@ -36,6 +36,10 @@ labels:
     min-ready: 0
   - name: centos-7-4-m1-medium
     min-ready: 0
+  - name: ubuntu-xenial-isolated
+    min-ready: 0
+  - name: centos-7-isolated
+    min-ready: 0
 
 providers:
   - name: juniper-contrail-ci
@@ -203,6 +207,38 @@ providers:
           - name: xenial-small-c
             flavor-name: m1.small
             diskimage: ubuntu-xenial
+            console-log: True
+            key-name: ci-infra-shared-key
+  - name: juniper-cluster-c-isolated
+    region-name: "RegionOne"
+    cloud: jnpr-cluster-c-isolated
+    api-timeout: 60
+    boot-timeout: 120
+    clean-floating-ips: true
+    rate: 1.0
+    ipv6-preferred: false
+    image-type: 'qcow2'
+    image-name-format: 'template-{image_name}-{timestamp}'
+    hostname-format: '{label.name}-{provider.name}-{node.id}'
+    diskimages:
+      - name: centos-7
+      - name: ubuntu-xenial
+    pools:
+      - name: ci-zuulv3-c-isolated
+        max-servers: 20
+        availability-zones:
+          - nova
+        networks:
+          - isolated_nodepool_network
+        labels:
+          - name: ubuntu-xenial-isolated
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: ubuntu-xenial
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: centos-7-isolated
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: centos-7-4
             console-log: True
             key-name: ci-infra-shared-key
 
