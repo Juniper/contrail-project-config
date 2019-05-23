@@ -25,30 +25,30 @@
 
 - name: Hard-link gerrit repositories into expected structure
   synchronize:
-    src: "{{ ansible_env.HOME }}/src/review.opencontrail.org/Juniper/{{ item.src }}"
+    src: "{{ ansible_env.HOME }}/src/{{ item.src }}"
     dest: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/{{ item.dest }}"
     rsync_opts:
       - --no-motd
       - --quiet
   with_items:
-    - { src: 'contrail-controller/', dest: 'controller' }
-    - { src: 'contrail-build/', dest: 'tools/build' }
-    - { src: 'contrail-generateDS/', dest: 'tools/generateds' }
-    - { src: 'contrail-sandesh/', dest: 'tools/sandesh' }
-    - { src: 'contrail-third-party/', dest: 'third_party' }
-    - { src: 'contrail-vrouter/', dest: 'vrouter' }
-    - { src: 'contrail-packages/', dest: 'tools/packages' }
-    - { src: 'contrail-provisioning/', dest: 'tools/provisioning' }
-    - { src: 'contrail-nova-vif-driver/', dest: 'openstack/nova_contrail_vif' }
-    - { src: 'contrail-api-client', dest: 'src' }
-    - { src: 'contrail-common', dest: 'src' }
-    - { src: 'contrail-build/SConstruct', dest: '' }
-    - { src: 'contrail-analytics', dest: 'src' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-controller/', dest: 'controller' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-build/', dest: 'tools/build' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-generateDS/', dest: 'tools/generateds' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-sandesh/', dest: 'tools/sandesh' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-third-party/', dest: 'third_party' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-vrouter/', dest: 'vrouter' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-packages/', dest: 'tools/packages' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-provisioning/', dest: 'tools/provisioning' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-nova-vif-driver/', dest: 'openstack/nova_contrail_vif' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-api-client', dest: 'src' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-common', dest: 'src' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-build/SConstruct', dest: '' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-analytics', dest: 'src' }
   delegate_to: "{{ inventory_hostname }}"
 
 - name: Hard-link github repositories into expected structure
   synchronize:
-    src: "{{ ansible_env.HOME }}/src/github.com/Juniper/{{ item.src }}"
+    src: "{{ ansible_env.HOME }}/src/{{ item.src }}"
     dest: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/{{ item.dest }}"
     rsync_opts:
       - --no-motd
