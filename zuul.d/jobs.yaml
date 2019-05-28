@@ -408,3 +408,12 @@
     secrets:
       - name: db_credentials
         secret: zuul_db
+
+- job:
+    name: test-nodepool-job
+    parent: contrail-base
+    run: playbooks/testjob/run.yaml
+    nodeset:
+      nodes:
+        - name: fedora
+          label: fedora
