@@ -235,12 +235,12 @@ providers:
             flavor-name: m1.16g_80g_8vcpu
             diskimage: ubuntu-xenial
             console-log: True
-            key-name: ci-infra-shared-key
+            key-name: ci-shared-ssh-key
           - name: centos-7-isolated
             flavor-name: m1.16g_80g_8vcpu
             diskimage: centos-7-4
             console-log: True
-            key-name: ci-infra-shared-key
+            key-name: ci-shared-ssh-key
 
 diskimages:
   - name: centos-7
