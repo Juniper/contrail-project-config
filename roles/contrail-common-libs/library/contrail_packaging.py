@@ -16,8 +16,8 @@ result = dict(
     message='',
 )
 
-MASTER_RELEASE = '5.1.0'
-version_branch_regex = re.compile(r'^(master)|(R\d+\.\d+(\.\d+)?(\.x)?)$')
+MASTER_RELEASE = '5.2.0'
+version_branch_regex = re.compile(r'^(master)|^(\d{R1900, 3000})|(R\d+\.\d+(\.\d+)?(\.x)?)$')
 
 
 class ReleaseType(object):
