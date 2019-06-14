@@ -291,6 +291,10 @@
       - unittests
       - systests
       - windows-sanity
+    check:
+      jobs:
+        - contrail-vrouter-ut-centos7
+            voting: False
 
 - project:
     name: Juniper/contrail-third-party
