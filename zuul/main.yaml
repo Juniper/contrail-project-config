@@ -165,7 +165,7 @@
           - tungstenfabric-preview/vijava
           - tungstenfabric/docs
           - tungstenfabric-preview/test-runner
-          - tungstenfabric-preview/intent-service
+            # - tungstenfabric-preview/intent-service
           - tungstenfabric-preview/windows-test
           - tungstenfabric-preview/windows-ci-infra
           - tungstenfabric-preview/vcenter-fabric-manager
