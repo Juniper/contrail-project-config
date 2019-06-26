@@ -574,11 +574,13 @@
     name: Juniper/contrail-third-party-packages
     check:
       jobs:
+        - noop
         - build-third-party-rpms-centos7:
             files:
               - upstream/rpm/.*
     gate:
       jobs:
+        - noop
         - build-third-party-rpms-centos7:
             files:
               - upstream/rpm/.*
