@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f2cbd9f_395f6550",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-07-02T11:14:52Z",
+      "side": 1,
+      "message": "this will forbid to run this on non-master - there will be no CI for branches at all.",
+      "revId": "9c1a2d1604a909f905a6429d1729f686c462c31d",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": false
+    }
+  ]
+}
