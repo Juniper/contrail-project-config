@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f101b7c_7352d896",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-07-15T07:31:22Z",
+      "side": 1,
+      "message": "please required dependency here as well",
+      "revId": "5d110b6b8c86511932c8789b2469914dceee12dd",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
