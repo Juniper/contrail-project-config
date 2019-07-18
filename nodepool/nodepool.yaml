@@ -151,6 +151,16 @@ providers:
           - ci-zuulv3-internal
           - contrail-dataplane
         labels:
+          - name: centos-7-4-builder
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: centos-7-4
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: centos-7-4-builder-xxlarge
+            flavor-name: m1.32g_80g_8vcpu
+            diskimage: centos-7-4
+            console-log: True
+            key-name: ci-infra-shared-key
           - name: centos-7-4-builder-c
             flavor-name: m1.16g_80g_8vcpu
             diskimage: centos-7-4
@@ -169,6 +179,16 @@ providers:
           - name: centos-7-4-m1-medium
             flavor-name: m1.medium
             diskimage: centos-7-4
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: rhel-7-builder-xxlarge
+            flavor-name: m1.ci-systest
+            diskimage: rhel-7
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: rhel-7-builder
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: rhel-7
             console-log: True
             key-name: ci-infra-shared-key
           - name: rhel-7-sanity
