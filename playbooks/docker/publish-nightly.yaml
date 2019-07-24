@@ -16,4 +16,3 @@
           protocol: http
         - host: index.docker.io/opencontrailnightly
           protocol: https
-
