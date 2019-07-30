@@ -40,10 +40,10 @@ image_overrides:
     source_tag: "rhel-queens-{{ release }}-{{ build_no }}"
     tag_matcher: ^rhel-queens-.*$
     release_tags:
-      - "rhel-queens-{{ release }}-{{ build_no }}"
-      - "rhel-queens-{{ release }}-latest"
-      - "rhel-{{ release }}-{{ build_no }}"
-      - "rhel-{{ release }}-latest"
+      - "{{ release }}.{{ build_no }}-rhel-queens"
+      - "{{ release }}.latest-rhel-queens"
+      - "{{ release }}.{{ build_no }}-rhel"
+      - "{{ release }}.latest-rhel"
     distribution: rhel
     registries:
       - ci-nexus-public
@@ -51,7 +51,7 @@ image_overrides:
   - image_matcher: developer-sandbox
     source_tag: "master-{{ build_no }}"
     release_tags:
-      - "master-{{ build_no }}"
+      - "master.{{ build_no }}"
       - "master"
       - "latest"
     registries:
@@ -60,7 +60,7 @@ image_overrides:
   - image_matcher: developer-sandbox
     source_tag: "{{ release }}-{{ build_no }}"
     release_tags:
-      - "{{ release }}-{{ build_no }}"
+      - "{{ release }}.{{ build_no }}"
       - "{{ release }}"
     registries:
       - ci-nexus-public
@@ -69,8 +69,8 @@ image_overrides:
     source_tag: "{{ release }}-{{ build_no }}"
     tag_matcher: "^master-.*$"
     release_tags:
-      - "master-{{ build_no }}"
-      - "master-latest"
+      - "master.{{ build_no }}"
+      - "master.latest"
       - "latest"
     registries:
       - ci-nexus-public
@@ -78,51 +78,51 @@ image_overrides:
   - image_matcher: "^contrail-go$"
     source_tag: "{{ release }}-{{ build_no }}"
     release_tags:
-      - "{{ release }}-{{ build_no }}"
-      - "{{ release }}-latest"
+      - "{{ release }}.{{ build_no }}"
+      - "{{ release }}.latest"
     registries:
       - ci-nexus-public
 
   - image_matcher: "^.*$"
     tag_matcher: "^newton-.*$"
     release_tags:
-      - "newton-{{ release }}-{{ build_no }}"
-      - "newton-{{ release }}-latest"
+      - "{{ release }}.{{ build_no }}-newton"
+      - "{{ release }}.latest--newton"
 
   - image_matcher: "^.*$"
     tag_matcher: "^ocata-.*$"
     release_tags:
-      - "ocata-{{ release }}-{{ build_no }}"
-      - "ocata-{{ release }}-latest"
+      - "{{ release }}.{{ build_no }}-ocata"
+      - "{{ release }}.latest-ocata"
 
   - image_matcher: "^.*$"
     tag_matcher: "^queens-master-.*$"
     release_tags:
-      - "queens-master-{{ build_no }}"
-      - "queens-master-latest"
-      - "master-{{ build_no }}"
-      - "master-latest"
+      - "master.{{ build_no }}-queens"
+      - "master.latest-queens"
+      - "master.{{ build_no }}"
+      - "master.latest"
       - "latest"
 
   - image_matcher: "^.*$"
     tag_matcher: "^queens-.*$"
     release_tags:
-      - "queens-{{ release }}-{{ build_no }}"
-      - "queens-{{ release }}-latest"
-      - "{{ release }}-{{ build_no }}"
-      - "{{ release }}-latest"
+      - "{{ release }}.{{ build_no }}-queens"
+      - "{{ release }}.latest-queens"
+      - "{{ release }}.{{ build_no }}"
+      - "{{ release }}.latest"
 
   - image_matcher: "^.*$"
     tag_matcher: "^rocky-master-.*$"
     release_tags:
-      - "rocky-master-{{ build_no }}"
-      - "rocky-master-latest"
+      - "master.{{ build_no }}-rocky"
+      - "master.latest-rocky"
 
   - image_matcher: "^.*$"
     tag_matcher: "^rocky-.*$"
     release_tags:
-      - "rocky-{{ release }}-{{ build_no }}"
-      - "rocky-{{ release }}-latest"
+      - "{{ release }}.{{ build_no }}-rocky"
+      - "{{ release }}.latest-rocky"
 
 # rhel_marker and openstack_release have two variants: _lhs and _rhs depending
 # on how they are used:
