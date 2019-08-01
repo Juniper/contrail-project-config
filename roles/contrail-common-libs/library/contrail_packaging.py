@@ -90,6 +90,8 @@ def main():
         'repo_name': repo_name,
         'repo_names': repo_names,
         'docker_version': repo_name,
+        'centos_distro': "",
+        'rhel_distro': "rhel-queens-"
     }
 
     module.exit_json(ansible_facts={'packaging': packaging}, **result)
