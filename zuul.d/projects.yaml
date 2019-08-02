@@ -477,8 +477,14 @@
     check:
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
+            branches: ^(!(master))$
             dependencies:
               - contrail-build-containers-centos7-queens
+              - contrail-build-test-containers
+        - contrail-sanity-centos7-kolla-queens-multinode:
+            branches: ^(master)$
+            dependencies:
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
         - contrail-windows-test-cad:
             voting: False
@@ -486,6 +492,11 @@
       jobs:
         - contrail-vnc-build-package-centos74
         - contrail-build-containers-centos7-ocata:
+            branches: ^(!(master))$
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-build-containers-centos7:
+            branches: ^(master)$
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-build-test-containers:
@@ -496,8 +507,14 @@
               - contrail-build-containers-centos7-ocata
               - contrail-build-test-containers
         - contrail-sanity-centos7-k8s:
+            branches: ^(!(master))$
             dependencies:
               - contrail-build-containers-centos7-ocata
+              - contrail-build-test-containers
+        - contrail-sanity-centos7-k8s:
+            branches: ^(master)$
+            dependencies:
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
 
 - project:
@@ -564,8 +581,14 @@
     check:
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
+            branches: ^(!(master))$
             dependencies:
               - contrail-build-containers-centos7-queens
+              - contrail-build-test-containers
+        - contrail-sanity-centos7-kolla-queens-multinode:
+            branches: ^(master)$
+            dependencies:
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
 
 - project:
