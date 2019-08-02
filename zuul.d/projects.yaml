@@ -477,8 +477,14 @@
     check:
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
+            branches: ^(!(master))$
             dependencies:
               - contrail-build-containers-centos7-queens
+              - contrail-build-test-containers
+        - contrail-sanity-centos7-kolla-queens-multinode:
+            branches: ^(master)$
+            dependencies:
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
         - contrail-windows-test-cad:
             voting: False
