@@ -29,6 +29,8 @@
             - ^stable/queens$
             - ^stable/ocata$
             - ^stable/newton$
+            - ^stable/rocky$
+            - ^stable/stein$
             - ^production$
         - event: comment-added
           branch:
@@ -51,6 +53,8 @@
             - ^stable/queens$
             - ^stable/ocata$
             - ^stable/newton$
+            - ^stable/stein$
+            - ^stable/rocky$
             - ^production$
           comment: (?i)recheck(( (?:bug|lp)[\s#:]*(\d+))|( zuulv3)|( no bug))?(\s+clean)?\s*$
     start:
@@ -112,6 +116,8 @@
             - ^stable/queens$
             - ^stable/ocata$
             - ^stable/newton$
+            - ^stable/stein$
+            - ^stable/rocky$
             - ^production$
           comment: (?i)recheck +gate\s*$
         - event: comment-added
@@ -135,6 +141,8 @@
             - ^stable/queens$
             - ^stable/ocata$
             - ^stable/newton$
+            - ^stable/stein$
+            - ^stable/rocky$
             - ^production$
           approval:
             - Approved: 1
@@ -159,6 +167,8 @@
             - ^stable/queens$
             - ^stable/ocata$
             - ^stable/newton$
+            - ^stable/stein$
+            - ^stable/rocky$
             - ^production$
           approval:
             - Verified: 1
@@ -186,6 +196,8 @@
             - ^stable/queens$
             - ^stable/ocata$
             - ^stable/newton$
+            - ^stable/stein$
+            - ^stable/ocata$
             - ^production$
           approval:
             - Code-Review: 2
