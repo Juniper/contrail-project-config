@@ -328,11 +328,6 @@
               - contrail-vnc-build-package-centos74
 
 - project:
-    name: Juniper/contrail-fabric-utils
-    templates:
-      - systests
-
-- project:
     name: Juniper/horizon
     templates:
       - systests
@@ -478,27 +473,10 @@
       - systests
 
 - project:
-    name: Juniper/contrail-web-server-manager
-    templates:
-      - unittests-webui
-      - systests
-
-- project:
-    name: Juniper/contrail-web-storage
-    templates:
-      - unittests-webui
-      - systests
-
-- project:
     name: Juniper/contrail-third-party-cache
     templates:
       - unittests-webui
       - systests
-
-- project:
-    name: Juniper/contrail-server-manager
-    templates:
-      - noops
 
 - project:
     name: Juniper/contrail-kolla-ansible

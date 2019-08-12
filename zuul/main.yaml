@@ -33,7 +33,6 @@
           - Juniper/contrail-docker
           - Juniper/contrail-docs
           - Juniper/contrail-dpdk
-          - Juniper/contrail-fabric-utils
           - Juniper/contrail-generateDS
           - Juniper/contrail-go-api
           - Juniper/contrail-heat
@@ -51,7 +50,6 @@
           - Juniper/contrail-provisioning
           - Juniper/contrail-puppet
           - Juniper/contrail-sandesh
-          - Juniper/contrail-server-manager
           - Juniper/contrail-specs
           - Juniper/contrail-test
           - Juniper/contrail-test-ci
@@ -66,8 +64,6 @@
           - Juniper/contrail-webui-third-party
           - Juniper/contrail-web-controller
           - Juniper/contrail-web-core
-          - Juniper/contrail-web-server-manager
-          - Juniper/contrail-web-storage
           - Juniper/contrail-windows
           - Juniper/contrail-windows-docker-driver
           - Juniper/contrail-windows-test
@@ -120,7 +116,6 @@
           - tungstenfabric-tools-preview/dev-env
           - tungstenfabric-preview/docs
           - tungstenfabric-preview/dpdk
-          - tungstenfabric-tools-preview/fabric-utils
           - tungstenfabric-preview/generateDS
           - tungstenfabric-preview/go-api
           - tungstenfabric-preview/openstack-heat
@@ -148,8 +143,6 @@
           - tungstenfabric-preview/webui-third-party
           - tungstenfabric-preview/web-controller
           - tungstenfabric-preview/web-core
-          - tungstenfabric-preview/web-server-manager
-          - tungstenfabric-preview/web-storage
           - tungstenfabric-preview/windows
           - tungstenfabric-preview/windows-docker-driver
           - tungstenfabric-preview/vcenter-manager

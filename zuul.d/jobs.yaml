@@ -93,7 +93,6 @@
       - Juniper/contrail-build
       - Juniper/contrail-common
       - Juniper/contrail-controller
-      - Juniper/contrail-fabric-utils
       - name: Juniper/contrail-dpdk
         override-checkout: contrail_dpdk_17_11_3
       - Juniper/contrail-generateDS
@@ -117,8 +116,6 @@
       - Juniper/contrail-vro-plugin
       - Juniper/contrail-web-controller
       - Juniper/contrail-web-core
-      - Juniper/contrail-web-server-manager
-      - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
       - Juniper/vijava
     pre-run: playbooks/contrail/vnc-pre.yaml
@@ -138,7 +135,6 @@
       - Juniper/contrail-build
       - Juniper/contrail-common
       - Juniper/contrail-controller
-      - Juniper/contrail-fabric-utils
       - name: Juniper/contrail-dpdk
         override-checkout: contrail_dpdk_18_05_1
       - Juniper/contrail-generateDS
@@ -162,8 +158,6 @@
       - Juniper/contrail-vro-plugin
       - Juniper/contrail-web-controller
       - Juniper/contrail-web-core
-      - Juniper/contrail-web-server-manager
-      - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
       - Juniper/vijava
     pre-run: playbooks/contrail/vnc-pre.yaml
