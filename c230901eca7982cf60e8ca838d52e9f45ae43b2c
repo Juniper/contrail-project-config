@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3316045b_1d2567a2",
+        "filename": "zuul.d/pipelines.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-08-12T09:49:16Z",
+      "side": 1,
+      "message": "rocky",
+      "range": {
+        "startLine": 200,
+        "startChar": 22,
+        "endLine": 200,
+        "endChar": 27
+      },
+      "revId": "c230901eca7982cf60e8ca838d52e9f45ae43b2c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
