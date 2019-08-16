@@ -19,37 +19,28 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-ocata:
+        - contrail-build-containers-centos7:
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-build-test-containers:
             dependencies:
               - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-ocata:
-            dependencies:
-              - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-queens:
-            dependencies:
-              - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-rocky:
-            dependencies:
-              - contrail-vnc-build-package-centos74
         - contrail-sanity-centos7-kolla-ocata:
             dependencies:
               - contrail-build-test-containers
-              - contrail-build-containers-centos7-ocata
+              - contrail-build-containers-centos7
         - contrail-sanity-centos7-kolla-queens:
             dependencies:
               - contrail-build-test-containers
-              - contrail-build-containers-centos7-queens
+              - contrail-build-containers-centos7
         - contrail-sanity-centos7-kolla-rocky:
             dependencies:
               - contrail-build-test-containers
-              - contrail-build-containers-centos7-rocky
+              - contrail-build-containers-centos7
         - contrail-sanity-centos7-k8s:
             dependencies:
               - contrail-build-test-containers
-              - contrail-build-containers-centos7-queens
+              - contrail-build-containers-centos7
 
     gate:
       queue: contrail-vnc
@@ -83,7 +74,7 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-ocata:
+        - contrail-build-containers-centos7:
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-build-test-containers:
@@ -91,7 +82,7 @@
               - contrail-vnc-build-package-centos74
         - contrail-sanity-ubuntu1604-helm-ocata:
             dependencies:
-              - contrail-build-containers-centos7-ocata
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
     gate:
       queue: contrail-vnc
@@ -156,7 +147,7 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-ocata:
+        - contrail-build-containers-centos7:
             dependencies:
               - contrail-vnc-build-package-centos74
     gate:
@@ -169,13 +160,13 @@
     check:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-ocata:
+        - contrail-build-containers-centos7:
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-go-docker:
             dependencies:
               - contrail-vnc-build-package-centos74
-              - contrail-build-containers-centos7-ocata
+              - contrail-build-containers-centos7
         - contrail-vnc-build-package-rhel7-queens
         - contrail-build-containers-rhel7-queens:
             dependencies:
@@ -421,14 +412,14 @@
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
             dependencies:
-              - contrail-build-containers-centos7-queens
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
         - contrail-windows-test-cad:
             voting: False
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
-        - contrail-build-containers-centos7-ocata:
+        - contrail-build-containers-centos7:
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-build-test-containers:
@@ -436,11 +427,11 @@
               - contrail-vnc-build-package-centos74
         - contrail-sanity-centos7-kolla-ocata:
             dependencies:
-              - contrail-build-containers-centos7-ocata
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
         - contrail-sanity-centos7-k8s:
             dependencies:
-              - contrail-build-containers-centos7-ocata
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
 
 - project:
@@ -508,7 +499,7 @@
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
             dependencies:
-              - contrail-build-containers-centos7-queens
+              - contrail-build-containers-centos7
               - contrail-build-test-containers
 
 - project:

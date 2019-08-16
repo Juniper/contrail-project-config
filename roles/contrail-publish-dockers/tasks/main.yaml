@@ -26,21 +26,16 @@
     src: publisher-{{ item }}-config.yaml
     dest: "{{ publisher_path }}/publisher-{{ item }}-config.yaml"
   with_items:
-    - internal
+    - public
     - nexus
 
-- name: Push to internal registry
+- name: Push to public registry
   shell: |
     . venv/bin/activate
-    python36 publisher.py --config publisher-internal-config.yaml --build-registry 10.84.5.81:{{ docker_registry_port }} --release {{ contrail_packaging.version.public }} --build {{ build_number }} --openstack_release {{ item }}
+    python36 publisher.py --config publisher-public-config.yaml --build-registry 10.84.5.81:{{ docker_registry_port }} --release {{ contrail_packaging.version.public }} --build {{ build_number }}
   become: true
   args:
     chdir: "{{ publisher_path }}"
-  with_items:
-    - newton
-    - ocata
-    - queens
-    - rocky
 
 - name: Push build to internal Nexus docker registry
   when: zuul is defined and zuul.pipeline is defined and zuul.pipeline == 'periodic-nightly-test'
