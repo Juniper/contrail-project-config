@@ -1,0 +1,13 @@
+---
+- name: Change file ownership of python3-status-check
+  file:
+    path: roles/test-python3-status/files/python3-status-check.sh
+    mode: '0755'
+
+- name: run python3 status check script
+  shell: |
+    virtualenv .venv
+    source .venv/bin/activate
+    python3 -m pip install -r requirements.txt
+    python3 roles/test-python3-status/files/python3-status-check.sh
+
