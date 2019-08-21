@@ -1,0 +1,47 @@
+---
+
+- name: install epel
+  package:
+    name: epel-release
+    state: present
+  become: true
+
+- name: enable epel
+  command: yum-config-manager --enable epel
+  become: true
+
+- name: clear yum cache
+  command: yum clean all
+  become: true
+
+
+- name: install change script dependencies
+  package:
+    name: '{{ item }}'
+    state: present
+  become: true
+  with_items:
+    - createrepo 
+    - docker 
+    - docker-python 
+    - gcc 
+    - gdb 
+    - git 
+    - make 
+    - python-devel 
+    - python-pip 
+    - python36-devel 
+    - python36-pip 
+    - rpm-build 
+    - vim 
+    - wget 
+    - yum-utils 
+    - bash-completion 
+    - bash-completion-extras 
+    - ShellCheck 
+    - man-pages 
+    - man-db 
+
+- name: run python3 status check script
+  shell: |
+    bash python3-status-check.sh
