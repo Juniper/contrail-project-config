@@ -409,3 +409,19 @@
     secrets:
       - name: db_credentials
         secret: zuul_db
+
+- job:
+    name: test-python3-status
+    required-projects:
+      - Juniper/contrail-controller
+    irrelevant-files:
+      - specs/.*
+    run: playbooks/test-python3-status/main.yaml
+
+- job:
+    name: test-python3-status
+    required-projects:
+      - Juniper/contrail-controller
+    irrelevant-files:
+      - specs/.*
+    run: playbooks/test-python3-status/main.yaml
