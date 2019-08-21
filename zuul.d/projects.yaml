@@ -249,6 +249,8 @@
       jobs:
         - contrail-vnc-unittest-centos7-tntestr:
             voting: False
+        - test-python3-status:
+            voting: Fals
 
 - project:
     name: Juniper/contrail-generateDS
