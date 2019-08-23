@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "51b6c594_dc9baefb",
+        "filename": "roles/test-python3-status/files/python3-status-check.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 351
+      },
+      "writtenOn": "2019-08-23T12:35:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b65957c4_8e776bcb",
+      "revId": "31f026f1c6386efff2122492be304beef43adb2d",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "859c1b70_a033a43a",
         "filename": "roles/test-python3-status/tasks/main.yaml",
         "patchSetId": 17
@@ -47,6 +65,24 @@
       "writtenOn": "2019-08-23T12:18:28Z",
       "side": 1,
       "message": "it\u0027s a bash file - just run it with correct folder",
+      "revId": "31f026f1c6386efff2122492be304beef43adb2d",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a3f54e8_73ce7085",
+        "filename": "roles/test-python3-status/tasks/main.yaml",
+        "patchSetId": 17
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 351
+      },
+      "writtenOn": "2019-08-23T12:35:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "859c1b70_a033a43a",
       "revId": "31f026f1c6386efff2122492be304beef43adb2d",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
