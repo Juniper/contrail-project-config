@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48d145ea_fce94a29",
+        "filename": "playbooks/test-python3-status/requirements.txt",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-08-23T12:18:28Z",
+      "side": 1,
+      "message": "it should be in role folder",
+      "revId": "31f026f1c6386efff2122492be304beef43adb2d",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b65957c4_8e776bcb",
+        "filename": "roles/test-python3-status/files/python3-status-check.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-08-23T12:18:28Z",
+      "side": 1,
+      "message": "please set mode 0755 for this file",
+      "revId": "31f026f1c6386efff2122492be304beef43adb2d",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "859c1b70_a033a43a",
+        "filename": "roles/test-python3-status/tasks/main.yaml",
+        "patchSetId": 17
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-08-23T12:18:28Z",
+      "side": 1,
+      "message": "it\u0027s a bash file - just run it with correct folder",
+      "revId": "31f026f1c6386efff2122492be304beef43adb2d",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
