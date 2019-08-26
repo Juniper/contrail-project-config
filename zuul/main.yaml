@@ -88,6 +88,8 @@
           - tungstenfabric/docs
           - tungstenfabric/tungsten-test-runner
           - tungstenfabric-infra/periodic-nightly
+          # new projects
+          - tungstenfabric/analytics
 
 - tenant:
     name: tungstenfabric-preview
