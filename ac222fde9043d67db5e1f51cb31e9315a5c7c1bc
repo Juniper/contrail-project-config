@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "799cc542_3117ca60",
+        "filename": "roles/configure-hosts-entries/tasks/main.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 787
+      },
+      "writtenOn": "2019-08-27T04:26:45Z",
+      "side": 1,
+      "message": "this changed link is now broken, while the original one worked.\n\nIt\u0027s of little impact here as it is a comment, but would we notice if we introduced this same problem in a script, wget, or real piece of code?\n\nWe probably need to change the regex. Given that the commit number will be broken with the transition... what do we use instead? head? or something else?\n\n(we should probably keep a log with warnings or similar, fwiw)",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 136
+      },
+      "revId": "ac222fde9043d67db5e1f51cb31e9315a5c7c1bc",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
