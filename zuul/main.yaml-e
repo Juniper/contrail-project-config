@@ -18,7 +18,7 @@
           - Juniper/contrail
           - Juniper/contrail-zuul-jobs:
               shadow: Juniper/contrail-project-config
-          - tungstenfabric/analytics
+          - Juniper/contrail-analytics
           - Juniper/contrail-ansible
           - Juniper/contrail-ansible-deployer
           - Juniper/contrail-ansible-internal
