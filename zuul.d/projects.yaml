@@ -217,6 +217,17 @@
              - specs/.*
 
 - project:
+    name: tungstenfabric/analytics
+    templates:
+      - unittests
+      - systests
+    check:
+      jobs:
+        - contrail-vnc-specs-linter:
+           files:
+             - specs/.*
+
+- project:
     name: Juniper/contrail-common
     templates:
       - unittests
