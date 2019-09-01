@@ -22,6 +22,30 @@
       "revId": "ac222fde9043d67db5e1f51cb31e9315a5c7c1bc",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea90abe0_b7bb63ef",
+        "filename": "roles/configure-hosts-entries/tasks/main.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-09-01T16:59:54Z",
+      "side": 1,
+      "message": "right, this link is broken now.\nI suggest that such links (with line numbers) can be fixed manually only - we can change SHA to latest and check new line number.\n\nI suppose that we can add more cases to regex when we will found new inconsistencies.",
+      "parentUuid": "799cc542_3117ca60",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 136
+      },
+      "revId": "ac222fde9043d67db5e1f51cb31e9315a5c7c1bc",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
     }
   ]
 }
