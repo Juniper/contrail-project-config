@@ -35,12 +35,6 @@ function pre_test_setup() {
     rm $WORKSPACE/contrail-web-core/config/config.global.js.tmp
     touch config/config.global.js
 
-    # Storage
-    cat config/config.global.js | sed "/config.featurePkg.webController.enable/ a config.featurePkg.webStorage = {};\nconfig.featurePkg.webStorage.path='$WORKSPACE\/contrail-web-storage';\nconfig.featurePkg.webStorage.enable = true;" > $WORKSPACE/contrail-web-core/config/config.global.js.tmp
-    cp $WORKSPACE/contrail-web-core/config/config.global.js.tmp $WORKSPACE/contrail-web-core/config/config.global.js
-    rm $WORKSPACE/contrail-web-core/config/config.global.js.tmp
-    touch config/config.global.js
-
     cd $WORKSPACE/contrail-web-core
     #fetch dependent packages
     make fetch-pkgs-dev
@@ -56,9 +50,6 @@ function run_all_webui_tests() {
     cd $WORKSPACE/contrail-web-controller
     ./webroot/test/ui/run_tests.sh 2>&1 | tee $LOGDIR/web_controller_unittests.log
 
-    # Run Storage related Unit Testcase
-    cd $WORKSPACE/contrail-web-storage
-    ./webroot/test/ui/run_tests.sh 2>&1 | tee $LOGDIR/web_storage_unittests.log
 }
 
 function run_webui_controller_tests() {
@@ -74,29 +65,12 @@ function run_webui_controller_tests() {
     ./webroot/test/ui/run_tests.sh 2>&1 | tee $LOGDIR/web_controller_unittests.log
 }
 
-function run_webui_storage_tests() {
-    cd $WORKSPACE/contrail-web-core
-
-    #Setup the Prod Environment
-    make prod-env REPO=webStorage
-    #Setup the Test Environment
-    make test-env REPO=webStorage
-
-    # Run Storage related Unit Testcase
-    cd $WORKSPACE/contrail-web-storage
-    ./webroot/test/ui/run_tests.sh 2>&1 | tee $LOGDIR/web_storage_unittests.log
-}
-
 # Build unittests
 function build_unittest() {
     case "$REPO_NAME" in
         "contrail-web-controller")
             echo "Run all UT for Contrail Web Controller repo."
             run_webui_controller_tests
-            ;;
-        "contrail-web-storage")
-            echo "Run all UT for Contrail Web Storage repo"
-            run_webui_storage_tests
             ;;
         *)
             echo "Run all UT for Contrail Web * repo"
@@ -113,7 +87,7 @@ function copy_reports(){
     cp -p contrail-web*/$report_dir/tests/*-test-results.xml $TEST_REPORTS_DIR || true
 
     echo "info: gathering XML coverage reports..."
-    for p in controller storage; do
+    for p in controller ; do
         src_dir=contrail-web-$p/$report_dir/coverage
         cp -p $src_dir/*/phantomjs/cobertura-coverage.xml $COVERAGE_REPORTS_DIR/${p}-cobertura-coverage.xml || true
     done
