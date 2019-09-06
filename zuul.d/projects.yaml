@@ -235,6 +235,13 @@
       #- windows-sanity
 
 - project:
+    name: tungstenfabric/common
+    templates:
+      - unittests
+      - systests
+      #- windows-sanity
+
+- project:
     name: Juniper/contrail-build
     templates:
       - unittests
@@ -243,6 +250,26 @@
 
 - project:
     name: Juniper/contrail-controller
+    templates:
+      - unittests
+      - systests
+      #- windows-sanity
+    check:
+      jobs:
+        - test-python3-status:
+            voting: False
+        - contrail-vnc-unittest-centos7-tntestr:
+            voting: False
+    experimental:
+      jobs:
+        - contrail-vnc-build-package-rhel7-queens
+        - contrail-build-containers-rhel7-queens:
+            dependencies:
+              - contrail-vnc-build-package-rhel7-queens
+
+
+- project:
+    name: tungstenfabric/controller
     templates:
       - unittests
       - systests
@@ -532,6 +559,13 @@
 
 - project:
     name: Juniper/contrail-api-client
+    templates:
+      - unittests
+      - systests
+      #- windows-sanity
+
+- project:
+    name: tungstenfabric/api-client
     templates:
       - unittests
       - systests
