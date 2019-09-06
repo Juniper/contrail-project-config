@@ -366,14 +366,7 @@
     trigger:
       gerrit:
         - event: ref-updated
-          ref:
-            - ^master$
-            - ^R5.0$
-            - ^R5.1$
-            - ^R1907$
-            - ^R1908$
-            - ^R1909$
-            - ^R6.0-WIP$
+          ref: ^refs/heads/.*$
     start:
       stats:
     success:
