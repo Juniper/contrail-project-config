@@ -42,9 +42,9 @@ function pre_test_setup() {
 
 function run_all_webui_tests() {
     #Setup the Prod Environment
-    make prod-env REPO=webController,webStorage
+    make prod-env REPO=webController
     #Setup the Test Environment
-    make test-env REPO=webController,webStorage
+    make test-env REPO=webController
 
     # Run Controller related Unit Testcase
     cd $WORKSPACE/contrail-web-controller
