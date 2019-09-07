@@ -49,9 +49,12 @@ def main():
     if branch == 'master':
         version['upstream'] = MASTER_RELEASE
         version['public'] = 'master'
+        base_image_tag = 'master-monthly'
     else:
         version['upstream'] = branch[1:]
         version['public'] = branch[1:]
+        # this is expected to be R1909/R1910
+        base_image_tag = branch[1:] + '-monthly'
 
     if release_type == ReleaseType.CONTINUOUS_INTEGRATION:
         # Versioning in CI consists of change id, pachset and date
