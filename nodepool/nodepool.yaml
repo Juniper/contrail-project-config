@@ -128,9 +128,44 @@ providers:
             console-log: True
             key-name: ci-infra-shared-key
 
-  - name: juniper-contrail-ci-c
+  - name: juniper-cluster-c-isolated
     region-name: "RegionOne"
-    cloud: jnpr-contrail-ci-c
+    cloud: jnpr-cluster-c-isolated
+    max-concurrency: 1
+    api-timeout: 240
+    boot-timeout: 360
+    clean-floating-ips: true
+    rate: 1.0
+    ipv6-preferred: false
+    image-type: 'qcow2'
+    image-name-format: 'template-{image_name}-{timestamp}'
+    hostname-format: '{label.name}-{provider.name}-{node.id}'
+    diskimages:
+      - name: centos-7
+      - name: centos-7-4
+      - name: ubuntu-xenial
+    pools:
+      - name: ci-zuulv3-c-isolated
+        max-servers: 128
+        availability-zones:
+          - nova
+        networks:
+          - isolated_nodepool_network
+        labels:
+          - name: ubuntu-xenial-isolated
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: ubuntu-xenial
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: centos-7-isolated
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: centos-7-4
+            console-log: True
+            key-name: ci-infra-shared-key
+
+  - name: juniper-saturn
+    region-name: "RegionOne"
+    cloud: jnpr-saturn
     max-concurrency: 1
     api-timeout: 240
     boot-timeout: 360
@@ -147,7 +182,7 @@ providers:
       - name: ubuntu-trusty
       - name: ubuntu-xenial
     pools:
-      - name: ci-zuulv3-c
+      - name: ci-zuulv3
         max-servers: 128
         availability-zones:
           - nova
@@ -206,40 +241,6 @@ providers:
             console-log: True
             key-name: ci-infra-shared-key
 
-  - name: juniper-cluster-c-isolated
-    region-name: "RegionOne"
-    cloud: jnpr-cluster-c-isolated
-    max-concurrency: 1
-    api-timeout: 240
-    boot-timeout: 360
-    clean-floating-ips: true
-    rate: 1.0
-    ipv6-preferred: false
-    image-type: 'qcow2'
-    image-name-format: 'template-{image_name}-{timestamp}'
-    hostname-format: '{label.name}-{provider.name}-{node.id}'
-    diskimages:
-      - name: centos-7
-      - name: centos-7-4
-      - name: ubuntu-xenial
-    pools:
-      - name: ci-zuulv3-c-isolated
-        max-servers: 128
-        availability-zones:
-          - nova
-        networks:
-          - isolated_nodepool_network
-        labels:
-          - name: ubuntu-xenial-isolated
-            flavor-name: m1.16g_80g_8vcpu
-            diskimage: ubuntu-xenial
-            console-log: True
-            key-name: ci-infra-shared-key
-          - name: centos-7-isolated
-            flavor-name: m1.16g_80g_8vcpu
-            diskimage: centos-7-4
-            console-log: True
-            key-name: ci-infra-shared-key
 
 diskimages:
   - name: centos-7
