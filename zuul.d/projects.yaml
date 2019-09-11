@@ -270,7 +270,6 @@
 - project:
     name: Juniper/contrail-zuul-jobs
     templates:
-      - unittests
       - systests
       #- windows-sanity
 
