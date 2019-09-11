@@ -90,7 +90,7 @@
     required-projects:
       - Juniper/contrail-analytics
       - Juniper/contrail-ansible-deployer
-      - Juniper/contrail-api-client
+      - tungstenfabric/api-client
       - Juniper/contrail-build
       - Juniper/contrail-common
       - Juniper/contrail-container-builder
@@ -143,7 +143,7 @@
     required-projects:
       - Juniper/contrail-analytics
       - Juniper/contrail-ansible-deployer
-      - Juniper/contrail-api-client
+      - tungstenfabric/api-client
       - Juniper/contrail-build
       - Juniper/contrail-common
       - Juniper/contrail-container-builder
@@ -215,7 +215,7 @@
       - ^R5\.0$
       - ^contrail_dpdk_17_11_3$
     required-projects:
-      - Juniper/contrail-api-client
+      - tungstenfabric/api-client
       - Juniper/contrail-build
       - Juniper/contrail-controller
       - name: Juniper/contrail-dpdk
@@ -243,7 +243,7 @@
     name: contrail-vnc-build-unittest-ubuntu-trusty
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
-      - Juniper/contrail-api-client
+      - tungstenfabric/api-client
       - Juniper/contrail-build
       - Juniper/contrail-controller
       - name: Juniper/contrail-dpdk

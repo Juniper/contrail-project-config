@@ -13,7 +13,7 @@
     - review.opencontrail.org/Juniper/contrail-generateDS
     - review.opencontrail.org/Juniper/contrail-common
     - review.opencontrail.org/Juniper/contrail-analytics
-    - review.opencontrail.org/Juniper/contrail-api-client
+    - review.opencontrail.org/tungstenfabric/api-client
   tags:
     # Ignore ANSIBLE0006: Can not use git module for adding remotes
     - skip_ansible_lint
@@ -30,7 +30,7 @@
     - review.opencontrail.org/Juniper/contrail-generateDS
     - review.opencontrail.org/Juniper/contrail-common
     - review.opencontrail.org/Juniper/contrail-analytics
-    - review.opencontrail.org/Juniper/contrail-api-client
+    - review.opencontrail.org/tungstenfabric/api-client
   tags:
     # Ignore ANSIBLE0006: Can not use git module for fetching
     - skip_ansible_lint
