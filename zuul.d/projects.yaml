@@ -267,6 +267,12 @@
             dependencies:
               - contrail-vnc-build-package-rhel7-queens
 
+- project:
+    name: Juniper/contrail-zuul-jobs
+    templates:
+      - unittests
+      - systests
+      #- windows-sanity
 
 - project:
     name: tungstenfabric/controller
