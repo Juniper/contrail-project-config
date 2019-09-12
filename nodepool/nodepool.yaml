@@ -243,6 +243,7 @@ providers:
 
 diskimages:
   - name: centos-7
+    pause: true       # manual unpause only
     elements:
       - centos7
       - vm
@@ -261,6 +262,7 @@ diskimages:
       DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
       DIB_INSTALLTYPE_pip_and_virtualenv: package
   - name: centos-7-4
+    pause: true       # manual unpause only
     elements:
       - centos-minimal
       - vm
@@ -279,6 +281,7 @@ diskimages:
       DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
       DIB_INSTALLTYPE_pip_and_virtualenv: package
   - name: rhel-7
+    pause: true       # manual unpause only
     elements:
       - rhel7
       - rhel-common
@@ -326,6 +329,7 @@ diskimages:
       DIB_DEBIAN_COMPONENTS: 'main,universe'
       DIB_TOX_VERSION: '3.1.3'
   - name: ubuntu-trusty
+    pause: true       # manual unpause only
     elements:
       - ubuntu
       - vm
