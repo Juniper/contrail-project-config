@@ -190,21 +190,6 @@
       jobs:
         - noop
 
-- project-template:
-    name: windows-sanity
-    check:
-      jobs:
-        - contrail-build-win2016
-
-- project-template:
-    name: windows-all-tests
-    check:
-      jobs:
-        - contrail-alltests-win2016
-    gate:
-      jobs:
-        - noop
-
 - project:
     name: Juniper/contrail-analytics
     templates:
@@ -232,28 +217,24 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: tungstenfabric/common
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-build
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-controller
     templates:
       - unittests
       - systests
-      #- windows-sanity
     check:
       jobs:
         - test-python3-status:
@@ -271,14 +252,12 @@
     name: Juniper/contrail-zuul-jobs
     templates:
       - systests
-      #- windows-sanity
 
 - project:
     name: tungstenfabric/controller
     templates:
       - unittests
       - systests
-      #- windows-sanity
     check:
       jobs:
         - test-python3-status:
@@ -330,7 +309,6 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
     check:
       jobs:
         - contrail-vrouter-ut-centos7
@@ -340,7 +318,6 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-neutron-plugin
@@ -567,14 +544,12 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: tungstenfabric/api-client
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-java-api
@@ -647,30 +622,10 @@
     templates:
       - openshift-systests
 
-#- project:
-#    name: Juniper/contrail-windows-docker-driver
-#    templates:
-#      - windows-sanity
-
 - project:
     name: Juniper/contrail-vcenter-manager
     templates:
       - build-container
-
-#- project:
-#    name: Juniper/contrail-windows
-#    templates:
-#      - windows-sanity
-
-- project:
-    name: Juniper/contrail-windows-test
-    templates:
-      - windows-all-tests
-
-- project:
-    name: Juniper/contrail-windows-ci-infra
-    templates:
-      - noops
 
 - project:
     name: tungstenfabric/docs
