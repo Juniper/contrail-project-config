@@ -41,7 +41,7 @@
     - { src: 'review.opencontrail.org/Juniper/contrail-packages/', dest: 'tools/packages' }
     - { src: 'review.opencontrail.org/Juniper/contrail-provisioning/', dest: 'tools/provisioning' }
     - { src: 'review.opencontrail.org/Juniper/contrail-nova-vif-driver/', dest: 'openstack/nova_contrail_vif' }
-    - { src: 'review.opencontrail.org/Juniper/contrail-api-client/', dest: 'src/contrail-api-client' }
+    - { src: 'review.opencontrail.org/tungstenfabric/api-client/', dest: 'src/contrail-api-client' }
     - { src: 'review.opencontrail.org/Juniper/contrail-common/', dest: 'src/contrail-common' }
     - { src: 'review.opencontrail.org/Juniper/contrail-analytics/', dest: 'src/contrail-analytics' }
   delegate_to: "{{ inventory_hostname }}"
