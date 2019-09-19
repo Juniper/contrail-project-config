@@ -42,6 +42,13 @@
               - contrail-build-test-containers
               - contrail-build-containers-centos7
 
+- project-template:
+    name: python3-check
+    check:
+      jobs:
+        - test-python3-status
+            voting: False
+
     gate:
       queue: contrail-vnc
       jobs:
@@ -210,6 +217,7 @@
     templates:
       - unittests
       - systests
+      - python3-check
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -232,7 +240,7 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
+      - python3-check
 
 - project:
     name: tungstenfabric/common
@@ -253,11 +261,9 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
+      - python3-check
     check:
       jobs:
-        - test-python3-status:
-            voting: False
         - contrail-vnc-unittest-centos7-tntestr:
             voting: False
     experimental:
@@ -304,6 +310,8 @@
     name: Juniper/contrail-packages
     templates:
       - systests
+      - python3-check
+
     check:
       jobs:
         - contrail-vnc-build-package-rhel7-queens
@@ -316,11 +324,13 @@
     templates:
       - unittests
       - systests
+      - python3-check
 
 - project:
     name: Juniper/contrail-specs
     templates:
       - noops
+      - python3-check
     check:
       jobs:
         - contrail-vnc-specs-linter
@@ -330,7 +340,7 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
+      - python3-check
     check:
       jobs:
         - contrail-vrouter-ut-centos7
@@ -340,18 +350,20 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
+      - python3-check
 
 - project:
     name: Juniper/contrail-neutron-plugin
     templates:
       - systests
+      - python3-check
       # flake8
 
 - project:
     name: Juniper/contrail-nova-vif-driver
     templates:
       - systests
+      - python3-check
       # flake8
 
 - project:
@@ -363,6 +375,7 @@
     name: Juniper/contrail-test
     templates:
       - systests
+      - python3-check
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
@@ -394,17 +407,20 @@
     name: Juniper/contrail-heat
     templates:
       - systests
+      - python3-check
       # flake8
 
 - project:
     name: Juniper/contrail-vcenter-plugin
     templates:
       - build-container
+      - python3-check
 
 - project:
     name: Juniper/contrail-vcenter-fabric-manager
     templates:
       - build-container
+      - python3-check
     check:
       jobs:
         - contrail-vcenter-fabric-manager-linters
@@ -500,12 +516,14 @@
     templates:
       - unittests-webui
       - systests
+      - python3-check
 
 - project:
     name: Juniper/contrail-web-controller
     templates:
       - unittests-webui
       - systests
+      - python3-check
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -517,6 +535,7 @@
     templates:
       - unittests-webui
       - systests
+      - python3-check
 
 - project:
     name: Juniper/contrail-web-server-manager
@@ -529,6 +548,7 @@
     templates:
       - unittests-webui
       - systests
+      - python3-check
 
 - project:
     name: Juniper/contrail-third-party-cache
@@ -567,7 +587,7 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
+      - python3-check
 
 - project:
     name: tungstenfabric/api-client
@@ -580,10 +600,12 @@
     name: Juniper/contrail-java-api
     templates:
       - build-container
+      - python3-check
 
 - project:
     name: Juniper/vijava
     templates:
+      - python3-check
       - noops
 
 - project:
@@ -598,6 +620,8 @@
 
 - project:
     name: Juniper/contrail-dpdk
+    templates:
+      - python3-check
     check:
       jobs:
         - contrail-vnc-build-package-centos74
@@ -609,6 +633,7 @@
 - project:
     name: Juniper/contrail-vrouter-java-api
     templates:
+      - python3-check
       - noops
 
 - project:
@@ -617,6 +642,7 @@
 - project:
     name: Juniper/contrail-vro-plugin
     templates:
+      - python3-check
       - noops
 
 - project:
@@ -656,6 +682,7 @@
     name: Juniper/contrail-vcenter-manager
     templates:
       - build-container
+      - python3-check
 
 #- project:
 #    name: Juniper/contrail-windows
@@ -690,6 +717,7 @@
     name: Juniper/contrail-tripleo-puppet
     templates:
       - noops
+      - python3-check
 
 - project:
     name: Juniper/contrail-tripleo-heat-templates
