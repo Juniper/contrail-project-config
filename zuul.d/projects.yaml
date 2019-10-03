@@ -271,7 +271,7 @@
     name: Juniper/contrail-zuul-jobs
     templates:
       - systests
-      #- windows-sanity
+      - rhel-containers-build
 
 - project:
     name: tungstenfabric/controller
