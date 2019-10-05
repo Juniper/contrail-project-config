@@ -48,6 +48,21 @@
   command: pip install --ignore-installed pip==9.0.3
   become: true
 
+- name: install python3
+  package:
+    name: python3
+    state: installed
+  become: true
+
+- name: install/upgrade utilities
+  become: true
+  command: "python3 -m pip install --upgrade {{ item }}"
+  with_items:
+    - virtualenv
+    - scons
+    - pydot
+    - future
+
 # Version of tox that does not upgrade setuptools to the newest version,
 # breaking Contrail Python package build
 - name: Upgrade tox
