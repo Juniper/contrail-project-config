@@ -40,6 +40,7 @@
     - ack-grep
     - python-virtualenv
     - python-pip
+    - python3-pip
     - python-tox
 
 # Last version of pip that is pip-installable on Ubuntu
