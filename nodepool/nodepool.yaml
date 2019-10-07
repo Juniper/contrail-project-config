@@ -47,7 +47,6 @@ providers:
   - name: juniper-contrail-ci
     region-name: "RegionOne"
     cloud: jnpr-contrail-ci
-    max-concurrency: 1
     api-timeout: 240
     boot-timeout: 360
     clean-floating-ips: true
@@ -75,7 +74,6 @@ providers:
   - name: juniper-contrail-ci-c
     region-name: "RegionOne"
     cloud: jnpr-contrail-ci-c
-    max-concurrency: 1
     api-timeout: 240
     boot-timeout: 360
     clean-floating-ips: true
@@ -103,7 +101,6 @@ providers:
   - name: juniper-cluster-c-isolated
     region-name: "RegionOne"
     cloud: jnpr-cluster-c-isolated
-    max-concurrency: 1
     api-timeout: 240
     boot-timeout: 360
     clean-floating-ips: true
@@ -140,7 +137,6 @@ providers:
     cloud: jnpr-saturn
     # max-concurrency is how many nodes can be spawning at a time
     # value 1 may partially work around bug https://contrail-jws.atlassian.net/browse/CE-1219
-    max-concurrency: 1
     api-timeout: 240
     boot-timeout: 360
     clean-floating-ips: true
@@ -275,7 +271,7 @@ providers:
 
 diskimages:
   - name: centos-7
-    pause: true       # manual unpause only
+    pause: true # 2019-09-06 DGautam
     elements:
       - centos7
       - vm
@@ -294,7 +290,7 @@ diskimages:
       DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
       DIB_INSTALLTYPE_pip_and_virtualenv: package
   - name: centos-7-4
-    pause: true       # manual unpause only
+    pause: true # 2019-09-06 DGautam
     elements:
       - centos-minimal
       - vm
@@ -313,7 +309,7 @@ diskimages:
       DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
       DIB_INSTALLTYPE_pip_and_virtualenv: package
   - name: rhel-7
-    pause: true       # manual unpause only
+    pause: true # 2019-09-06 DGautam
     elements:
       - rhel7
       - rhel-common
@@ -327,17 +323,27 @@ diskimages:
     env-vars:
       TMPDIR: /opt/dib_tmp
       DIB_CHECKSUM: '1'
-      DIB_IMAGE_CACHE: /opt/dib_cache
-      DIB_GRUB_TIMEOUT: '0'
       DIB_EPEL_DISABLED: '0'
-      DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
+      DIB_GRUB_TIMEOUT: '0'
+      DIB_IMAGE_CACHE: /opt/dib_cache
       DIB_INSTALLTYPE_pip_and_virtualenv: package
-      REG_USER: username
-      REG_PASSWORD: password
+      DIB_LOCAL_IMAGE: /opt/cloud_images/rhel-server-7.6-update-5-x86_64-kvm.qcow2
+      DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
       REG_METHOD: portal
-      REG_POOL_ID: 12345
-      DIB_LOCAL_IMAGE: /opt/cloud_images/image.qcow2
+      REG_PASSWORD: Contrail123!
+      REG_POOL_ID: 8a85f99c68b939320168c7f5b4fc4617
+      REG_USER: contrail-ci
+      REG_AUTO_ATTACH: '1'
+      # REG_RELEASE+RELEASE works on nodepool 0.5+
+      # But the previous nodepool versions yum update to latest.
+      # Even with `release` and `DIB_RELEASE`, we tested all.
+      # We use a monkey patch to disable yum update and thus pin it.
+      REG_RELEASE: '7.6'
+      DIB_RELEASE: '7.6'
+      RELEASE: '7.6'
+    release: '7.6'
   - name: ubuntu-xenial
+#    pause: true    # 2019-08-08 libglib2.0-dev : Depends: libglib2.0-0 (= 2.48.2-0ubuntu4.3) but 2.48.2-0ubuntu4.4 is to be installed
     elements:
       - ubuntu
       - vm
@@ -356,12 +362,13 @@ diskimages:
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
       DIB_GRUB_TIMEOUT: '0'
-      DIB_DISTRIBUTION_MIRROR: 'http://10.84.5.38:8000/ubuntu'
+#      DIB_DISTRIBUTION_MIRROR: 'http://10.84.5.38:8000/ubuntu'
+      DIB_DISTRIBUTION_MIRROR: 'http://10.87.72.46/ubuntu'
       DIB_DEBOOTSTRAP_EXTRA_ARGS: '--no-check-gpg'
       DIB_DEBIAN_COMPONENTS: 'main,universe'
       DIB_TOX_VERSION: '3.1.3'
   - name: ubuntu-trusty
-    pause: true       # manual unpause only
+    pause: true # Mirror 'http://10.84.5.38:8000/ubuntu' is unaccessible
     elements:
       - ubuntu
       - vm
@@ -378,6 +385,7 @@ diskimages:
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
       DIB_GRUB_TIMEOUT: '0'
-      DIB_DISTRIBUTION_MIRROR: 'http://10.84.5.38:8000/ubuntu'
+#      DIB_DISTRIBUTION_MIRROR: 'http://10.84.5.38:8000/ubuntu'
+      DIB_DISTRIBUTION_MIRROR: 'http://10.87.72.46/ubuntu' # not includes multiverse etc.
       DIB_DEBOOTSTRAP_EXTRA_ARGS: '--no-check-gpg'
       DIB_DEBIAN_COMPONENTS: 'main,universe'
