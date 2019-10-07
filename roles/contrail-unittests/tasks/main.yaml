@@ -49,6 +49,10 @@
   command: pip install --ignore-installed pip==9.0.3
   become: true
 
+- name: install python2 future
+  command: "pip install future"
+  become: true
+
 - name: install python3
   package:
     name: python3
