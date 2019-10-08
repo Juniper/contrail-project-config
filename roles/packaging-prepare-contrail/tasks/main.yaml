@@ -77,8 +77,6 @@
   shell: |
       fakeroot debian/rules get-orig-source
       mv contrail_{{ packaging.full_version }}.orig.tar.gz ../
-  register: tar_result
-  failed_when: "'Exiting with failure' in tar_result.stderr"
   args:
     chdir: "{{ packaging.target_dir }}"
   environment:
