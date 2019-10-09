@@ -55,7 +55,7 @@
 
 - name: install python3
   package:
-    name: python3
+    name: python36
     state: installed
   become: true
 
