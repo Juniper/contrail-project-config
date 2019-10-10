@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf5b97ab_e0eb9408",
+        "filename": "nodepool/nodepool.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-10-10T13:59:07Z",
+      "side": 1,
+      "message": "Remove comments as well.",
+      "revId": "d3f0095f999e2a0c9e37d8270a75c2182d30bed0",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9d05f13_340948b9",
+        "filename": "nodepool/nodepool.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-10-10T13:59:07Z",
+      "side": 1,
+      "message": "How is this better?",
+      "revId": "d3f0095f999e2a0c9e37d8270a75c2182d30bed0",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0889567a_42958c8d",
+        "filename": "nodepool/nodepool.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-10-10T13:59:07Z",
+      "side": 1,
+      "message": "rm",
+      "revId": "d3f0095f999e2a0c9e37d8270a75c2182d30bed0",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbfbea69_dc43917b",
+        "filename": "nodepool/nodepool.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-10-10T13:59:07Z",
+      "side": 1,
+      "message": "Misleading comment. Ubuntu image is manual only anyway, so we don\u0027t break the old unit tests.",
+      "revId": "d3f0095f999e2a0c9e37d8270a75c2182d30bed0",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
