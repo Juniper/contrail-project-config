@@ -4,5 +4,6 @@
   roles:
     - contrail-common-libs
     - contrail-controller-hacks
+    - yum-repos-prepare
     - contrail-unittests
 
