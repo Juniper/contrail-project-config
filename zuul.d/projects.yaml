@@ -260,6 +260,8 @@
             voting: False
         - contrail-vnc-unittest-centos7-tntestr:
             voting: False
+        - contrail-vnc-unittest-centos7:
+            voting: False
     experimental:
       jobs:
         - contrail-vnc-build-package-rhel7-queens
