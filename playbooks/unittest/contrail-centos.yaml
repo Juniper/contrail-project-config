@@ -5,5 +5,5 @@
     - contrail-common-libs
     - contrail-controller-hacks
     - yum-repos-prepare
-    - contrail-unittests
+    - contrail-unittests-centos7
 
