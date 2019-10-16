@@ -28,7 +28,7 @@
   become: true
   become_user: root
   with_items:
-    - yum update
+    - yum update -y
 
 - name: Install additional packages used by unittest scripts
   yum:
