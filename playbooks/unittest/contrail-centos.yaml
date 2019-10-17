@@ -4,6 +4,9 @@
   roles:
     - contrail-common-libs
     - contrail-controller-hacks
+    - zuul-include-vars
+    - install-repo-script
+    - repo-sandbox-prepare2
     - yum-repos-prepare
     - contrail-unittests-centos7
 
