@@ -2,7 +2,7 @@
 
 - hosts: all
   roles:
-    - contrail-common-libs
+    - contrail-common-libs2
     - contrail-controller-hacks
     - zuul-include-vars
     - install-repo-script
