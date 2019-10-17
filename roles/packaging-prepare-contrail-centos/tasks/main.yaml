@@ -1,0 +1,52 @@
+---
+
+- name: Prepare packaging variables
+  contrail_packaging:
+    zuul: "{{ zuul }}"
+    release_type: "{{ release_type }}"
+
+# rsync requires that target parent directories are already in place,
+# so create everything ahead of time.
+- name: Create directory structure for rsync
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+  with_items:
+    - "{{ packaging.target_dir }}/"
+    - "{{ packaging.target_dir }}/src/"
+    - "{{ packaging.target_dir }}/tools/"
+    - "{{ packaging.target_dir }}/openstack/"
+
+- name: Hard-link gerrit repositories into expected structure
+  synchronize:
+    src: "{{ ansible_env.HOME }}/src/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/{{ item.dest }}"
+    rsync_opts:
+      - --no-motd
+      - --quiet
+  with_items:
+    - { src: 'review.opencontrail.org/Juniper/contrail-build/', dest: 'tools/build' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-build/SConstruct', dest: '' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-controller/', dest: 'controller' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-generateDS/', dest: 'tools/generateds' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-sandesh/', dest: 'tools/sandesh' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-third-party/', dest: 'third_party' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-vrouter/', dest: 'vrouter' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-packages/', dest: 'tools/packages' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-provisioning/', dest: 'tools/provisioning' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-nova-vif-driver/', dest: 'openstack/nova_contrail_vif' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-api-client/', dest: 'src/contrail-api-client' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-common/', dest: 'src/contrail-common' }
+    - { src: 'review.opencontrail.org/Juniper/contrail-analytics/', dest: 'src/contrail-analytics' }
+  delegate_to: "{{ inventory_hostname }}"
+
+- name: Hard-link github repositories into expected structure
+  synchronize:
+    src: "{{ ansible_env.HOME }}/src/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}/{{ item.dest }}"
+    rsync_opts:
+      - --no-motd
+      - --quiet
+  with_items: []
+  delegate_to: "{{ inventory_hostname }}"
+

@@ -2,11 +2,9 @@
 
 - hosts: all
   roles:
-    - contrail-common-libs2
+    - contrail-common-libs
     - contrail-controller-hacks
-    - zuul-include-vars
-    - install-repo-script
-    - repo-sandbox-prepare2
+    - packaging-prepare-contrail-centos
     - yum-repos-prepare
     - contrail-unittests-centos7
 
