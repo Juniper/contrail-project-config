@@ -58,15 +58,34 @@
     - man-pages
     - man-db
 
+- name: install deps
+  command: make -f tools/packages/Makefile dep
+  args:
+    chdir: "{{ packaging.target_dir }}"
+  become: true
+  become_user: root
+
+- name: fetch packages
+  command: ./third_party/fetch_packages.py
+  args:
+    chdir: "{{ packaging.target_dir }}"
+  become: true
+  become_user: root
+
 # Last version of pip that is pip-installable on Ubuntu
 # without breaking system pip installation
 - name: Upgrade pip
   command: pip install --ignore-installed pip==9.0.3
   become: true
 
-- name: install python2 future
-  command: "pip install future"
+- name: install python2 pypi packages
+  command: "pip install {{ item }}"
   become: true
+  become_user: root
+  with_items:
+    - future
+    - tox
+    - geventhttpclient
 
 - name: install python3
   package:
@@ -82,6 +101,10 @@
     - scons
     - pydot
     - future
+    - caniusepython3
+    - future
+    - tox
+    - geventhttpclient
 
 # Version of tox that does not upgrade setuptools to the newest version,
 # breaking Contrail Python package build
