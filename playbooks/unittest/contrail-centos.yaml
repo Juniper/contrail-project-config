@@ -7,5 +7,5 @@
     - packaging-prepare-contrail-centos
     - yum-repos-prepare
     - install-pip-virtualenv
-    - contrail-unittests-centos7
+    - contrail-unittests-centos
 
