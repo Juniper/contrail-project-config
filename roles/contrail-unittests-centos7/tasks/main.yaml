@@ -58,6 +58,13 @@
     - man-pages
     - man-db
 
+- name: install deps
+  command: make -f tools/packages/Makefile dep
+  args:
+    chdir: "{{ packaging.target_dir }}"
+  become: true
+  become_user: root
+
 # Last version of pip that is pip-installable on Ubuntu
 # without breaking system pip installation
 - name: Upgrade pip
