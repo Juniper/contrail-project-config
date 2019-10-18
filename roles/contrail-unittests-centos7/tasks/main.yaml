@@ -49,6 +49,7 @@
     - python36-devel
     - python36-pip
     - rpm-build
+    - ruby
     - vim
     - wget
     - yum-utils
