@@ -295,7 +295,7 @@
     nodeset:
       nodes:
         - name: builder
-          label: centos-7-4-builder
+          label: centos-7-4-builder-xxlarge
 
 - job:
     name: contrail-vnc-build-unittest-centos7
@@ -323,7 +323,7 @@
     nodeset:
       nodes:
         - name: builder
-          label: centos-7-4-builder
+          label: centos-7-4-builder-xxlarge
 
 - job:
     name: contrail-vnc-unittest-webui
