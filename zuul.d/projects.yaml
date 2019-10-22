@@ -15,6 +15,12 @@
         - contrail-vnc-unittest-webui
 
 - project-template:
+    name: pep8-check
+    check:
+      jobs:
+        - pep8-check
+
+- project-template:
     name: systests
     check:
       jobs:
@@ -253,6 +259,7 @@
     templates:
       - unittests
       - systests
+      - pep8-check
       #- windows-sanity
     check:
       jobs:
