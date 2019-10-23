@@ -258,8 +258,6 @@
       jobs:
         - test-python3-status:
             voting: False
-        - contrail-vnc-unittest-centos7-tntestr:
-            voting: False
         - contrail-vnc-build-unittest-centos7:
             voting: False
     experimental:
