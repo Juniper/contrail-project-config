@@ -113,6 +113,11 @@
   command: pip install --ignore-installed tox==3.1.3 virtualenv<16.2.0
   become: true
 
+- name: Load docker container from crpd.tgz
+  shell: |
+    wget http://10.84.5.120/cs-shared/crpd/crpd.tgz
+    cat crpd.tgz | docker load
+
 - name: Run unittest script
   command: "{{ ansible_env.HOME }}/contrail-unittests-job.sh"
   become: true
