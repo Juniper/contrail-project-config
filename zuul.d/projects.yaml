@@ -2,7 +2,7 @@
     name: unittests
     check:
       jobs:
-        - contrail-vnc-build-unittest-ubuntu-trusty
+        - contrail-vnc-build-unittest-centos7
     gate:
       queue: contrail-vnc
       jobs:
@@ -259,8 +259,6 @@
         - test-python3-status:
             voting: False
         - contrail-vnc-unittest-centos7-tntestr:
-            voting: False
-        - contrail-vnc-build-unittest-centos7:
             voting: False
     experimental:
       jobs:
