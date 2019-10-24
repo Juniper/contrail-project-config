@@ -1,0 +1,30 @@
+[centosplus]
+name = CentOS-$releasever - Plus
+baseurl = http://10.84.56.27/centos/centos/$releasever/centosplus/$basearch/
+gpgcheck = 1
+enabled = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+[updates-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/centos77-updates/
+enabled = 1
+gpgcheck = 0
+name = CentOS updates mirror
+
+[extras-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/centos77-extra/
+enabled = 1
+gpgcheck = 0
+name = CentOS extras mirror
+
+[base-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/centos77-os/
+enabled = 1
+gpgcheck = 0
+name = CentOS base mirror
+
+[centos76-updates-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/centos76-updates/
+enabled = 1
+gpgcheck = 0
+name = CentOS-76 updates mirror
