@@ -1,0 +1,35 @@
+[rhel-7-server-rpms-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/rhel-7-server-rpms/
+enabled = 1
+gpgcheck = 0
+name = rhel-7-server-rpms
+
+[rhel-7-server-extras-rpms-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/rhel-7-server-extra-rpm/
+enabled = 1
+gpgcheck = 0
+name = rhel-7-server-extras-rpms
+
+[rhel-7-server-optional-rpms-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/rhel-7-server-optional-rpms/
+enabled = 1
+gpgcheck = 0
+name = rhel-7-server-optional-rpms
+
+[rhel-server-rhscl-7-rpms-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/rhel-server-rhscl-7-rpm/
+enabled = 1
+gpgcheck = 0
+name = rhel-server-rhscl-7-rpms
+
+[rhel-7-server-openstack-13-devtools-rpms-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/rhel-7-server-openstack-13-devtools-rpm/
+enabled = 1
+gpgcheck = 0
+name = rhel-7-server-openstack-13-devtools-rpms
+
+[rhel-7-server-openstack-13-rpms-mirror]
+baseurl = http://10.84.5.81/pulp/repos/master/rhel-7-server-openstack-13-rpm/
+enabled = 1
+gpgcheck = 0
+name = rhel-7-server-openstack-13-rpms
