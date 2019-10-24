@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1184a20_9491c157",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2019-10-24T06:40:59Z",
+      "side": 1,
+      "message": "i disagree to use this job.\ncontrail-vnc-unittest-centos7-tntestr should be used.",
+      "revId": "60b66632836b73c6d045f4f88fff003773630fe8",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
