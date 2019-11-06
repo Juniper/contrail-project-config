@@ -70,6 +70,31 @@
               setup_docker_registry: false
 
 - project-template:
+    name: systests-with-latest-os-ver
+    check:
+      jobs:
+        - contrail-vnc-build-package-centos74
+        - contrail-build-containers-centos7:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-build-test-containers:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-sanity-centos7-kolla-rocky:
+            dependencies:
+              - contrail-build-test-containers
+              - contrail-build-containers-centos7
+        - contrail-sanity-centos7-k8s:
+            dependencies:
+              - contrail-build-test-containers
+              - contrail-build-containers-centos7
+
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - contrail-vnc-build-package-centos74
+
+- project-template:
     name: helm-systests
     check:
       jobs:
@@ -209,7 +234,7 @@
     name: Juniper/contrail-analytics
     templates:
       - unittests
-      - systests
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -220,7 +245,7 @@
     name: tungstenfabric/analytics
     templates:
       - unittests
-      - systests
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -231,29 +256,25 @@
     name: Juniper/contrail-common
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
 
 - project:
     name: tungstenfabric/common
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-build
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-controller
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
     check:
       jobs:
         - test-python3-status:
@@ -268,15 +289,14 @@
 - project:
     name: Juniper/contrail-zuul-jobs
     templates:
-      - systests
+      - systests-with-latest-os-ver
       - rhel-containers-build
 
 - project:
     name: tungstenfabric/controller
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
     check:
       jobs:
         - test-python3-status:
@@ -290,18 +310,16 @@
             dependencies:
               - contrail-vnc-build-package-rhel7-queens
 
-
 - project:
     name: Juniper/contrail-generateDS
     templates:
       - unittests
-      - systests
-      # flake8
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-packages
     templates:
-      - systests
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-vnc-build-package-rhel7-queens
@@ -313,7 +331,7 @@
     name: Juniper/contrail-sandesh
     templates:
       - unittests
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-specs
@@ -327,8 +345,7 @@
     name: Juniper/contrail-vrouter
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-vrouter-ut-centos7
@@ -337,30 +354,27 @@
     name: Juniper/contrail-third-party
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-neutron-plugin
     templates:
       - systests
-      # flake8
 
 - project:
     name: Juniper/contrail-nova-vif-driver
     templates:
       - systests
-      # flake8
 
 - project:
     name: Juniper/contrail-provisioning
     templates:
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-test
     templates:
-      - systests
+      - systests-with-latest-os-ver
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
@@ -371,28 +385,27 @@
 - project:
     name: Juniper/contrail-fabric-utils
     templates:
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/horizon
     templates:
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/nova
     templates:
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-puppet
     templates:
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-heat
     templates:
       - systests
-      # flake8
 
 - project:
     name: Juniper/contrail-vcenter-plugin
@@ -457,7 +470,7 @@
 - project:
     name: Juniper/contrail-ansible-deployer
     templates:
-      - systests
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
@@ -485,25 +498,25 @@
 - project:
     name: Juniper/contrail-container-builder
     templates:
-      - systests
+      - systests-with-latest-os-ver
       - rhel-containers-build
 
 - project:
     name: Juniper/contrail-deployers-containers
     templates:
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-web-core
     templates:
       - unittests-webui
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-web-controller
     templates:
       - unittests-webui
-      - systests
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -514,25 +527,25 @@
     name: Juniper/contrail-webui-third-party
     templates:
       - unittests-webui
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-web-server-manager
     templates:
       - unittests-webui
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-web-storage
     templates:
       - unittests-webui
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-third-party-cache
     templates:
       - unittests-webui
-      - systests
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-server-manager
@@ -542,7 +555,7 @@
 - project:
     name: Juniper/contrail-kolla-ansible
     templates:
-      - systests
+      - systests-with-latest-os-ver
     check:
       jobs:
         - contrail-sanity-centos7-kolla-queens-multinode:
@@ -564,15 +577,13 @@
     name: Juniper/contrail-api-client
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
 
 - project:
     name: tungstenfabric/api-client
     templates:
       - unittests
-      - systests
-      #- windows-sanity
+      - systests-with-latest-os-ver
 
 - project:
     name: Juniper/contrail-java-api
