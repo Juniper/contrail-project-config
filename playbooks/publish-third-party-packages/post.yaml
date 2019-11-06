@@ -7,7 +7,8 @@
   roles:
     - role: publish-rpm-nexus
       remote_repo_path: '{{ nexus.repos.yum_tpc }}/{{ zuul.branch }}/source'
-
+    - role: publish-rpm-artifactory
+      remote_repo_path: '{{ yum_tpc.put_url }}/{{ zuul.branch }}/source'
 - hosts: builder
   roles:
     - role: run-nexus-script
