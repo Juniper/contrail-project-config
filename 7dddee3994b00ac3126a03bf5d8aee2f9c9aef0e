@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8c36d39_69618bc8",
+        "filename": "zuul.d/jobs.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-06T15:02:39Z",
+      "side": 1,
+      "message": "Source code duplication here and in the playbook. What are the reasons we don\u0027t go all-at-once to artifactory?",
+      "revId": "7dddee3994b00ac3126a03bf5d8aee2f9c9aef0e",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
