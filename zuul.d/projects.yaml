@@ -638,7 +638,7 @@
               - upstream/rpm/.*
     post-merge:
       jobs:
-        - publish-third-party-packages
+        - publish-third-party-packages-nexus
 
 - project:
     name: Juniper/openshift-ansible

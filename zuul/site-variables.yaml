@@ -19,6 +19,13 @@ nexus:
       rebuild_metadata: '277418cf-cbc4-4219-a86b-9be48cdd0c2c'
     yum_tpc_test:
       rebuild_metadata: 'fff750d5-6d67-41d5-8cce-e65d97bb730e'
+artifactory:
+  fqdn: 'svl-artifactory.juniper.net'
+  ip: '10.160.12.173'
+  repos:
+    yum_tpc: 'contrail-ci-tpc'
+    rh_satellite: 'contrail-ci-rh-satellite'
+    yum_centos: 'contrail-ci-yum-centos'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000
