@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cec9573_ddc55bcc",
+        "filename": "zuul.d/jobs.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "No `-artifactory` here, just `publish-third-party-packages`",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36b6c200_2fa6e8cc",
+        "filename": "zuul.d/jobs.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "You are using the same `post-run` playbook, but a different secret name. It won\u0027t work.\n\nMaybe change both jobs to `name: tpc_credentials` and change it inside the playbook?",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea939592_6097817e",
+        "filename": "zuul.d/secrets.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "Since we\u0027re renaming the existing secret, let\u0027s not go `tungsten`. I think the `tungsten` proliferation throughout the source is a leftover from older times when people thought that we can just jump to tungstenfabric renaming using existing c-p-c. I think `registry_artifactory_ci` and `registry_nexus_ci` maybe?",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d716b4bb_56d3744b",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "Either one or the other. Another item is another possible point of failure. We need fqdn to use https and docker - without fqdn the certificates don\u0027t validate properly. Is there a justification to use ip?",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02aabecd_5ad786da",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "Future, not blocking now. Is \u0027contrail-ci-tpc\u0027 already created and can we rename it to `contrail-yum-tpc`? Is it really CI related and unusable by nightly builds in future?\n\nSame for `*-test`",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1009ed25_604349ab",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "Maybe also remove `-ci`",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d346a63_e88a619a",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "Maybe also remove `-ci`",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8425af05_67fa362e",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T14:10:15Z",
+      "side": 1,
+      "message": "Maybe also remove `-ci`",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
