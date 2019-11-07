@@ -157,6 +157,10 @@
 
 - project-template:
     name: build-container-go
+        #
+        # Deprecated old template
+        # Only used for branch R1911 and earlier of repo `Juniper/contrail`
+        #
     check:
       jobs:
         - contrail-vnc-build-package-centos74
