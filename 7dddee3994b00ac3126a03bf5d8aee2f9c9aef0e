@@ -16,6 +16,24 @@
       "revId": "7dddee3994b00ac3126a03bf5d8aee2f9c9aef0e",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebbb59fd_0d9837b0",
+        "filename": "zuul.d/jobs.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2019-11-07T13:43:43Z",
+      "side": 1,
+      "message": "The switching procedure could be a bit delicate. At first, I want to add a new job and easily switch between them. After tests, I ll erase old nexus config.",
+      "parentUuid": "c8c36d39_69618bc8",
+      "revId": "7dddee3994b00ac3126a03bf5d8aee2f9c9aef0e",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
     }
   ]
 }
