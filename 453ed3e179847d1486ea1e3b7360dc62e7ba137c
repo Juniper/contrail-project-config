@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "84555e4e_cdde047d",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-07T15:15:30Z",
+      "side": 1,
+      "message": "Lets think if we need to bundle all the items below under single `artifactory`\n\nHow about:   curl -XPUT {{ pypi_mirror.puturl }} ...",
+      "revId": "453ed3e179847d1486ea1e3b7360dc62e7ba137c",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d716b4bb_56d3744b",
         "filename": "zuul/site-variables.yaml",
         "patchSetId": 3
