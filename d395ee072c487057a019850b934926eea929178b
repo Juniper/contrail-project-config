@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7267501_fdf6b827",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-08T13:33:49Z",
+      "side": 1,
+      "message": "I like it. If you put `http://` at the front then `:80` is default, it\u0027s simpler to just delete `:80`.",
+      "range": {
+        "startLine": 30,
+        "startChar": 51,
+        "endLine": 30,
+        "endChar": 54
+      },
+      "revId": "d395ee072c487057a019850b934926eea929178b",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
