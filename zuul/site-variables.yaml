@@ -1,6 +1,7 @@
 ---
 zuul_site_mirror_fqdn: 10.84.56.27
 #zuul_site_mirror_fqdn: "mirror.{{ nodepool.region | lower }}.{{ nodepool.cloud | lower }}.opencontrail.org"
+#Nexus section to be deleted in next patch
 nexus:
   fqdn: 'ci-nexus.englab.juniper.net'
   ip: '10.84.5.85'
@@ -19,6 +20,20 @@ nexus:
       rebuild_metadata: '277418cf-cbc4-4219-a86b-9be48cdd0c2c'
     yum_tpc_test:
       rebuild_metadata: 'fff750d5-6d67-41d5-8cce-e65d97bb730e'
+#Nexus section to be deleted in next patch
+#artifactory
+contrail_yum_tpc_test:
+  put_url: 'svl-artifactory.juniper.net/artifactory/contrail-tpc-test/'
+  download_url: 'http://svl-artifactory.juniper.net:80/artifactory/contrail-tpc-test/'
+contrail_yum_tpc:
+  put_url: 'svl-artifactory.juniper.net/artifactory/contrail-tpc/'
+  download_url: 'svl-artifactory.juniper.net:80/artifactory/contrail-tpc/'
+contrail_yum_centos:
+  download_url: 'svl-artifactory.juniper.net/artifactory/contrail-yum-centos/'
+contrail_rh_satellite:
+  download_url: 'svl-artifactory.juniper.net/artifactory/contrail-rh-satellite/'
+contrail_pypi_mirror:
+  download_url: 'svl-artifactory.juniper.net/artifactory/api/pypi/contrail-pypi/simple'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000
