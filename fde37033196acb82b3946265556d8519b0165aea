@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "c5378c7c_1a3fec6f",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2019-11-13T12:01:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "006353b5_def6e0e6",
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b66d86ec_da417f78",
         "filename": "zuul/site-variables.yaml",
         "patchSetId": 4
@@ -122,6 +140,30 @@
       "revId": "fde37033196acb82b3946265556d8519b0165aea",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb2a667c_334e6ec4",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2019-11-13T12:01:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b66d86ec_da417f78",
+      "range": {
+        "startLine": 30,
+        "startChar": 44,
+        "endLine": 30,
+        "endChar": 47
+      },
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": false
     }
   ]
 }
