@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -x
+set -eu
+set -o pipefail
+
+cat /etc/resolv.conf
+echo $TMP_MOUNT_PATH
+echo "DGAUTAM:"
+cat $TMP_MOUNT_PATH/etc/resolv.conf
+cat $TMP_MOUNT_PATH/etc/resolv.conf.ORIG
+echo > $TMP_MOUNT_PATH/etc/resolv.conf.ORIG
+cat $TMP_MOUNT_PATH/etc/resolv.conf.ORIG
+
