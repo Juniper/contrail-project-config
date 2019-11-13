@@ -81,6 +81,47 @@
       "revId": "fde37033196acb82b3946265556d8519b0165aea",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "006353b5_def6e0e6",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-13T11:42:08Z",
+      "side": 1,
+      "message": "It seems \u0027http://svl-artifactory.juniper.net/artifactory/...\u0027 will work as well, and is simpler.",
+      "parentUuid": "49645015_14fe5786",
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b66d86ec_da417f78",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-13T11:42:08Z",
+      "side": 1,
+      "message": ":80 again",
+      "range": {
+        "startLine": 30,
+        "startChar": 44,
+        "endLine": 30,
+        "endChar": 47
+      },
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
     }
   ]
 }
