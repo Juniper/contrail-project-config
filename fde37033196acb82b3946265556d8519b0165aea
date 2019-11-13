@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1725f18_5a900295",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-13T11:13:18Z",
+      "side": 1,
+      "message": "Why so many urls without `http://` nor `https://`? It makes them ambiguous - is it your intention?",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cb07dde_0ca49796",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-13T11:13:18Z",
+      "side": 1,
+      "message": "Why `:80`, isn\u0027t it a default?",
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
