@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "abf0cc71_44dc165f",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2019-11-13T11:18:34Z",
+      "side": 1,
+      "message": "Yes that\u0027s my intention. It due to how artifactory works with download/upload api.",
+      "parentUuid": "b1725f18_5a900295",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cb07dde_0ca49796",
         "filename": "zuul/site-variables.yaml",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "fde37033196acb82b3946265556d8519b0165aea",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49645015_14fe5786",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 679
+      },
+      "writtenOn": "2019-11-13T11:18:34Z",
+      "side": 1,
+      "message": "port is used only during download.",
+      "parentUuid": "6cb07dde_0ca49796",
+      "revId": "fde37033196acb82b3946265556d8519b0165aea",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": false
     }
   ]
 }
