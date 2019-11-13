@@ -9,6 +9,16 @@
         - noop
 
 - project-template:
+    name: unittests-cpp11
+    experimental:
+      jobs:
+        - contrail-vnc-build-unittest-centos7-cpp11
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - noop
+
+- project-template:
     name: unittests-webui
     check:
       jobs:
@@ -264,6 +274,7 @@
       - unittests
       - systests
       - pep8-check
+      - unittests-cpp11
       #- windows-sanity
     check:
       jobs:
