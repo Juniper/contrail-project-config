@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+
+ls -l /etc/resolv.conf.ORIG
+
+if test -L /etc/resolv.conf.ORIG ; then
+        echo "Not touching /etc/resolv.conf.ORIG because it's a symlink. On Ubuntu it often directs users to /run/resolvconf/..."
+else
+        cat /etc/resolv.conf.ORIG
+        echo ";" > /etc/resolv.conf.ORIG
+        echo "; Emptied from inside nb01:/etc/nodepool/elements/contrail-builder/finalise.d/10-resolvconf" >> /etc/resolv.conf.ORIG
+fi
+
