@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+
+cf=/etc/cloud/cloud.cfg.d/force-dhcp4.cfg
+
+# XXX Will sanity run? It needs two interfaces. Maybe a second interface won't get an IP address.
+# Custom bash script for that case?
+
+echo 'datasource:'          >  $cf
+echo '  # This is because we use contrail on openstack.' >> $cf
+echo '  # It does not reveal its DNS server on http://169.254.169.254 but only via DHCP.' >> $cf
+echo '  # There are two workarounds:' >> $cf
+echo '  #   1: Disable http://169.254.169.254 and hope cloud-init will fall back to DHCP (we do it here)' >> $cf
+echo '  #   2: Alternatively, enter the contrail DNS server (e.g. 192.168.0.2) into Openstack Subnet properties' >> $cf
+echo '  OpenStack:'         >> $cf
+echo '    apply_network_config: false' >>  $cf
+
+
