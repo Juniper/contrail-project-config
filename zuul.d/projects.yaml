@@ -31,7 +31,7 @@
         - pep8-check
 
 - project-template:
-    name: systests
+    name: systests-all
     check:
       jobs:
         - contrail-vnc-build-package-centos74
@@ -84,6 +84,31 @@
               contrail_version: '{{ packaging.version.public }}-latest'
               contrail_docker_registry: '{{ docker_registry.fqdn }}:{{ docker_registry.port }}'
               setup_docker_registry: false
+
+- project-template:
+    name: systests
+    check:
+      jobs:
+        - contrail-vnc-build-package-centos74
+        - contrail-build-containers-centos7:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-build-test-containers:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-sanity-centos7-kolla-rocky:
+            dependencies:
+              - contrail-build-test-containers
+              - contrail-build-containers-centos7
+        - contrail-sanity-centos7-k8s:
+            dependencies:
+              - contrail-build-test-containers
+              - contrail-build-containers-centos7
+
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - contrail-vnc-build-package-centos74
 
 - project-template:
     name: helm-systests
@@ -252,21 +277,18 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: tungstenfabric/common
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-build
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-controller
@@ -275,7 +297,6 @@
       - systests
       - pep8-check
       - unittests-cpp11
-      #- windows-sanity
     check:
       jobs:
         - test-python3-status:
@@ -298,7 +319,6 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
     check:
       jobs:
         - test-python3-status:
@@ -312,13 +332,11 @@
             dependencies:
               - contrail-vnc-build-package-rhel7-queens
 
-
 - project:
     name: Juniper/contrail-generateDS
     templates:
       - unittests
       - systests
-      # flake8
 
 - project:
     name: Juniper/contrail-packages
@@ -350,7 +368,6 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
     check:
       jobs:
         - contrail-vrouter-ut-centos7
@@ -360,19 +377,16 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-neutron-plugin
     templates:
-      - systests
-      # flake8
+      - systests-all
 
 - project:
     name: Juniper/contrail-nova-vif-driver
     templates:
-      - systests
-      # flake8
+      - systests-all
 
 - project:
     name: Juniper/contrail-provisioning
@@ -413,8 +427,7 @@
 - project:
     name: Juniper/contrail-heat
     templates:
-      - systests
-      # flake8
+      - systests-all
 
 - project:
     name: Juniper/contrail-vcenter-plugin
@@ -587,14 +600,12 @@
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: tungstenfabric/api-client
     templates:
       - unittests
       - systests
-      #- windows-sanity
 
 - project:
     name: Juniper/contrail-java-api
