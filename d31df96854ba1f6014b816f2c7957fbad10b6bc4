@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "838e14a7_42f37061",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-11-28T13:02:40Z",
+      "side": 1,
+      "message": "Look at the first line. This works, I used it. Adding a parent is not required.",
+      "revId": "d31df96854ba1f6014b816f2c7957fbad10b6bc4",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
