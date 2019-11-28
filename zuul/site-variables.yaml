@@ -22,11 +22,12 @@ nexus:
       rebuild_metadata: 'fff750d5-6d67-41d5-8cce-e65d97bb730e'
 #Nexus section to be deleted in next patch
 #artifactory
-contrail_yum_tpc_test: 'svl-artifactory.juniper.net/artifactory/contrail-tpc-test'
-contrail_yum_tpc: 'svl-artifactory.juniper.net/artifactory/contrail-tpc'
-contrail_yum_centos: 'svl-artifactory.juniper.net/artifactory/contrail-yum-centos'
-contrail_rh_satellite: 'svl-artifactory.juniper.net/artifactory/contrail-rh-satellite'
-contrail_pypi_mirror: 'svl-artifactory.juniper.net/artifactory/api/pypi/contrail-pypi/simple'
+mirrors:
+  contrail_yum_tpc_test: 'svl-artifactory.juniper.net/artifactory/contrail-tpc-test'
+  contrail_yum_tpc: 'svl-artifactory.juniper.net/artifactory/contrail-tpc'
+  contrail_yum_centos: 'svl-artifactory.juniper.net/artifactory/contrail-yum-centos'
+  contrail_rh_satellite: 'svl-artifactory.juniper.net/artifactory/contrail-rh-satellite'
+  contrail_pypi_mirror: 'svl-artifactory.juniper.net/artifactory/api/pypi/contrail-pypi/simple'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000
