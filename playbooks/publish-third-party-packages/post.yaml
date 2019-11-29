@@ -8,7 +8,7 @@
     - role: publish-rpm-nexus
       remote_repo_path: '{{ nexus.repos.yum_tpc }}/{{ zuul.branch }}/source'
     - role: publish-rpm-artifactory
-      remote_repo_path: 'http://{{ contrail_yum_tpc }}/{{ zuul.branch }}/source'
+      remote_repo_path: 'http://"{{ contrail_yum_tpc }}"/"{{ zuul.branch }}"/source'
 
 - hosts: builder
   roles:
