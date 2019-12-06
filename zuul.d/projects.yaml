@@ -301,6 +301,8 @@
       jobs:
         - test-python3-status:
             voting: False
+        - contrail-vnc-build-unittest-centos7-cpp11:
+            voting: False
     experimental:
       jobs:
         - contrail-vnc-build-package-rhel7-queens
