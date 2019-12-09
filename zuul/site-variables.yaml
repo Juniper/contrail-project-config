@@ -1,4 +1,7 @@
 ---
+#
+# This file is not merged instantly, puppet is copying it to zuul-scheduler and it could take up to 30 min after the gate job.
+#
 zuul_site_mirror_fqdn: 10.84.56.27
 #zuul_site_mirror_fqdn: "mirror.{{ nodepool.region | lower }}.{{ nodepool.cloud | lower }}.opencontrail.org"
 #Nexus section to be deleted in next patch
@@ -27,6 +30,7 @@ contrail_yum_tpc: 'svl-artifactory.juniper.net/artifactory/contrail-tpc'
 contrail_yum_centos: 'svl-artifactory.juniper.net/artifactory/contrail-yum-centos'
 contrail_rh_satellite: 'svl-artifactory.juniper.net/artifactory/contrail-rh-satellite'
 contrail_pypi_mirror: 'svl-artifactory.juniper.net/artifactory/api/pypi/contrail-pypi/simple'
+contrail_maven: 'svl-artifactory.juniper.net/artifactory/api/contrail-maven'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000
