@@ -27,7 +27,6 @@ contrail_yum_tpc: 'svl-artifactory.juniper.net/artifactory/contrail-tpc'
 contrail_yum_centos: 'svl-artifactory.juniper.net/artifactory/contrail-yum-centos'
 contrail_rh_satellite: 'svl-artifactory.juniper.net/artifactory/contrail-rh-satellite'
 contrail_pypi_mirror: 'svl-artifactory.juniper.net/artifactory/api/pypi/contrail-pypi/simple'
-contrail_maven: 'svl-artifactory.juniper.net/artifactory/api/contrail-maven'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000

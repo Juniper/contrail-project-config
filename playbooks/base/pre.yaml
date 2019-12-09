@@ -12,7 +12,7 @@
     - configure-hosts-entries
     - configure-mirrors
     - role: configure-maven-proxy
-      maven_repo_mirror_url: 'http://{{ contrail_maven }}/'
+      maven_repo_mirror_url: 'http://{{ nexus.fqdn }}/repository/{{ nexus.repos.maven }}/'
     - validate-host
     - prepare-workspace
     - gitlog-upload
