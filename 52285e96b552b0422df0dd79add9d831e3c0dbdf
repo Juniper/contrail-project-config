@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bdf5e63_ab115d85",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 760
+      },
+      "writtenOn": "2019-12-09T15:02:18Z",
+      "side": 1,
+      "message": "\"This file\" would be much more readable here than \"Zuul catalog\".\n\nInstead of \"some time\" say \"about 30 minutes\".",
+      "revId": "52285e96b552b0422df0dd79add9d831e3c0dbdf",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
