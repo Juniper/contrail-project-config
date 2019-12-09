@@ -12,8 +12,7 @@
     - configure-hosts-entries
     - configure-mirrors
     - role: configure-maven-proxy
-      maven_repo_mirror_url: 'http://{{ nexus.fqdn }}/repository/{{ nexus.repos.maven }}/'
+      maven_repo_mirror_url: 'http://svl-artifactory.juniper.net/artifactory/api/contrail-maven/'
     - validate-host
     - prepare-workspace
     - gitlog-upload
-
