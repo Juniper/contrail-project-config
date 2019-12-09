@@ -113,6 +113,39 @@
   command: pip install --ignore-installed tox==3.1.3 virtualenv<16.2.0
   become: true
 
+- name: List1
+  shell: "ls {{ ansible_env.HOME }} || true"
+  become: true
+  become_user: root
+
+- name: List2
+  shell: "ls -ld {{ ansible_env.HOME }}/contrail-* || true"
+  become: true
+  become_user: root
+
+- name: List3
+  shell: "ls {{ ansible_env.HOME }}/contrail-{{ packaging.version.upstream }} || true"
+  become: true
+  become_user: root
+
+- name: List4
+  shell: "ls -l {{ ansible_env.HOME }}/contrail-{{ packaging.version.upstream }}/controller || true"
+  become: true
+  become_user: root
+
+- name: Cat1
+  shell: "cat {{ ansible_env.HOME }}/contrail-{{ packaging.version.upstream }}/controller/ci_unittests.json || true"
+  become: true
+  become_user: root
+
+- name: Sleep1
+  command: "sleep 3600"
+
+- name: Sed1
+  shell: "sed -i '/contrail-opserver:test/d' {{ ansible_env.HOME }}/contrail-{{ packaging.version.upstream }}/controller/ci_unittests.json || true"
+  become: true
+  become_user: root
+
 - name: Run unittest script
   command: "{{ ansible_env.HOME }}/contrail-unittests-job.sh"
   become: true

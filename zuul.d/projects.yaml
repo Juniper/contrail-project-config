@@ -480,6 +480,7 @@
     name: Juniper/contrail-project-config
     templates:
       - noops
+      - unittests  # just testing
     check:
       jobs:
         - zuul-jobs-linters
