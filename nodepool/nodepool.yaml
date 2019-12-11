@@ -10,6 +10,10 @@ zookeeper-servers:
     port: 3389
 
 labels:
+  - name: centos-7-7
+    min-ready: 0
+  - name: centos-7-7-builder-xxlarge
+    min-ready: 0
   - name: centos-7-4-builder
     min-ready: 0
   - name: centos-7-4-builder-xxlarge
@@ -151,6 +155,7 @@ providers:
     hostname-format: '{label.name}-{provider.name}-{node.id}'
     diskimages:
       - name: centos-7
+      - name: centos-7-7
       - name: centos-7-4
       - name: rhel-7
       - name: ubuntu-trusty
@@ -164,6 +169,16 @@ providers:
           - ci-zuulv3-internal
           - contrail-dataplane
         labels:
+          - name: centos-7-7
+            flavor-name: m1.16g_80g_8vcpu
+            diskimage: centos-7-7
+            console-log: True
+            key-name: ci-infra-shared-key
+          - name: centos-7-7-builder-xxlarge
+            flavor-name: m1.ci-systest
+            diskimage: centos-7-7
+            console-log: True
+            key-name: ci-infra-shared-key
          #### begin labels migrated from old cluster-a ###
           - name: centos-7-4-builder
             flavor-name: m1.16g_80g_8vcpu
@@ -294,6 +309,25 @@ diskimages:
       DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
       DIB_INSTALLTYPE_pip_and_virtualenv: package
   - name: centos-7-4
+    pause: true       # manual unpause only
+    elements:
+      - centos-minimal
+      - vm
+      - growroot
+      - epel
+      - cloud-init
+      - openssh-server
+      - nodepool-base
+      - contrail-builder
+    env-vars:
+      TMPDIR: /opt/dib_tmp
+      DIB_CHECKSUM: '1'
+      DIB_IMAGE_CACHE: /opt/dib_cache
+      DIB_GRUB_TIMEOUT: '0'
+      DIB_EPEL_DISABLED: '0'
+      DIB_YUM_MINIMAL_CREATE_INTERFACES: '0'
+      DIB_INSTALLTYPE_pip_and_virtualenv: package
+  - name: centos-7-7
     pause: true       # manual unpause only
     elements:
       - centos-minimal
