@@ -2,7 +2,9 @@
     name: unittests
     check:
       jobs:
-        - contrail-vnc-build-unittest-centos7
+        - contrail-vnc-build-unittest-centos7   # to be replaced by tntestr
+        - contrail-vnc-unittest-centos7-tntestr:
+            voting: False
     gate:
       queue: contrail-vnc
       jobs:
