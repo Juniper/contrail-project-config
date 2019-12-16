@@ -199,6 +199,8 @@
       - site_pulp
       - name: nexus_credentials
         secret: registry_tungsten_ci
+      - name: artifactory_credentials
+        secret: registry_artifactory_ci
 
 - job:
     name: contrail-vnc-specs-linter
