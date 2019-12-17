@@ -197,8 +197,6 @@
     post-run: playbooks/packaging/post-vnc-el.yaml
     secrets:
       - site_pulp
-      - name: nexus_credentials
-        secret: registry_tungsten_ci
       - name: artifactory_credentials
         secret: registry_artifactory_ci
 
@@ -487,14 +485,12 @@
     name: publish-third-party-packages
     parent: build-third-party-rpms-base
     description: |
-      Publish build rpms to Nexus repository.
+      Publish build rpms to Artifactory repository.
     required-projects:
       - Juniper/contrail-zuul-jobs
     post-run: playbooks/publish-third-party-packages/post.yaml
     nodeset: builder-centos-7
     secrets:
-      - name: nexus_credentials
-        secret: registry_tungsten_ci
       - name: artifactory_credentials
         secret: registry_artifactory_ci
 
