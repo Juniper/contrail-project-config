@@ -7,15 +7,12 @@
 - hosts: localhost
   roles:
     - contrail-common-libs2
-    - role: publish-rpm-nexus
-      when: release_type == 'continuous-integration'
-      remote_repo_path: "{{ nexus.repos.yum }}/{{ packaging.repo_names[hostvars['builder'].ansible_distribution] }}"
     - role: publish-rpm-artifactory
       when: release_type == 'continuous-integration'
       remote_repo_path: "http://svl-artifactory.juniper.net/artifactory/yum-contrail-ci-build/{{ packaging.repo_names[hostvars['builder'].ansible_distribution] }}"
-    - role: publish-rpm-nexus
+    - role: publish-rpm-artifactory
       when: release_type == 'nightly'
-      remote_repo_path: "{{ nexus.repos.yum_nightly }}/{{ packaging.repo_names[hostvars['builder'].ansible_distribution] }}"
+      remote_repo_path: "http://svl-artifactory.juniper.net/artifactory/contrail-ci-yum-nightly/{{ packaging.repo_names[hostvars['builder'].ansible_distribution] }}"
   post_tasks:
     # FIXME: https://contrail-jws.atlassian.net/browse/JD-478
     - name: return repository location back to zuul for children jobs
