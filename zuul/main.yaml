@@ -89,8 +89,8 @@
           - tungstenfabric/tungsten-test-runner
           - tungstenfabric-infra/periodic-nightly
           # new projects
-          - tungstenfabric/analytics
-          - tungstenfabric/api-client
-          - tungstenfabric/common
-          - tungstenfabric/controller
+          - tungstenfabric/tf-analytics
+          - tungstenfabric/tf-api-client
+          - tungstenfabric/tf-common
+          - tungstenfabric/tf-controller
 
