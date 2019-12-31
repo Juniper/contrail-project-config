@@ -264,7 +264,7 @@
              - specs/.*
 
 - project:
-    name: tungstenfabric/analytics
+    name: tungstenfabric/tf-analytics
     templates:
       - unittests
       - systests
@@ -281,7 +281,7 @@
       - systests
 
 - project:
-    name: tungstenfabric/common
+    name: tungstenfabric/tf-common
     templates:
       - unittests
       - systests
@@ -319,10 +319,11 @@
       - rhel-containers-build
 
 - project:
-    name: tungstenfabric/controller
+    name: tungstenfabric/tf-controller
     templates:
       - unittests
       - systests
+      - unittests-cpp11
     check:
       jobs:
         - test-python3-status:
@@ -606,7 +607,7 @@
       - systests
 
 - project:
-    name: tungstenfabric/api-client
+    name: tungstenfabric/tf-api-client
     templates:
       - unittests
       - systests
