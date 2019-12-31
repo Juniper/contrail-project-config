@@ -88,9 +88,13 @@
           - tungstenfabric/docs
           - tungstenfabric/tungsten-test-runner
           - tungstenfabric-infra/periodic-nightly
+          # have to be removed after rename is done
+          - tungstenfabric/analytics
+          - tungstenfabric/api-client
+          - tungstenfabric/common
+          - tungstenfabric/controller
           # new projects
           - tungstenfabric/tf-analytics
           - tungstenfabric/tf-api-client
           - tungstenfabric/tf-common
           - tungstenfabric/tf-controller
-
