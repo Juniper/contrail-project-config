@@ -98,3 +98,5 @@
           - tungstenfabric/tf-api-client
           - tungstenfabric/tf-common
           - tungstenfabric/tf-controller
+          - tungstenfabric/tf-web-controller
+          - tungstenfabric/tf-web-core
