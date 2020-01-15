@@ -3,6 +3,11 @@
 set -o pipefail
 set -xe
 
+if [[ -z "$PROJECT_NAME" ]]; then
+    echo "Please provide PROJECT_NAME"
+    exit 1
+fi
+
 export LOGDIR="$WORKSPACE"/../logs
 export TEST_REPORTS_DIR="$WORKSPACE"/../test-reports
 export COVERAGE_REPORTS_DIR="$WORKSPACE"/../coverage-reports
@@ -10,6 +15,7 @@ mkdir -p "$LOGDIR"
 mkdir -p "$TEST_REPORTS_DIR"
 mkdir -p "$COVERAGE_REPORTS_DIR"
 
+export REPO_PREFIX=$(echo $PROJECT_NAME | cut -d '-' -f 1)
 export REPO_NAME=$PROJECT_NAME
 
 if [ -z $SCONS_JOBS ]; then
@@ -20,22 +26,16 @@ if [ -z $USER ]; then
     USER=jenkins
 fi
 
-if [ -z $REPO_NAME ]; then
-    REPO_NAME=contrail-web-core
-    echo "Default Repo Name: $REPO_NAME"
-fi
-
 function pre_test_setup() {
-    #Update the featurePkg path in contrail-web-core/config/config.global.js  with Controller, Storage and Server Manager features
-    cd $WORKSPACE/contrail-web-core
+    #Update the featurePkg path in ${REPO_PREFIX}-web-core/config/config.global.js  with Controller, Storage and Server Manager features
+    cd $WORKSPACE/${REPO_PREFIX}-web-core
 
     # Controller
-    cat config/config.global.js | sed -e "s%/usr/src/contrail/contrail-web-controller%$WORKSPACE/contrail-web-controller%" > $WORKSPACE/contrail-web-core/config/config.global.js.tmp
-    cp $WORKSPACE/contrail-web-core/config/config.global.js.tmp $WORKSPACE/contrail-web-core/config/config.global.js
-    rm $WORKSPACE/contrail-web-core/config/config.global.js.tmp
+    cat config/config.global.js | sed -e "s%/usr/src/contrail/${REPO_PREFIX}-web-controller%$WORKSPACE/${REPO_PREFIX}-web-controller%" > $WORKSPACE/${REPO_PREFIX}-web-core/config/config.global.js.tmp
+    cp $WORKSPACE/${REPO_PREFIX}-web-core/config/config.global.js.tmp $WORKSPACE/${REPO_PREFIX}-web-core/config/config.global.js
+    rm $WORKSPACE/${REPO_PREFIX}-web-core/config/config.global.js.tmp
     touch config/config.global.js
 
-    cd $WORKSPACE/contrail-web-core
     #fetch dependent packages
     make fetch-pkgs-dev
 }
@@ -47,13 +47,12 @@ function run_all_webui_tests() {
     make test-env REPO=webController
 
     # Run Controller related Unit Testcase
-    cd $WORKSPACE/contrail-web-controller
+    cd $WORKSPACE/${REPO_PREFIX}-web-controller
     ./webroot/test/ui/run_tests.sh 2>&1 | tee $LOGDIR/web_controller_unittests.log
-
 }
 
 function run_webui_controller_tests() {
-    cd $WORKSPACE/contrail-web-core
+    cd $WORKSPACE/${REPO_PREFIX}-web-core
 
     #Setup the Prod Environment
     make prod-env REPO=webController
@@ -61,14 +60,14 @@ function run_webui_controller_tests() {
     make test-env REPO=webController
 
     # Run Controller related Unit Testcase
-    cd $WORKSPACE/contrail-web-controller
+    cd $WORKSPACE/${REPO_PREFIX}-web-controller
     ./webroot/test/ui/run_tests.sh 2>&1 | tee $LOGDIR/web_controller_unittests.log
 }
 
 # Build unittests
 function build_unittest() {
     case "$REPO_NAME" in
-        "contrail-web-controller")
+        "${REPO_PREFIX}-web-controller")
             echo "Run all UT for Contrail Web Controller repo."
             run_webui_controller_tests
             ;;
@@ -88,7 +87,7 @@ function copy_reports(){
 
     echo "info: gathering XML coverage reports..."
     for p in controller ; do
-        src_dir=contrail-web-$p/$report_dir/coverage
+        src_dir=${REPO_PREFIX}-web-$p/$report_dir/coverage
         cp -p $src_dir/*/phantomjs/cobertura-coverage.xml $COVERAGE_REPORTS_DIR/${p}-cobertura-coverage.xml || true
     done
 }
