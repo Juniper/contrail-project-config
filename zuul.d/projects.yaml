@@ -534,10 +534,27 @@
       - systests
 
 - project:
+    name: tungstenfabric/tf-web-core
+    templates:
+      - unittests-webui
+      - systests
+
+- project:
     name: Juniper/contrail-web-core
     templates:
       - unittests-webui
       - systests
+
+- project:
+    name: tungstenfabric/tf-web-controller
+    templates:
+      - unittests-webui
+      - systests
+    check:
+      jobs:
+        - contrail-vnc-specs-linter:
+           files:
+             - specs/.*
 
 - project:
     name: Juniper/contrail-web-controller
