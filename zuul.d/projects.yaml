@@ -532,6 +532,7 @@
     templates:
       - unittests-webui
       - systests
+      - noops
 
 - project:
     name: Juniper/contrail-web-core
@@ -544,6 +545,7 @@
     templates:
       - unittests-webui
       - systests
+      - noops
     check:
       jobs:
         - contrail-vnc-specs-linter:
