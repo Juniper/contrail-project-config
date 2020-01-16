@@ -26,7 +26,7 @@ STDERR.puts "contrail-unittest-gather.rb: Check for commits for #{project}\n"
 Dir.chdir("#{contrail_sources}/#{project}")
 
 # Get the files changes in this change-set.
-cmd = %{git ls-remote gerrit 2>/dev/null | \grep #{change_set} | \grep refs | awk '{print $1}' | xargs git show --pretty="format:" --name-only}
+cmd = %{git ls-remote gerrit 2>/dev/null | \grep #{change_set} | \grep refs | awk '{print $1}'}
 
 @dirs = { }
 `#{cmd}`.split.each { |file|
