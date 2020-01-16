@@ -532,12 +532,14 @@
     templates:
       - unittests-webui
       - systests
+      - noops
 
 - project:
     name: Juniper/contrail-web-core
     templates:
       - unittests-webui
       - systests
+      - noops
 
 - project:
     name: tungstenfabric/tf-web-controller
