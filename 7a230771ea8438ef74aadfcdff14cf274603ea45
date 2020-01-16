@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83d8493f_ab6f1344",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 890
+      },
+      "writtenOn": "2020-01-16T16:46:57Z",
+      "side": 1,
+      "message": "shoudn\u0027t this noops go to tungstenfabric/tf-web-controller project (one below)?",
+      "revId": "7a230771ea8438ef74aadfcdff14cf274603ea45",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
