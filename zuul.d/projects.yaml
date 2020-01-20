@@ -373,9 +373,6 @@
     templates:
       - unittests
       - systests
-    check:
-      jobs:
-        - contrail-vrouter-ut-centos7
 
 - project:
     name: Juniper/contrail-third-party
