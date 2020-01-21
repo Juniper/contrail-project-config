@@ -439,6 +439,7 @@
 - project:
     name: Juniper/contrail-vcenter-fabric-manager
     templates:
+      - unittests
       - build-container
 
 - project:
@@ -699,6 +700,7 @@
 - project:
     name: Juniper/contrail-vcenter-manager
     templates:
+      - unittests
       - build-container
 
 #- project:
