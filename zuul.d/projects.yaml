@@ -439,8 +439,13 @@
 - project:
     name: Juniper/contrail-vcenter-fabric-manager
     templates:
-      - unittests
       - build-container
+    check:
+      jobs:
+        # CE-3899: To use the old contrail-vnc-build-unittest-centos7 we would need
+        # to hardcode this repo in the job's playbooks. Better to run new job.
+        # (That contrail-vnc-build-unittest-centos7 doesn't use android repo or vnc manifest.xml).
+        - contrail-vnc-unittest-centos7-tntestr
 
 - project:
     name: Juniper/contrail-docker
@@ -702,8 +707,13 @@
 - project:
     name: Juniper/contrail-vcenter-manager
     templates:
-      - unittests
       - build-container
+    check:
+      jobs:
+        # CE-3899: To use the old contrail-vnc-build-unittest-centos7 we would need
+        # to hardcode this repo in the job's playbooks. Better to run new job.
+        # (That contrail-vnc-build-unittest-centos7 doesn't use android repo or vnc manifest.xml).
+        - contrail-vnc-unittest-centos7-tntestr
 
 #- project:
 #    name: Juniper/contrail-windows
