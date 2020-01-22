@@ -20,6 +20,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^contrail/ocata$
             - ^contrail/queens$
             - ^contrail/rocky$
@@ -48,6 +49,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^contrail/ocata$
             - ^contrail/queens$
             - ^contrail/rocky$
@@ -114,6 +116,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^R6.0-WIP$
             - ^contrail/ocata$
             - ^contrail/queens$
@@ -143,6 +146,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^R6.0-WIP$
             - ^contrail/ocata$
             - ^contrail/queens$
@@ -173,6 +177,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^R6.0-WIP$
             - ^contrail/ocata$
             - ^contrail/queens$
@@ -206,6 +211,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^R6.0-WIP$
             - ^contrail/ocata$
             - ^contrail/queens$
@@ -331,6 +337,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^R6.0-WIP$
             - ^contrail/.*$
             - ^contrail_dpdk_.*$
@@ -368,6 +375,7 @@
             - ^R1910$
             - ^R1911$
             - ^R1912$
+            - ^R2[0-9][0-9][0-9]$
             - ^R6.0-WIP$
             - ^contrail/.*$
             - ^contrail_dpdk_.*$
