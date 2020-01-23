@@ -511,37 +511,6 @@
     secrets:
       - stats_opencontrail_org_test_stats
 
-- job:
-    name: trigger-win-base
-    parent: contrail-vnc-base2
-    description: |
-      Triggers Windows CI system.
-      Requires jenkins_job.
-    run: playbooks/trigger-win-base/run.yaml
-    required-projects:
-      - Juniper/contrail-windows
-      - Juniper/contrail-windows-docker-driver
-      - Juniper/contrail-windows-test
-    nodeset: ubuntu-xenial
-    timeout: 18000
-    vars:
-      setup_docker_registry: true
-      manifest_file: windows.xml
-    secrets:
-      - jenkins_winci_credentials
-
-- job:
-    name: create-windows-containers
-    parent: trigger-win-base
-    branches: ^(master|R1907)$
-    post-run: playbooks/publish-windows-containers/post.yaml
-    required-projects:
-      - tungsten-infra/containerregistry
-    description: This jobs starts Jenkins job in Windows CI to create Windows containers.
-    vars:
-      jenkins_job: ci-contrail-windows-nighly-build
-    secrets:
-      - dockerhub
 
 - job:
     name: generate-build-change-info

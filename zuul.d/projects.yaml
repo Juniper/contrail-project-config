@@ -237,21 +237,6 @@
       jobs:
         - noop
 
-- project-template:
-    name: windows-sanity
-    check:
-      jobs:
-        - contrail-build-win2016
-
-- project-template:
-    name: windows-all-tests
-    check:
-      jobs:
-        - contrail-alltests-win2016
-    gate:
-      jobs:
-        - noop
-
 - project:
     name: Juniper/contrail-analytics
     templates:
@@ -699,11 +684,6 @@
     templates:
       - openshift-systests
 
-#- project:
-#    name: Juniper/contrail-windows-docker-driver
-#    templates:
-#      - windows-sanity
-
 - project:
     name: Juniper/contrail-vcenter-manager
     templates:
@@ -714,21 +694,6 @@
         # to hardcode this repo in the job's playbooks. Better to run new job.
         # (That contrail-vnc-build-unittest-centos7 doesn't use android repo or vnc manifest.xml).
         - contrail-vnc-unittest-centos7-tntestr
-
-#- project:
-#    name: Juniper/contrail-windows
-#    templates:
-#      - windows-sanity
-
-- project:
-    name: Juniper/contrail-windows-test
-    templates:
-      - windows-all-tests
-
-- project:
-    name: Juniper/contrail-windows-ci-infra
-    templates:
-      - noops
 
 - project:
     name: tungstenfabric/docs
