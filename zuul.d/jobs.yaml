@@ -121,8 +121,8 @@
       - Juniper/contrail-vrouter
       - Juniper/contrail-vrouter-java-api
       - Juniper/contrail-vro-plugin
-      - Juniper/contrail-web-controller
-      - Juniper/contrail-web-core
+      - tungstenfabric/tf-web-controller
+      - tungstenfabric/tf-web-core
       - Juniper/contrail-web-server-manager
       - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
@@ -175,8 +175,8 @@
       - Juniper/contrail-vrouter
       - Juniper/contrail-vrouter-java-api
       - Juniper/contrail-vro-plugin
-      - Juniper/contrail-web-controller
-      - Juniper/contrail-web-core
+      - tungstenfabric/tf-web-controller
+      - tungstenfabric/tf-web-core
       - Juniper/contrail-web-server-manager
       - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
