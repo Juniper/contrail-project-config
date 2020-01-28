@@ -89,6 +89,7 @@
       as opposed to the contrail-src-base job that copies the sources directly.
     required-projects:
       - tungstenfabric/tf-analytics
+      - Juniper/contrail-analytics
       - Juniper/contrail-ansible-deployer
       - Juniper/contrail-api-client
       - Juniper/contrail-build
@@ -122,7 +123,9 @@
       - Juniper/contrail-vrouter-java-api
       - Juniper/contrail-vro-plugin
       - tungstenfabric/tf-web-controller
+      - Juniper/contrail-web-controller
       - tungstenfabric/tf-web-core
+      - Juniper/contrail-web-core
       - Juniper/contrail-web-server-manager
       - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
@@ -143,6 +146,7 @@
       as opposed to the contrail-src-base job that copies the sources directly.
     required-projects:
       - tungstenfabric/tf-analytics
+      - Juniper/contrail-analytics
       - Juniper/contrail-ansible-deployer
       - Juniper/contrail-api-client
       - Juniper/contrail-build
@@ -176,7 +180,9 @@
       - Juniper/contrail-vrouter-java-api
       - Juniper/contrail-vro-plugin
       - tungstenfabric/tf-web-controller
+      - Juniper/contrail-web-controller
       - tungstenfabric/tf-web-core
+      - Juniper/contrail-web-core
       - Juniper/contrail-web-server-manager
       - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
