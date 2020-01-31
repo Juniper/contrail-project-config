@@ -15,7 +15,7 @@ mkdir -p "$LOGDIR"
 mkdir -p "$TEST_REPORTS_DIR"
 mkdir -p "$COVERAGE_REPORTS_DIR"
 
-export REPO_PREFIX=$(echo $PROJECT_NAME | cut -d '-' -f 1)
+export REPO_PREFIX=contrail
 export REPO_NAME=$PROJECT_NAME
 
 if [ -z $SCONS_JOBS ]; then
