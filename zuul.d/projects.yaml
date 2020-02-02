@@ -249,7 +249,6 @@
         - contrail-vnc-specs-linter:
            files:
              - specs/.*
-
 - project:
     name: tungstenfabric/tf-analytics
     templates:
@@ -268,7 +267,6 @@
       - unittests
       - systests
       - unittests-cpp11
-
 - project:
     name: tungstenfabric/tf-common
     templates:
@@ -300,18 +298,12 @@
         - contrail-build-containers-rhel7-queens:
             dependencies:
               - contrail-vnc-build-package-rhel7-queens
-
-- project:
-    name: Juniper/contrail-zuul-jobs
-    templates:
-      - systests
-      - rhel-containers-build
-
 - project:
     name: tungstenfabric/tf-controller
     templates:
       - unittests
       - systests
+      - pep8-check
       - unittests-cpp11
     check:
       jobs:
@@ -325,6 +317,12 @@
         - contrail-build-containers-rhel7-queens:
             dependencies:
               - contrail-vnc-build-package-rhel7-queens
+
+- project:
+    name: Juniper/contrail-zuul-jobs
+    templates:
+      - systests
+      - rhel-containers-build
 
 - project:
     name: Juniper/contrail-generateDS
@@ -369,14 +367,27 @@
     templates:
       - unittests
       - systests
+- project:
+    name: tungstenfabric/tf-third-party
+    templates:
+      - unittests
+      - systests
 
 - project:
     name: Juniper/contrail-neutron-plugin
     templates:
       - systests-all
+- project:
+    name: tungstenfabric/tf-neutron-plugin
+    templates:
+      - systests-all
 
 - project:
     name: Juniper/contrail-nova-vif-driver
+    templates:
+      - systests-all
+- project:
+    name: tungstenfabric/tf-nova-vif-driver
     templates:
       - systests-all
 
@@ -420,14 +431,33 @@
     name: Juniper/contrail-heat
     templates:
       - systests-all
+- project:
+    name: tungstenfabric/tf-heat-plugin
+    templates:
+      - systests-all
 
 - project:
     name: Juniper/contrail-vcenter-plugin
     templates:
       - build-container
+- project:
+    name: tungstenfabric/tf-vcenter-plugin
+    templates:
+      - build-container
 
 - project:
     name: Juniper/contrail-vcenter-fabric-manager
+    templates:
+      - build-container
+    check:
+      jobs:
+          # CE-3899: To use the old contrail-vnc-build-unittest-centos7 we would need
+          # to hardcode this repo in the job's playbooks. Better to run new job.
+          # (That contrail-vnc-build-unittest-centos7 doesn't use android repo or vnc manifest.xml).
+          - contrail-vnc-unittest-centos7-tntestr:
+              voting: True
+- project:
+    name: tungstenfabric/tf-vcenter-fabric-manager
     templates:
       - build-container
     check:
@@ -515,6 +545,11 @@
     templates:
       - systests
       - rhel-containers-build
+- project:
+    name: tungstenfabric/tf-container-builder
+    templates:
+      - systests
+      - rhel-containers-build
 
 - project:
     name: Juniper/contrail-deployers-containers
@@ -522,29 +557,15 @@
       - systests
 
 - project:
-    name: tungstenfabric/tf-web-core
-    templates:
-      - unittests-webui
-      - systests
-      - noops
-
-- project:
     name: Juniper/contrail-web-core
     templates:
       - unittests-webui
       - systests
-
 - project:
-    name: tungstenfabric/tf-web-controller
+    name: tungstenfabric/tf-web-core
     templates:
       - unittests-webui
       - systests
-      - noops
-    check:
-      jobs:
-        - contrail-vnc-specs-linter:
-           files:
-             - specs/.*
 
 - project:
     name: Juniper/contrail-web-controller
@@ -556,9 +577,24 @@
         - contrail-vnc-specs-linter:
            files:
              - specs/.*
+- project:
+    name: tungstenfabric/tf-web-controller
+    templates:
+      - unittests-webui
+      - systests
+    check:
+      jobs:
+        - contrail-vnc-specs-linter:
+           files:
+             - specs/.*
 
 - project:
     name: Juniper/contrail-webui-third-party
+    templates:
+      - unittests-webui
+      - systests
+- project:
+    name: tungstenfabric/tf-webui-third-party
     templates:
       - unittests-webui
       - systests
@@ -613,7 +649,6 @@
       - unittests
       - systests
       - unittests-cpp11
-
 - project:
     name: tungstenfabric/tf-api-client
     templates:
@@ -625,9 +660,17 @@
     name: Juniper/contrail-java-api
     templates:
       - build-container
+- project:
+    name: tungstenfabric/tf-java-api
+    templates:
+      - build-container
 
 - project:
     name: Juniper/vijava
+    templates:
+      - noops
+- project:
+    name: tungstenfabric/vijava
     templates:
       - noops
 
@@ -655,12 +698,20 @@
     name: Juniper/contrail-vrouter-java-api
     templates:
       - noops
+- project:
+    name: tungstenfabric/tf-vrouter-java-api
+    templates:
+      - noops
 
 - project:
     name: Juniper/contrail-dev-env
 
 - project:
     name: Juniper/contrail-vro-plugin
+    templates:
+      - noops
+- project:
+    name: tungstenfabric/tf-vro-plugin
     templates:
       - noops
 
@@ -703,6 +754,17 @@
           # (That contrail-vnc-build-unittest-centos7 doesn't use android repo or vnc manifest.xml).
           - contrail-vnc-unittest-centos7-tntestr:
               voting: True
+- project:
+    name: tungstenfabric/tf-vcenter-manager
+    templates:
+      - build-container
+    check:
+      jobs:
+          # CE-3899: To use the old contrail-vnc-build-unittest-centos7 we would need
+          # to hardcode this repo in the job's playbooks. Better to run new job.
+          # (That contrail-vnc-build-unittest-centos7 doesn't use android repo or vnc manifest.xml).
+          - contrail-vnc-unittest-centos7-tntestr:
+              voting: True
 
 - project:
     name: tungstenfabric/docs
@@ -719,12 +781,11 @@
             voting: False
 
 - project:
-    name: tungstenfabric/tf-tripleo-puppet
+    name: Juniper/contrail-tripleo-puppet
     templates:
       - noops
-
 - project:
-    name: Juniper/contrail-tripleo-puppet
+    name: tungstenfabric/tf-tripleo-puppet
     templates:
       - noops
 
