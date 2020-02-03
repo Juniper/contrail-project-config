@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e3452fa_f5d5096a",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-02-03T07:44:10Z",
+      "side": 1,
+      "message": "why it needs for contrail-build?",
+      "revId": "535f02c1124d583105ea8229c5da67773c1e5708",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "694c7875_62dd3222",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-02-03T07:44:10Z",
+      "side": 1,
+      "message": "is it still alive project for master development? I thought it was moved to contrail-common",
+      "revId": "535f02c1124d583105ea8229c5da67773c1e5708",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "738bfc80_c3111cbc",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-02-03T07:44:10Z",
+      "side": 1,
+      "message": "is it still alive project for master development? I thought it was moved to contrail-common",
+      "revId": "535f02c1124d583105ea8229c5da67773c1e5708",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acae5757_fe3605e1",
+        "filename": "zuul.d/projects.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-02-03T07:44:10Z",
+      "side": 1,
+      "message": "please do not add it here.",
+      "revId": "535f02c1124d583105ea8229c5da67773c1e5708",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
