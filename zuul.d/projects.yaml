@@ -12,9 +12,10 @@
 
 - project-template:
     name: unittests-cpp11
-    experimental:
+    check:
       jobs:
-        - contrail-vnc-build-unittest-centos7-cpp11
+        - contrail-vnc-build-unittest-centos7-cpp11:
+            voting: False
     gate:
       queue: contrail-vnc
       jobs:
@@ -242,6 +243,7 @@
     templates:
       - unittests
       - systests
+      - unittests-cpp11
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -253,6 +255,7 @@
     templates:
       - unittests
       - systests
+      - unittests-cpp11
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -264,18 +267,21 @@
     templates:
       - unittests
       - systests
+      - unittests-cpp11
 
 - project:
     name: tungstenfabric/tf-common
     templates:
       - unittests
       - systests
+      - unittests-cpp11
 
 - project:
     name: Juniper/contrail-build
     templates:
       - unittests
       - systests
+      - unittests-cpp11
 
 - project:
     name: Juniper/contrail-controller
@@ -287,8 +293,6 @@
     check:
       jobs:
         - test-python3-status:
-            voting: False
-        - contrail-vnc-build-unittest-centos7-cpp11:
             voting: False
     experimental:
       jobs:
@@ -358,6 +362,7 @@
     templates:
       - unittests
       - systests
+      - unittests-cpp11
 
 - project:
     name: Juniper/contrail-third-party
@@ -607,12 +612,14 @@
     templates:
       - unittests
       - systests
+      - unittests-cpp11
 
 - project:
     name: tungstenfabric/tf-api-client
     templates:
       - unittests
       - systests
+      - unittests-cpp11
 
 - project:
     name: Juniper/contrail-java-api
