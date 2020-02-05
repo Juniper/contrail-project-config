@@ -200,7 +200,6 @@
       - Juniper/openstack-helm
       - Juniper/openstack-helm-infra
       - Juniper/vijava
-      - tungstenfabric/vijava
     pre-run: playbooks/contrail/vnc-pre.yaml
 
 - job:
