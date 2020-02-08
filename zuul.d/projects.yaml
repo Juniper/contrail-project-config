@@ -708,12 +708,20 @@
 
 - project:
     name: Juniper/contrail-vro-plugin
-    templates:
-      - noops
+    check:
+      jobs:
+        - contrail-build-vro-plugin
+    gate:
+      jobs:
+        - contrail-build-vro-plugin
 - project:
     name: tungstenfabric/tf-vro-plugin
-    templates:
-      - noops
+    check:
+      jobs:
+        - contrail-build-vro-plugin
+    gate:
+      jobs:
+        - contrail-build-vro-plugin
 
 - project:
     name: Juniper/contrail-docs
