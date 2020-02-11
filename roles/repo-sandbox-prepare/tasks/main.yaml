@@ -45,7 +45,7 @@
     checked_out_vnc_branch: "{{ checked_out_vnc_branch.stdout }}"
 
 - name: repo init
-  command: ./repo init -u {{ zuul.executor.src_root }}/review.opencontrail.org/Juniper/contrail-vnc -b {{ checked_out_vnc_branch }}
+  command: ./repo init --repo-branch=repo-1 -u {{ zuul.executor.src_root }}/review.opencontrail.org/Juniper/contrail-vnc -b {{ checked_out_vnc_branch }}
   args:
     chdir: "{{ executor_sandbox_path }}"
   delegate_to: localhost
