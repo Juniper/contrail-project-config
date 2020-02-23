@@ -113,6 +113,7 @@
       - Juniper/contrail-test
       - Juniper/contrail-third-party
       - Juniper/contrail-third-party-packages
+      - Juniper/contrail-tripleo-heat-templates
       - Juniper/contrail-tripleo-puppet
       - Juniper/contrail-vcenter-plugin
       - Juniper/contrail-vcenter-manager
@@ -175,6 +176,7 @@
       - Juniper/contrail-third-party
       - tungstenfabric/tf-third-party
       - Juniper/contrail-third-party-packages
+      - Juniper/contrail-tripleo-heat-templates
       - Juniper/contrail-tripleo-puppet
       - tungstenfabric/tf-tripleo-puppet
       - Juniper/contrail-vcenter-plugin
