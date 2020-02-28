@@ -516,12 +516,6 @@
     name: Juniper/contrail-ansible-deployer
     templates:
       - systests
-    check:
-      jobs:
-        - contrail-sanity-centos7-kolla-queens-multinode:
-            dependencies:
-              - contrail-build-containers-centos7
-              - contrail-build-test-containers
     experimental:
       jobs:
         - contrail-vnc-build-package-centos74
