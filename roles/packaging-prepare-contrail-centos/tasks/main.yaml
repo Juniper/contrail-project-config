@@ -39,8 +39,6 @@
     - { src: 'review.opencontrail.org/Juniper/contrail-common/', dest: 'src/contrail-common' }
     - { src: 'review.opencontrail.org/tungstenfabric/tf-analytics/', dest: 'src/contrail-analytics' }
     - { src: 'review.opencontrail.org/Juniper/contrail-dpdk/', dest: 'third_party/dpdk' }
-    - { src: 'review.opencontrail.org/tungstenfabric/tf-vcenter-manager/', dest: 'vcenter-manager' }
-    - { src: 'review.opencontrail.org/tungstenfabric/tf-vcenter-fabric-manager/', dest: 'vcenter-fabric-manager' }
   delegate_to: "{{ inventory_hostname }}"
 
 - name: Hard-link github repositories into expected structure
