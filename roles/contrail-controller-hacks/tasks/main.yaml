@@ -14,6 +14,8 @@
     - review.opencontrail.org/Juniper/contrail-common
     - review.opencontrail.org/tungstenfabric/tf-analytics
     - review.opencontrail.org/Juniper/contrail-api-client
+    - review.opencontrail.org/tungstenfabric/tf-vcenter-manager
+    - review.opencontrail.org/tungstenfabric/tf-vcenter-fabric-manager
   tags:
     # Ignore ANSIBLE0006: Can not use git module for adding remotes
     - skip_ansible_lint
@@ -31,6 +33,8 @@
     - review.opencontrail.org/Juniper/contrail-common
     - review.opencontrail.org/tungstenfabric/tf-analytics
     - review.opencontrail.org/Juniper/contrail-api-client
+    - review.opencontrail.org/tungstenfabric/tf-vcenter-manager
+    - review.opencontrail.org/tungstenfabric/tf-vcenter-fabric-manager
   tags:
     # Ignore ANSIBLE0006: Can not use git module for fetching
     - skip_ansible_lint

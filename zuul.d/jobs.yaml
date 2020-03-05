@@ -281,6 +281,8 @@
       - Juniper/contrail-common
       - Juniper/contrail-analytics
       - tungstenfabric/tf-analytics
+      - tungstenfabric/tf-vcenter-manager
+      - tungstenfabric/tf-vcenter-fabric-manager
     irrelevant-files:
       - specs/.*
     run: playbooks/unittest/contrail-centos.yaml
