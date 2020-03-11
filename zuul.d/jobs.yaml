@@ -161,6 +161,7 @@
       - Juniper/contrail-heat
       - tungstenfabric/tf-heat-plugin
       - Juniper/contrail-helm-deployer
+      - tungstenfabric/tf-helm-deployer
       - Juniper/contrail-java-api
       - tungstenfabric/tf-java-api
       - Juniper/contrail-kolla-ansible
