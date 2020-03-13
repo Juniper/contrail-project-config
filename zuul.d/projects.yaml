@@ -524,6 +524,30 @@
             dependencies:
               - contrail-build-containers-centos7
               - contrail-build-test-containers
+- project:
+    name: tungstenfabric/tf-ansible-deployer
+    templates:
+      - systests
+    check:
+      jobs:
+        - noop
+    experimental:
+      jobs:
+        - contrail-vnc-build-package-centos74
+        - contrail-build-containers-centos7:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-build-test-containers:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-sanity-centos7-kolla-ocata:
+            dependencies:
+              - contrail-build-containers-centos7
+              - contrail-build-test-containers
+        - contrail-sanity-centos7-k8s:
+            dependencies:
+              - contrail-build-containers-centos7
+              - contrail-build-test-containers
 
 - project:
     name: Juniper/contrail-container-builder
@@ -617,6 +641,16 @@
             dependencies:
               - contrail-build-containers-centos7
               - contrail-build-test-containers
+- project:
+    name: tungstenfabric/tf-kolla-ansible
+    templates:
+      - systests
+    check:
+      jobs:
+        - contrail-sanity-centos7-kolla-queens-multinode:
+            dependencies:
+              - contrail-build-containers-centos7
+              - contrail-build-test-containers
 
 - project:
     name: Juniper/contrail-helm-deployer
@@ -660,7 +694,7 @@
     templates:
       - noops
 - project:
-    name: tungstenfabric/vijava
+    name: tungstenfabric/tf-vijava
     templates:
       - noops
 
@@ -720,6 +754,23 @@
 
 - project:
     name: Juniper/contrail-third-party-packages
+    templates:
+      - noops
+    check:
+      jobs:
+        - build-third-party-rpms-centos7:
+            files:
+              - upstream/rpm/.*
+    gate:
+      jobs:
+        - build-third-party-rpms-centos7:
+            files:
+              - upstream/rpm/.*
+    post-merge:
+      jobs:
+        - publish-third-party-packages
+- project:
+    name: tungstenfabric/tf-third-party-packages
     templates:
       - noops
     check:
