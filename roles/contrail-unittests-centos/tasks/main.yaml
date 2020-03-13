@@ -37,6 +37,7 @@
   become: true
   become_user: root
   with_items:
+    - ack
     - createrepo
     - docker
     - docker-python
