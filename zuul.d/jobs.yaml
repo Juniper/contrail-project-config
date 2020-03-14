@@ -146,6 +146,7 @@
       - Juniper/contrail-analytics
       - tungstenfabric/tf-analytics
       - Juniper/contrail-ansible-deployer
+      - tungstenfabric/tf-ansible-deployer
       - Juniper/contrail-api-client
       - Juniper/contrail-build
       - Juniper/contrail-common
@@ -165,6 +166,7 @@
       - Juniper/contrail-java-api
       - tungstenfabric/tf-java-api
       - Juniper/contrail-kolla-ansible
+      - tungstenfabric/tf-kolla-ansible
       - Juniper/contrail-neutron-plugin
       - tungstenfabric/tf-neutron-plugin
       - Juniper/contrail-nova-vif-driver
@@ -177,6 +179,7 @@
       - Juniper/contrail-third-party
       - tungstenfabric/tf-third-party
       - Juniper/contrail-third-party-packages
+      - tungstenfabric/tf-third-party-packages
       - Juniper/contrail-tripleo-heat-templates
       - Juniper/contrail-tripleo-puppet
       - tungstenfabric/tf-tripleo-puppet
@@ -204,6 +207,7 @@
       - Juniper/openstack-helm
       - Juniper/openstack-helm-infra
       - Juniper/vijava
+      - tungstenfabric/tf-vijava
     pre-run: playbooks/contrail/vnc-pre.yaml
 
 - job:
