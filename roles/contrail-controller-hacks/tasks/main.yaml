@@ -38,4 +38,7 @@
   tags:
     # Ignore ANSIBLE0006: Can not use git module for fetching
     - skip_ansible_lint
-
+  retries: 5
+  delay: 3
+  register: fetch_result
+  until: fetch_result.rc == 0
