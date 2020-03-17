@@ -49,6 +49,10 @@
   args:
     chdir: "{{ executor_sandbox_path }}"
   delegate_to: localhost
+  retries: 4
+  delay: 2
+  register: repo_result
+  until: repo_result.rc == 0
 
 - name: dump zuul variables to a file
   copy:
