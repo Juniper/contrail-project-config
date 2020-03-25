@@ -280,6 +280,12 @@
       - unittests
       - systests
       - unittests-cpp11
+- project:
+    name: tungstenfabric/tf-build
+    templates:
+      - unittests
+      - systests
+      - unittests-cpp11
 
 - project:
     name: Juniper/contrail-controller
@@ -340,6 +346,16 @@
     gate:
       jobs:
         - contrail-vnc-build-package-rhel7-queens
+- project:
+    name: tungstenfabric/tf-packages
+    templates:
+      - systests
+    check:
+      jobs:
+        - contrail-vnc-build-package-rhel7-queens
+    gate:
+      jobs:
+        - contrail-vnc-build-package-rhel7-queens
 
 - project:
     name: Juniper/contrail-sandesh
@@ -349,6 +365,13 @@
 
 - project:
     name: Juniper/contrail-specs
+    templates:
+      - noops
+    check:
+      jobs:
+        - contrail-vnc-specs-linter
+- project:
+    name: tungstenfabric/tf-specs
     templates:
       - noops
     check:
@@ -409,6 +432,10 @@
 
 - project:
     name: Juniper/contrail-fabric-utils
+    templates:
+      - systests
+- project:
+    name: tungstenfabric/tf-fabric-utils
     templates:
       - systests
 
@@ -625,6 +652,11 @@
     templates:
       - unittests-webui
       - systests
+- project:
+    name: tungstenfabric/tf-third-party-cache
+    templates:
+      - unittests-webui
+      - systests
 
 - project:
     name: Juniper/contrail-server-manager
@@ -664,6 +696,10 @@
 
 - project:
     name: Juniper/contrail-vnc
+    templates:
+      - build
+- project:
+    name: tungstenfabric/tf-vnc
     templates:
       - build
 
@@ -749,6 +785,10 @@
 
 - project:
     name: Juniper/contrail-docs
+    templates:
+      - noops
+- project:
+    name: tungstenfabric/tf-old-docs
     templates:
       - noops
 
