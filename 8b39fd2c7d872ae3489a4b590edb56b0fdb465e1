@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b124f64_5d6b10ff",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 79
+      },
+      "writtenOn": "2020-03-28T23:45:01Z",
+      "side": 1,
+      "message": "name should avoid svl-artifactory instead it should be just nightly registry",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "8b39fd2c7d872ae3489a4b590edb56b0fdb465e1",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77200c97_9a6e2e42",
+        "filename": "zuul/site-variables.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 79
+      },
+      "writtenOn": "2020-03-28T23:45:01Z",
+      "side": 1,
+      "message": "ip-address is highly discouraged. It must be hostname.",
+      "revId": "8b39fd2c7d872ae3489a4b590edb56b0fdb465e1",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
