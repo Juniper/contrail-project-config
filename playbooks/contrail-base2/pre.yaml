@@ -1,8 +1,5 @@
 ---
 
-- hosts: all
-  roles:
-    - repo-sandbox-prepare3
 
 - hosts: all
   roles:
@@ -15,6 +12,10 @@
       hosts_entries:
         - fqdn: "{{ ansible_fqdn }}"
           address: "{{ ansible_all_ipv4_addresses[0] }}"
+
+- hosts: all
+  roles:
+    - repo-sandbox-prepare3
 
 - hosts: localhost
   roles:
