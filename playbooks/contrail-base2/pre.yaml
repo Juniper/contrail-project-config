@@ -2,6 +2,10 @@
 
 - hosts: all
   roles:
+    - repo-sandbox-prepare3
+
+- hosts: all
+  roles:
     - contrail-common-libs2
     - configure-hosts-entries
 
