@@ -882,6 +882,11 @@
       - noops
 
 - project:
-    name: tungstenfabric/tf-charms
+    name: tungstenfabric/tf-test
+    templates:
+      - noops
+
+- project:
+    name: tungstenfabric/tf-dev-env
     templates:
       - noops
