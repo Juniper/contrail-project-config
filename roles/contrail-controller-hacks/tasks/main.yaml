@@ -7,7 +7,7 @@
   failed_when: false
   with_items:
     - review.opencontrail.org/Juniper/contrail-controller
-    - review.opencontrail.org/Juniper/contrail-build
+    - review.opencontrail.org/tungstenfabric/tf-build
     - review.opencontrail.org/Juniper/contrail-vrouter
     - review.opencontrail.org/Juniper/contrail-sandesh
     - review.opencontrail.org/Juniper/contrail-generateDS
@@ -26,7 +26,7 @@
     chdir: "{{ ansible_env.HOME }}/src/{{ item }}"
   with_items:
     - review.opencontrail.org/Juniper/contrail-controller
-    - review.opencontrail.org/Juniper/contrail-build
+    - review.opencontrail.org/tungstenfabric/tf-build
     - review.opencontrail.org/Juniper/contrail-vrouter
     - review.opencontrail.org/Juniper/contrail-sandesh
     - review.opencontrail.org/Juniper/contrail-generateDS
