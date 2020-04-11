@@ -86,6 +86,7 @@
   with_items:
     - future
     - tox
+    - gevent==1.4.0
     - geventhttpclient
 
 - name: install python3
