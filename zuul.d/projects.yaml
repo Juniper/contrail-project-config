@@ -890,3 +890,8 @@
     name: tungstenfabric/tf-dev-env
     templates:
       - noops
+
+- project:
+    name: tungstenfabric/tf-devstack
+    templates:
+      - noops
