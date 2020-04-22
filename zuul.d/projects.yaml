@@ -45,6 +45,7 @@
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-sanity-centos7-kolla-ocata:
+            voting: False
             dependencies:
               - contrail-build-test-containers
               - contrail-build-containers-centos7
@@ -544,6 +545,7 @@
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-sanity-centos7-kolla-ocata:
+            voting: False
             dependencies:
               - contrail-build-containers-centos7
               - contrail-build-test-containers
@@ -568,6 +570,7 @@
             dependencies:
               - contrail-vnc-build-package-centos74
         - contrail-sanity-centos7-kolla-ocata:
+            voting: False
             dependencies:
               - contrail-build-containers-centos7
               - contrail-build-test-containers
