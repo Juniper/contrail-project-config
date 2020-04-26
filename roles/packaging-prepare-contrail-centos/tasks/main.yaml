@@ -25,8 +25,8 @@
       - --no-motd
       - --quiet
   with_items:
-    - { src: 'review.opencontrail.org/Juniper/contrail-build/', dest: 'tools/build' }
-    - { src: 'review.opencontrail.org/Juniper/contrail-build/SConstruct', dest: '' }
+    - { src: 'review.opencontrail.org/tungstenfabric/tf-build/', dest: 'tools/build' }
+    - { src: 'review.opencontrail.org/tungstenfabric/tf-build/SConstruct', dest: '' }
     - { src: 'review.opencontrail.org/Juniper/contrail-controller/', dest: 'controller' }
     - { src: 'review.opencontrail.org/Juniper/contrail-generateDS/', dest: 'tools/generateds' }
     - { src: 'review.opencontrail.org/Juniper/contrail-sandesh/', dest: 'tools/sandesh' }
