@@ -144,7 +144,6 @@
       as opposed to the contrail-src-base job that copies the sources directly.
     required-projects:
       - Juniper/contrail-analytics
-      - tungstenfabric/tf-analytics
       - Juniper/contrail-ansible-deployer
       - tungstenfabric/tf-ansible-deployer
       - Juniper/contrail-api-client
@@ -291,7 +290,6 @@
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
       - Juniper/contrail-analytics
-      - tungstenfabric/tf-analytics
       - tungstenfabric/tf-vcenter-manager
       - tungstenfabric/tf-vcenter-fabric-manager
     irrelevant-files:
@@ -326,7 +324,6 @@
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
       - Juniper/contrail-analytics
-      - tungstenfabric/tf-analytics
     irrelevant-files:
       - specs/.*
     run: playbooks/unittest/contrail-centos.yaml
@@ -360,7 +357,6 @@
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
       - Juniper/contrail-analytics
-      - tungstenfabric/tf-analytics
     irrelevant-files:
       - specs/.*
     run: playbooks/unittest/contrail-centos-cpp11.yaml
