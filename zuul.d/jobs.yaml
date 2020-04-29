@@ -144,7 +144,10 @@
       as opposed to the contrail-src-base job that copies the sources directly.
     required-projects:
       - Juniper/contrail-analytics
+<<<<<<< HEAD   (5ce843 Gevent latest update is failing unittests hence pining geven)
       - tungstenfabric/tf-analytics
+=======
+>>>>>>> CHANGE (79b41d Revert "[Migration/Juniper/contrail-analytics] Change links )
       - Juniper/contrail-ansible-deployer
       - tungstenfabric/tf-ansible-deployer
       - Juniper/contrail-api-client
@@ -240,6 +243,67 @@
           label: ubuntu-trusty-builder
 
 - job:
+<<<<<<< HEAD   (5ce843 Gevent latest update is failing unittests hence pining geven)
+=======
+    name: contrail-vnc-build-unittest-ubuntu-trusty
+    branches:
+      - ^R5\.0$
+      - ^contrail_dpdk_17_11_3$
+    required-projects:
+      - Juniper/contrail-api-client
+      - Juniper/contrail-build
+      - Juniper/contrail-controller
+      - name: Juniper/contrail-dpdk
+        override-checkout: contrail_dpdk_17_11
+      - Juniper/contrail-generateDS
+      - Juniper/contrail-third-party
+      - Juniper/contrail-packages
+      - Juniper/contrail-provisioning
+      - Juniper/contrail-sandesh
+      - Juniper/contrail-vrouter
+      - Juniper/contrail-nova-vif-driver
+      - Juniper/contrail-common
+      - Juniper/contrail-analytics
+    irrelevant-files:
+      - specs/.*
+    run: playbooks/unittest/contrail.yaml
+    post-run: playbooks/unittest/post.yaml
+    timeout: 36000
+    nodeset:
+      nodes:
+        - name: builder
+          label: ubuntu-trusty-builder
+
+- job:
+    name: contrail-vnc-build-unittest-ubuntu-trusty
+    branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
+    required-projects:
+      - Juniper/contrail-api-client
+      - Juniper/contrail-build
+      - Juniper/contrail-controller
+      - name: Juniper/contrail-dpdk
+        override-checkout: contrail_dpdk_18_05_1
+      - Juniper/contrail-generateDS
+      - Juniper/contrail-third-party
+      - Juniper/contrail-packages
+      - Juniper/contrail-provisioning
+      - Juniper/contrail-sandesh
+      - Juniper/contrail-vrouter
+      - Juniper/contrail-nova-vif-driver
+      - Juniper/contrail-common
+      - Juniper/contrail-analytics
+    irrelevant-files:
+      - specs/.*
+    run: playbooks/unittest/contrail.yaml
+    post-run: playbooks/unittest/post.yaml
+    timeout: 36000
+    nodeset:
+      nodes:
+        - name: builder
+          label: ubuntu-trusty-builder
+
+- job:
+>>>>>>> CHANGE (79b41d Revert "[Migration/Juniper/contrail-analytics] Change links )
     name: contrail-vnc-build-unittest-centos7
     branches:
       - ^R5\.0$
@@ -291,9 +355,12 @@
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
       - Juniper/contrail-analytics
+<<<<<<< HEAD   (5ce843 Gevent latest update is failing unittests hence pining geven)
       - tungstenfabric/tf-analytics
       - tungstenfabric/tf-vcenter-manager
       - tungstenfabric/tf-vcenter-fabric-manager
+=======
+>>>>>>> CHANGE (79b41d Revert "[Migration/Juniper/contrail-analytics] Change links )
     irrelevant-files:
       - specs/.*
     run: playbooks/unittest/contrail-centos.yaml
@@ -326,7 +393,10 @@
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
       - Juniper/contrail-analytics
+<<<<<<< HEAD   (5ce843 Gevent latest update is failing unittests hence pining geven)
       - tungstenfabric/tf-analytics
+=======
+>>>>>>> CHANGE (79b41d Revert "[Migration/Juniper/contrail-analytics] Change links )
     irrelevant-files:
       - specs/.*
     run: playbooks/unittest/contrail-centos.yaml
@@ -360,7 +430,10 @@
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
       - Juniper/contrail-analytics
+<<<<<<< HEAD   (5ce843 Gevent latest update is failing unittests hence pining geven)
       - tungstenfabric/tf-analytics
+=======
+>>>>>>> CHANGE (79b41d Revert "[Migration/Juniper/contrail-analytics] Change links )
     irrelevant-files:
       - specs/.*
     run: playbooks/unittest/contrail-centos-cpp11.yaml
