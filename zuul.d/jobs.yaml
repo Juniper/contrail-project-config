@@ -151,11 +151,13 @@
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-common
-      - Juniper/contrail-container-builder
+      - tungstenfabric/tf-common
       - tungstenfabric/tf-charms
+      - Juniper/contrail-container-builder
       - tungstenfabric/tf-container-builder
       - Juniper/contrail-controller
       - Juniper/contrail-deployers-containers
+      - tungstenfabric/tf-deployers-containers
       - Juniper/contrail-fabric-utils
       - tungstenfabric/tf-fabric-utils
       - name: Juniper/contrail-dpdk
@@ -290,6 +292,7 @@
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
+      - tungstenfabric/tf-common
       - Juniper/contrail-analytics
       - tungstenfabric/tf-analytics
       - tungstenfabric/tf-vcenter-manager
@@ -325,6 +328,7 @@
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
+      - tungstenfabric/tf-common
       - Juniper/contrail-analytics
       - tungstenfabric/tf-analytics
     irrelevant-files:
@@ -359,6 +363,7 @@
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
+      - tungstenfabric/tf-common
       - Juniper/contrail-analytics
       - tungstenfabric/tf-analytics
       - tungstenfabric/tf-vcenter-manager
