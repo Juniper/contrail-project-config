@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9121b99_27eaeaef",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-05-11T09:24:53Z",
+      "side": 1,
+      "message": "this is not present (and is not run) for old UT job.",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f1eee44_aabf05f6",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-05-11T09:24:53Z",
+      "side": 1,
+      "message": "it\u0027s a bit crazy - run UT when job is build...",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    }
+  ]
+}
