@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "93c8ea80_0613b772",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-05-11T10:10:49Z",
+      "side": 1,
+      "message": "looks crazy. it will very hard to understand this later.\nmixing up build with UT and difference from non-cpp11 job...",
+      "parentUuid": "865cd387_1da08979",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1f1eee44_aabf05f6",
         "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "didn\u0027t understand completely.",
       "parentUuid": "1f1eee44_aabf05f6",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88204ad_6a34f1cc",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 382
+      },
+      "writtenOn": "2020-05-11T10:10:49Z",
+      "side": 1,
+      "message": "name of the job - \u0027run unittest script\u0027\ncondition - when name is *-build-*\nhow to understand what\u0027s here UT run or just some build?",
+      "parentUuid": "9dfe3407_cf565f6e",
       "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
