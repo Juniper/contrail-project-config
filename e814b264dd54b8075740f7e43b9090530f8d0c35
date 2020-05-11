@@ -141,6 +141,24 @@
       "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2063c1c9_5a522896",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2020-05-11T10:45:17Z",
+      "side": 1,
+      "message": "\u003ehow to understand what\u0027s here UT run or just some build?\n\n* build job will run only the build part \"Run a full Contrail VNC build\"\n* ut job will run both \"Run a full Contrail VNC build\" and \"Run unittest script\"",
+      "parentUuid": "442c29c8_55e7e940",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
     }
   ]
 }
