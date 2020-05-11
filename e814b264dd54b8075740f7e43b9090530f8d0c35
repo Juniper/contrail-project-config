@@ -105,6 +105,24 @@
       "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
       "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68c33190_c45047b1",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2020-05-11T10:11:10Z",
+      "side": 1,
+      "message": "The plan to role out cpp11 ut job:\n1. add a voting job contrail-vnc-build-centos7-cpp11 so that cpp11 compilation is not broken\n2. add a non-voting job to run uts and make it voting when we have stable runs\n3. remove contrail-vnc-build-unittest-centos7 job and switch to cpp11",
+      "parentUuid": "9dfe3407_cf565f6e",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": true
     }
   ]
 }
