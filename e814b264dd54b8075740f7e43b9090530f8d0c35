@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "fe996d74_bbdf66f7",
+        "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2020-05-11T11:21:08Z",
+      "side": 1,
+      "message": "* removed `build` word from Unit test job\n* removed unittest word from build job\nHope this will not create confusion",
+      "parentUuid": "93c8ea80_0613b772",
+      "revId": "e814b264dd54b8075740f7e43b9090530f8d0c35",
+      "serverId": "c72cd27d-1743-4a55-84a4-cd13b8400c52",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f1eee44_aabf05f6",
         "filename": "roles/contrail-unittests-centos-cpp11/tasks/main.yaml",
         "patchSetId": 2
