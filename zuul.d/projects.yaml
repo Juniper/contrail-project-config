@@ -14,17 +14,6 @@
     name: unittests-cpp11
     check:
       jobs:
-        - contrail-vnc-unittest-centos7-cpp11
-            voting: False
-    gate:
-      queue: contrail-vnc
-      jobs:
-        - noop
-
-- project-template:
-    name: build-cpp11
-    check:
-      jobs:
         - contrail-vnc-build-centos7-cpp11
     gate:
       queue: contrail-vnc
@@ -245,7 +234,6 @@
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -257,7 +245,6 @@
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
     check:
       jobs:
         - contrail-vnc-specs-linter:
@@ -270,14 +257,12 @@
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 - project:
     name: tungstenfabric/tf-common
     templates:
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 
 - project:
     name: Juniper/contrail-build
@@ -285,14 +270,12 @@
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 - project:
     name: tungstenfabric/tf-build
     templates:
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 
 - project:
     name: Juniper/contrail-controller
@@ -301,7 +284,6 @@
       - systests
       - pep8-check
       - unittests-cpp11
-      - build-cpp11
     check:
       jobs:
         - test-python3-status:
@@ -319,7 +301,6 @@
       - systests
       - pep8-check
       - unittests-cpp11
-      - build-cpp11
     check:
       jobs:
         - test-python3-status:
@@ -393,7 +374,6 @@
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 
 - project:
     name: Juniper/contrail-third-party
@@ -715,14 +695,12 @@
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 - project:
     name: tungstenfabric/tf-api-client
     templates:
       - unittests
       - systests
       - unittests-cpp11
-      - build-cpp11
 
 - project:
     name: Juniper/contrail-java-api
