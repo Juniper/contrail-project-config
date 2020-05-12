@@ -343,6 +343,7 @@
 
 - job:
     name: contrail-vnc-build-centos7-cpp11
+    voting: false
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - Juniper/contrail-api-client
