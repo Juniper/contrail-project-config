@@ -3,6 +3,8 @@
     check:
       jobs:
         - contrail-vnc-build-unittest-centos7   # to be replaced by tntestr
+        - contrail-vnc-build-unittest-centos7-k8s:
+            voting: False
         - contrail-vnc-unittest-centos7-tntestr:
             voting: False
     gate:

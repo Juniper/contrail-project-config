@@ -416,6 +416,37 @@
           label: centos-7-4-builder-xxlarge
 
 - job:
+    name: contrail-vnc-build-unittest-centos7-k8s
+    voting: false
+    branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
+    required-projects:
+      - Juniper/contrail-api-client
+      - Juniper/contrail-build
+      - tungstenfabric/tf-build
+      - Juniper/contrail-controller
+      - name: Juniper/contrail-dpdk
+        override-checkout: contrail_dpdk_18_05_1
+      - Juniper/contrail-generateDS
+      - Juniper/contrail-third-party
+      - tungstenfabric/tf-third-party
+      - Juniper/contrail-packages
+      - tungstenfabric/tf-packages
+      - Juniper/contrail-provisioning
+      - Juniper/contrail-sandesh
+      - Juniper/contrail-vrouter
+      - Juniper/contrail-nova-vif-driver
+      - tungstenfabric/tf-nova-vif-driver
+      - Juniper/contrail-common
+      - tungstenfabric/tf-common
+      - Juniper/contrail-analytics
+      - tungstenfabric/tf-analytics
+      - tungstenfabric/tf-vcenter-manager
+      - tungstenfabric/tf-vcenter-fabric-manager
+    irrelevant-files:
+      - specs/.*
+    timeout: 36000
+
+- job:
     name: contrail-vnc-unittest-webui
     parent: contrail-vnc-base
     run: playbooks/unittest/webui.yaml
