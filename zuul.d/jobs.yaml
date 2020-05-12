@@ -370,7 +370,7 @@
       - tungstenfabric/tf-vcenter-fabric-manager
     irrelevant-files:
       - specs/.*
-    run: playbooks/unittest/contrail-centos-cpp11.yaml
+    run: playbooks/unittest/contrail-build-centos-cpp11.yaml
     post-run: playbooks/unittest/post.yaml
     timeout: 36000
     nodeset:
@@ -407,7 +407,7 @@
       - tungstenfabric/tf-vcenter-fabric-manager
     irrelevant-files:
       - specs/.*
-    run: playbooks/unittest/contrail-centos-cpp11.yaml
+    run: playbooks/unittest/contrail-ut-centos-cpp11.yaml
     post-run: playbooks/unittest/post.yaml
     timeout: 36000
     nodeset:
