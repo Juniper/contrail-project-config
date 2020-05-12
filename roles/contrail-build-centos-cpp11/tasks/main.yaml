@@ -115,7 +115,6 @@
   become: true
 
 - name: Run a full Contrail VNC build
-  when: "{{ zuul.job }}" == 'contrail-vnc-build-centos7-cpp11'
   command: "scons -j {{ ansible_processor_vcpus }} --cpp=c++11"
   args:
     chdir: "{{ packaging.target_dir }}"

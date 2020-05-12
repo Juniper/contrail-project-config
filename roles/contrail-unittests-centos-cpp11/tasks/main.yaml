@@ -115,7 +115,6 @@
   become: true
 
 - name: Run unittest script
-  when: "{{ zuul.job }}" == 'contrail-vnc-unittest-centos7-cpp11'
   command: "{{ ansible_env.HOME }}/contrail-unittests-job.sh"
   become: true
   become_user: root
