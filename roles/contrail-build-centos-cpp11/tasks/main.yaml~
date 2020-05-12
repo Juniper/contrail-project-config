@@ -114,6 +114,19 @@
   command: pip install --ignore-installed tox==3.1.3 virtualenv<16.2.0
   become: true
 
+- name: Run a full Contrail VNC build
+  when: "{{ zuul.job }}" == 'contrail-vnc-build-centos7-cpp11'
+  command: "scons -j {{ ansible_processor_vcpus }} --cpp=c++11"
+  args:
+    chdir: "{{ packaging.target_dir }}"
+  become: true
+  become_user: root
+  environment:
+    BUILD_ONLY: 1
+    ZUUL_CHANGES: "{{ zuul.ref }}"
+    CONTRAIL_COMPILE_WITHOUT_SYMBOLS: yes
+    LC_ALL: "C"
+
 - name: Run unittest script
   when: "{{ zuul.job }}" == 'contrail-vnc-unittest-centos7-cpp11'
   command: "{{ ansible_env.HOME }}/contrail-unittests-job.sh"
