@@ -32,6 +32,13 @@
         - noop
 
 - project-template:
+    name: unittests-k8s
+    check:
+      jobs:
+        - contrail-vnc-build-unittest-centos7-k8s:
+            voting: False
+
+- project-template:
     name: unittests-webui
     check:
       jobs:
@@ -243,6 +250,7 @@
     name: Juniper/contrail-analytics
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -255,6 +263,7 @@
     name: tungstenfabric/tf-analytics
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -268,6 +277,7 @@
     name: Juniper/contrail-common
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -275,6 +285,7 @@
     name: tungstenfabric/tf-common
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -283,6 +294,7 @@
     name: Juniper/contrail-build
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -290,6 +302,7 @@
     name: tungstenfabric/tf-build
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -298,6 +311,7 @@
     name: Juniper/contrail-controller
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - pep8-check
       - unittests-cpp11
@@ -316,6 +330,7 @@
     name: tungstenfabric/tf-controller
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - pep8-check
       - unittests-cpp11
@@ -343,6 +358,7 @@
     name: Juniper/contrail-generateDS
     templates:
       - unittests
+      - unittests-k8s
       - systests
 
 - project:
@@ -370,6 +386,7 @@
     name: Juniper/contrail-sandesh
     templates:
       - unittests
+      - unittests-k8s
       - systests
 
 - project:
@@ -391,6 +408,7 @@
     name: Juniper/contrail-vrouter
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -399,6 +417,7 @@
     name: Juniper/contrail-third-party
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - build-cpp11
       - unittests-cpp11
@@ -407,6 +426,7 @@
     name: tungstenfabric/tf-third-party
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - build-cpp11
       - unittests-cpp11
@@ -491,11 +511,13 @@
     name: Juniper/contrail-vcenter-fabric-manager
     templates:
       - unittests
+      - unittests-k8s
       - build-container
 - project:
     name: tungstenfabric/tf-vcenter-fabric-manager
     templates:
       - unittests
+      - unittests-k8s
       - build-container
 
 - project:
@@ -718,6 +740,7 @@
     name: Juniper/contrail-api-client
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -725,6 +748,7 @@
     name: tungstenfabric/tf-api-client
     templates:
       - unittests
+      - unittests-k8s
       - systests
       - unittests-cpp11
       - build-cpp11
@@ -849,11 +873,13 @@
     name: Juniper/contrail-vcenter-manager
     templates:
       - unittests
+      - unittests-k8s
       - build-container
 - project:
     name: tungstenfabric/tf-vcenter-manager
     templates:
       - unittests
+      - unittests-k8s
       - build-container
 
 - project:
