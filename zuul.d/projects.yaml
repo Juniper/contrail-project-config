@@ -25,8 +25,7 @@
     name: build-cpp11
     check:
       jobs:
-        - contrail-vnc-build-centos7-cpp11:
-            voting: False
+        - contrail-vnc-build-centos7-cpp11
     gate:
       queue: contrail-vnc
       jobs:
