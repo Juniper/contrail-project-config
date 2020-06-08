@@ -396,6 +396,13 @@
       - systests
       - unittests-cpp11
       - build-cpp11
+- project:
+    name: tungstenfabric/tf-vrouter
+    templates:
+      - unittests
+      - systests
+      - unittests-cpp11
+      - build-cpp11
 
 - project:
     name: Juniper/contrail-third-party
@@ -404,7 +411,6 @@
       - systests
       - build-cpp11
       - unittests-cpp11
-
 - project:
     name: tungstenfabric/tf-third-party
     templates:
@@ -438,6 +444,16 @@
 
 - project:
     name: Juniper/contrail-test
+    templates:
+      - systests
+    experimental:
+      jobs:
+        - contrail-vnc-build-package-centos74
+        - contrail-build-test-containers:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+- project:
+    name: tungstenfabric/tf-test
     templates:
       - systests
     experimental:
@@ -846,6 +862,10 @@
     name: Juniper/openshift-ansible
     templates:
       - openshift-systests
+- project:
+    name: tungstenfabric/tf-openshift-ansible
+    templates:
+      - openshift-systests
 
 - project:
     name: Juniper/contrail-vcenter-manager
@@ -883,6 +903,10 @@
 
 - project:
     name: Juniper/contrail-tripleo-heat-templates
+    templates:
+      - noops
+- project:
+    name: tungstenfabric/tf-tripleo-heat-templates
     templates:
       - noops
 

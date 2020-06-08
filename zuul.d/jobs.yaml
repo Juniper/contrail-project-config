@@ -128,6 +128,7 @@
       - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
       - Juniper/openshift-ansible
+      - tungstenfabric/tf-openshift-ansible
       - Juniper/openstack-helm
       - Juniper/openstack-helm-infra
       - Juniper/vijava
@@ -148,6 +149,7 @@
       - Juniper/contrail-ansible-deployer
       - tungstenfabric/tf-ansible-deployer
       - Juniper/contrail-api-client
+      - tungstenfabric/tf-api-client
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-common
@@ -182,11 +184,13 @@
       - Juniper/contrail-specs
       - tungstenfabric/tf-specs
       - Juniper/contrail-test
+      - tungstenfabric/tf-test
       - Juniper/contrail-third-party
       - tungstenfabric/tf-third-party
       - Juniper/contrail-third-party-packages
       - tungstenfabric/tf-third-party-packages
       - Juniper/contrail-tripleo-heat-templates
+      - tungstenfabric/tf-tripleo-heat-templates
       - Juniper/contrail-tripleo-puppet
       - tungstenfabric/tf-tripleo-puppet
       - Juniper/contrail-vcenter-plugin
@@ -197,6 +201,7 @@
       - tungstenfabric/tf-vcenter-fabric-manager
       - Juniper/contrail-vnc
       - Juniper/contrail-vrouter
+      - tungstenfabric/tf-vrouter
       - Juniper/contrail-vrouter-java-api
       - tungstenfabric/tf-vrouter-java-api
       - Juniper/contrail-vro-plugin
@@ -276,6 +281,7 @@
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - Juniper/contrail-api-client
+      - tungstenfabric/tf-api-client
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-controller
@@ -289,6 +295,7 @@
       - Juniper/contrail-provisioning
       - Juniper/contrail-sandesh
       - Juniper/contrail-vrouter
+      - tungstenfabric/tf-vrouter
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
@@ -312,6 +319,7 @@
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - Juniper/contrail-api-client
+      - tungstenfabric/tf-api-client
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-controller
@@ -325,6 +333,7 @@
       - Juniper/contrail-provisioning
       - Juniper/contrail-sandesh
       - Juniper/contrail-vrouter
+      - tungstenfabric/tf-vrouter
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
@@ -346,6 +355,7 @@
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - Juniper/contrail-api-client
+      - tungstenfabric/tf-api-client
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-controller
@@ -359,6 +369,7 @@
       - Juniper/contrail-provisioning
       - Juniper/contrail-sandesh
       - Juniper/contrail-vrouter
+      - tungstenfabric/tf-vrouter
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
@@ -383,6 +394,7 @@
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - Juniper/contrail-api-client
+      - tungstenfabric/tf-api-client
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-controller
@@ -396,6 +408,7 @@
       - Juniper/contrail-provisioning
       - Juniper/contrail-sandesh
       - Juniper/contrail-vrouter
+      - tungstenfabric/tf-vrouter
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common
@@ -420,6 +433,7 @@
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - Juniper/contrail-api-client
+      - tungstenfabric/tf-api-client
       - Juniper/contrail-build
       - tungstenfabric/tf-build
       - Juniper/contrail-controller
@@ -433,6 +447,7 @@
       - Juniper/contrail-provisioning
       - Juniper/contrail-sandesh
       - Juniper/contrail-vrouter
+      - tungstenfabric/tf-vrouter
       - Juniper/contrail-nova-vif-driver
       - tungstenfabric/tf-nova-vif-driver
       - Juniper/contrail-common

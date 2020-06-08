@@ -106,6 +106,7 @@
           - tungstenfabric/tf-neutron-plugin
           - tungstenfabric/tf-nova-vif-driver
           - tungstenfabric/tf-old-docs
+          - tungstenfabric/tf-openshift-ansible
           - tungstenfabric/tf-packages
           - tungstenfabric/tf-specs
           - tungstenfabric/tf-test
