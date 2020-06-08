@@ -13,7 +13,7 @@
     - review.opencontrail.org/Juniper/contrail-generateDS
     - review.opencontrail.org/tungstenfabric/tf-common
     - review.opencontrail.org/tungstenfabric/tf-analytics
-    - review.opencontrail.org/Juniper/contrail-api-client
+    - review.opencontrail.org/tungstenfabric/tf-api-client
     - review.opencontrail.org/tungstenfabric/tf-vcenter-manager
     - review.opencontrail.org/tungstenfabric/tf-vcenter-fabric-manager
   tags:
@@ -32,7 +32,7 @@
     - review.opencontrail.org/Juniper/contrail-generateDS
     - review.opencontrail.org/tungstenfabric/tf-common
     - review.opencontrail.org/tungstenfabric/tf-analytics
-    - review.opencontrail.org/Juniper/contrail-api-client
+    - review.opencontrail.org/tungstenfabric/tf-api-client
     - review.opencontrail.org/tungstenfabric/tf-vcenter-manager
     - review.opencontrail.org/tungstenfabric/tf-vcenter-fabric-manager
   tags:
