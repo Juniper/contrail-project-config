@@ -128,7 +128,6 @@
       - Juniper/contrail-web-storage
       - Juniper/contrail-webui-third-party
       - Juniper/openshift-ansible
-      - tungstenfabric/tf-openshift-ansible
       - Juniper/openstack-helm
       - Juniper/openstack-helm-infra
       - Juniper/vijava
@@ -215,6 +214,7 @@
       - Juniper/contrail-webui-third-party
       - tungstenfabric/tf-webui-third-party
       - Juniper/openshift-ansible
+      - tungstenfabric/tf-openshift-ansible
       - Juniper/openstack-helm
       - Juniper/openstack-helm-infra
       - Juniper/vijava
