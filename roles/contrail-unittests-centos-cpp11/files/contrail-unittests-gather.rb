@@ -13,8 +13,6 @@ json_file = "#{contrail_sources}/controller/ci_unittests.json"
 exit(0) unless File.file?(json_file)
 
 project = "controller"
-project = "tools/sandesh" if ENV["ZUUL_PROJECT"] =~ /contrail-sandesh/
-project = "tools/generateds" if ENV["ZUUL_PROJECT"] =~ /contrail-generateDS/
 project = "vrouter" if ENV["ZUUL_PROJECT"] =~ /contrail-vrouter/
 project = "src/contrail-common" if ENV["ZUUL_PROJECT"] =~ /contrail-common/
 project = "src/contrail-analytics" if ENV["ZUUL_PROJECT"] =~ /contrail-analytics/
@@ -23,8 +21,6 @@ project = "vcenter-manager" if ENV["ZUUL_PROJECT"] =~ /contrail-vcenter-manager/
 project = "vcenter-fabric-manager" if ENV["ZUUL_PROJECT"] =~ /contrail-vcenter-fabric-manager/
 
 # TF migration
-project = "tools/sandesh" if ENV["ZUUL_PROJECT"] =~ /tf-sandesh/
-project = "tools/generateds" if ENV["ZUUL_PROJECT"] =~ /tf-generateDS/
 project = "vrouter" if ENV["ZUUL_PROJECT"] =~ /tf-vrouter/
 project = "src/contrail-common" if ENV["ZUUL_PROJECT"] =~ /tf-common/
 project = "src/contrail-analytics" if ENV["ZUUL_PROJECT"] =~ /tf-analytics/
@@ -57,8 +53,7 @@ STDERR.puts "contrail-unittest-gather.rb: List of directories changed:\n"
     STDERR.puts "contrail-unittest-gather.rb:\t#{dir}\n"
 }
 
-# Always test for changes to generateds and vrouter projects.
-@dirs["tools/generateds"] = true if project == "tools/generateds"
+# Always test for changes to vrouter projects.
 @dirs["vrouter"] = true if project == "vrouter"
 
 # Load unit-tests configuration
