@@ -565,6 +565,8 @@
     description: |
       Publish build rpms to Artifactory repository.
     required-projects:
+      - Juniper/contrail-third-party-packages
+      - tungstenfabric/tf-third-party-packages
       - Juniper/contrail-zuul-jobs
     post-run: playbooks/publish-third-party-packages/post.yaml
     nodeset: builder-centos-7
