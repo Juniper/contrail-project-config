@@ -551,11 +551,13 @@
       - noops
     check:
       jobs:
-        - zuul-jobs-linters
+        - zuul-jobs-linters:
+            voting: False
     gate:
       queue: contrail-ci
       jobs:
-        - zuul-jobs-linters
+        - zuul-jobs-linters:
+            voting: False
     experimental:
       jobs:
         - generate-build-change-info
