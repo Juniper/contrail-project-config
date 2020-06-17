@@ -151,6 +151,7 @@
       - tungstenfabric/tf-charms
       - tungstenfabric/tf-container-builder
       - Juniper/contrail-controller
+      - tungstenfabric/tf-controller
       - tungstenfabric/tf-deployers-containers
       - tungstenfabric/tf-fabric-utils
       - name: Juniper/contrail-dpdk
@@ -166,13 +167,13 @@
       - tungstenfabric/tf-test
       - tungstenfabric/tf-third-party
       - tungstenfabric/tf-third-party-packages
-      - Juniper/contrail-tripleo-heat-templates
       - tungstenfabric/tf-tripleo-heat-templates
       - tungstenfabric/tf-tripleo-puppet
       - tungstenfabric/tf-vcenter-plugin
       - tungstenfabric/tf-vcenter-manager
       - tungstenfabric/tf-vcenter-fabric-manager
       - Juniper/contrail-vnc
+      - tungstenfabric/tf-vnc
       - tungstenfabric/tf-vrouter
       - tungstenfabric/tf-vrouter-java-api
       - tungstenfabric/tf-vro-plugin
