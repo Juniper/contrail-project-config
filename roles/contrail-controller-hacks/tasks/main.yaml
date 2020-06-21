@@ -6,7 +6,7 @@
     chdir: "{{ ansible_env.HOME }}/src/{{ item }}"
   failed_when: false
   with_items:
-    - review.opencontrail.org/Juniper/contrail-controller
+    - review.opencontrail.org/tungstenfabric/tf-controller
     - review.opencontrail.org/tungstenfabric/tf-build
     - review.opencontrail.org/tungstenfabric/tf-vrouter
     - review.opencontrail.org/tungstenfabric/tf-common
@@ -23,7 +23,7 @@
   args:
     chdir: "{{ ansible_env.HOME }}/src/{{ item }}"
   with_items:
-    - review.opencontrail.org/Juniper/contrail-controller
+    - review.opencontrail.org/tungstenfabric/tf-controller
     - review.opencontrail.org/tungstenfabric/tf-build
     - review.opencontrail.org/tungstenfabric/tf-vrouter
     - review.opencontrail.org/tungstenfabric/tf-common
