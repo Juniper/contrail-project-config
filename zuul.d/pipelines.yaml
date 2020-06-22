@@ -36,6 +36,7 @@
             - ^stable/newton$
             - ^stable/stein$
             - ^stable/rocky$
+            - ^stable/train$
             - ^production$
         - event: comment-added
           branch:
@@ -65,6 +66,7 @@
             - ^stable/newton$
             - ^stable/stein$
             - ^stable/rocky$
+            - ^stable/train$
             - ^production$
           comment: (?i)recheck(( (?:bug|lp)[\s#:]*(\d+))|( zuulv3)|( no bug))?(\s+clean)?\s*$
     start:
@@ -133,6 +135,7 @@
             - ^stable/newton$
             - ^stable/stein$
             - ^stable/rocky$
+            - ^stable/train$
             - ^production$
           comment: (?i)recheck +gate\s*$
         - event: comment-added
@@ -163,6 +166,7 @@
             - ^stable/newton$
             - ^stable/stein$
             - ^stable/rocky$
+            - ^stable/train$
             - ^production$
           approval:
             - Approved: 1
@@ -194,6 +198,7 @@
             - ^stable/newton$
             - ^stable/stein$
             - ^stable/rocky$
+            - ^stable/train$
             - ^production$
           approval:
             - Verified: 1
@@ -228,6 +233,7 @@
             - ^stable/newton$
             - ^stable/stein$
             - ^stable/rocky$
+            - ^stable/train$
             - ^production$
           approval:
             - Code-Review: 2
