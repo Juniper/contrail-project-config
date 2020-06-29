@@ -354,7 +354,6 @@
 
 - job:
     name: contrail-vnc-build-unittest-centos7-k8s
-    voting: false
     branches: ^(?!(R5\.0|contrail_dpdk_17_11_3)).*$
     required-projects:
       - tungstenfabric/tf-api-client
