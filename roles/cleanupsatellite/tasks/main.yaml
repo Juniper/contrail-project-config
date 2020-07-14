@@ -1,0 +1,23 @@
+- name: hostname
+  command: hostname
+  become: yes
+  become_user: root
+  when: 'ansible_distribution == "RedHat"'
+
+- name: Debug var
+  debug:
+    msg: '{{ ansible_fqdn }}'
+  when: 'ansible_distribution == "RedHat"'
+
+- name: unregister from satellite
+  command: subscription-manager unregister
+  become: yes
+  become_user: root
+  when: 'ansible_distribution == "RedHat"'
+
+- name: Delete host from satellite
+  command: 'curl --request DELETE --insecure --user {{ satellite_api.user }}:{{ satellite_api.password }} https://{{ satellite_api.hostname }}/api/v2/hosts/{{ ansible_fqdn }}'
+  become: yes
+  become_user: root
+  when: 'ansible_distribution == "RedHat"'
+  no_log: true
