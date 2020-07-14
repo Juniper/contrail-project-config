@@ -199,6 +199,7 @@
     post-run: playbooks/packaging/post-vnc-el.yaml
     secrets:
       - site_pulp
+      - satellite_api
       - name: artifactory_credentials
         secret: registry_artifactory_ci
 
