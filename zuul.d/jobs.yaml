@@ -430,6 +430,7 @@
     timeout: 28800
     secrets:
       - site_pulp
+      - satellite_api
 
 - job:
     name: contrail-docker-push-base
