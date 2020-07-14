@@ -4,4 +4,4 @@
   hosts: all
   roles:
     - fetch-dmesg
-
+    - cleanupsatellite
