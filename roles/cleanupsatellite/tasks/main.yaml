@@ -1,0 +1,16 @@
+- name: hostname
+  command: hostname
+  become: yes
+  become_user: root
+  when: 'ansible_distribution == "RedHat"'
+
+- name: Debug var
+  debug:
+    msg: '{{ ansible_fqdn }}'
+  when: 'ansible_distribution == "RedHat"'
+
+- name: unregister from satellite
+  command: subscription-manager unregister
+  become: yes
+  become_user: root
+  when: 'ansible_distribution == "RedHat"'
