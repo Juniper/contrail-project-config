@@ -779,11 +779,11 @@
     name: Juniper/contrail-dpdk
     check:
       jobs:
-        - contrail-vnc-build-package-centos74
+        - noop
     gate:
       queue: contrail-vnc
       jobs:
-        - contrail-vnc-build-package-centos74
+        - noop
 
 - project:
     name: Juniper/contrail-vrouter-java-api
