@@ -34,5 +34,7 @@ contrail_maven: 'svl-artifactory.juniper.net/artifactory/api/contrail-maven'
 docker_registry:
   fqdn: 10.84.5.81
   port: 5000
+package_server:
+  fqdn: pulp-server.englab.juniper.net
 nightly_registry:
   fqdn: svl-artifactory.juniper.net
