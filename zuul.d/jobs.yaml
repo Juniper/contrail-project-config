@@ -155,7 +155,7 @@
       - tungstenfabric/tf-deployers-containers
       - tungstenfabric/tf-fabric-utils
       - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_18_05_1
+        override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-heat-plugin
       - tungstenfabric/tf-helm-deployer
       - tungstenfabric/tf-java-api
@@ -250,7 +250,7 @@
       - Juniper/contrail-controller
       - tungstenfabric/tf-controller
       - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_18_05_1
+        override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
       - tungstenfabric/tf-packages
       - tungstenfabric/tf-vrouter
@@ -278,7 +278,7 @@
       - Juniper/contrail-controller
       - tungstenfabric/tf-controller
       - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_18_05_1
+        override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
       - tungstenfabric/tf-packages
       - tungstenfabric/tf-vrouter
@@ -304,7 +304,7 @@
       - Juniper/contrail-controller
       - tungstenfabric/tf-controller
       - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_18_05_1
+        override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
       - tungstenfabric/tf-packages
       - tungstenfabric/tf-vrouter
@@ -333,7 +333,7 @@
       - Juniper/contrail-controller
       - tungstenfabric/tf-controller
       - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_18_05_1
+        override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
       - tungstenfabric/tf-packages
       - tungstenfabric/tf-vrouter
@@ -361,7 +361,7 @@
       - Juniper/contrail-controller
       - tungstenfabric/tf-controller
       - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_18_05_1
+        override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
       - tungstenfabric/tf-packages
       - tungstenfabric/tf-vrouter
