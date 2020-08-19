@@ -424,6 +424,7 @@
 - project:
     name: tungstenfabric/tf-neutron-plugin
     templates:
+      - unittests
       - systests-all
 
 - project:
