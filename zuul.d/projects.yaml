@@ -401,6 +401,11 @@
       - systests
       - unittests-cpp11
       - build-cpp11
+    check:
+      jobs:
+        - contrail-ub18-vrouter:
+            dependencies:
+              - contrail-build-containers-centos7
 
 - project:
     name: Juniper/contrail-third-party
