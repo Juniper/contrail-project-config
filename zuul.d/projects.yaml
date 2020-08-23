@@ -401,7 +401,6 @@
       - systests
       - unittests-cpp11
       - build-cpp11
-
 - project:
     name: Juniper/contrail-third-party
     templates:
