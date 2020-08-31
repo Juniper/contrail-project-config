@@ -160,7 +160,7 @@ providers:
       - name: rhel-7
       - name: ubuntu-trusty
       - name: ubuntu-xenial
-      - name: Ubuntu-1804
+      - name: ubuntu-bionic
     pools:
       - name: ci-zuulv3
         max-servers: 128
@@ -290,7 +290,7 @@ providers:
          ####   end labels migrated from old cluster-c ###
           - name: ubuntu-bionic-builder-small
             flavor-name: m1.small
-            diskimage: Ubuntu-1804
+            diskimage: ubuntu-bionic
             console-log: True
             key-name: ci-infra-shared-key
 
