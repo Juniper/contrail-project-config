@@ -878,3 +878,8 @@
     name: tungstenfabric/tf-devstack
     templates:
       - noops
+
+- project:
+    name: tungstenfabric/tf-tripleo-heat-templates
+    templates:
+      - noops
