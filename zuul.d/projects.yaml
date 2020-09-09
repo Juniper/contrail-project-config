@@ -921,7 +921,17 @@
       - noops
 
 - project:
-    name: tungstenfabric/tf-test
+    name: tungstenfabric/tf-charms
+    templates:
+      - noops
+
+- project:
+    name: tungstenfabric/tf-deployment-test
+    templates:
+      - noops
+
+- project:
+    name: tungstenfabric/tf-dev-test
     templates:
       - noops
 
