@@ -94,6 +94,7 @@
           - tungstenfabric/tf-api-client
           - tungstenfabric/tf-build
           - tungstenfabric/tf-charms
+          - tungstenfabric/tf-deployment-test
           - tungstenfabric/tf-common
           - tungstenfabric/tf-container-builder
           - tungstenfabric/tf-controller

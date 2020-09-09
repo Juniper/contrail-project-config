@@ -149,6 +149,7 @@
       - tungstenfabric/tf-build
       - tungstenfabric/tf-common
       - tungstenfabric/tf-charms
+      - tungstenfabric/tf-deployment-test
       - tungstenfabric/tf-container-builder
       - Juniper/contrail-controller
       - tungstenfabric/tf-controller
