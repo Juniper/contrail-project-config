@@ -153,6 +153,7 @@
       - Juniper/contrail-common
       - Juniper/contrail-container-builder
       - tungstenfabric/tf-charms
+      - tungstenfabric/tf-deployment-test
       - tungstenfabric/tf-container-builder
       - Juniper/contrail-controller
       - Juniper/contrail-deployers-containers
