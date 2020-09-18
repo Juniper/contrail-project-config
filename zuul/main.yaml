@@ -95,6 +95,7 @@
           - tungstenfabric/tf-build
           - tungstenfabric/tf-charms
           - tungstenfabric/tf-deployment-test
+          - tungstenfabric/tf-dpdk
           - tungstenfabric/tf-common
           - tungstenfabric/tf-container-builder
           - tungstenfabric/tf-controller
