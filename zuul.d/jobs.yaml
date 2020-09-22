@@ -154,8 +154,6 @@
       - tungstenfabric/tf-controller
       - tungstenfabric/tf-deployers-containers
       - tungstenfabric/tf-fabric-utils
-      - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_19_11
       - name: tungstenfabric/tf-dpdk
         override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-heat-plugin
@@ -251,8 +249,6 @@
       - tungstenfabric/tf-api-client
       - tungstenfabric/tf-build
       - tungstenfabric/tf-controller
-      - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_19_11
       - name: tungstenfabric/tf-dpdk
         override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
@@ -280,8 +276,6 @@
       - tungstenfabric/tf-api-client
       - tungstenfabric/tf-build
       - tungstenfabric/tf-controller
-      - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_19_11
       - name: tungstenfabric/tf-dpdk
         override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
@@ -307,8 +301,6 @@
       - tungstenfabric/tf-api-client
       - tungstenfabric/tf-build
       - tungstenfabric/tf-controller
-      - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_19_11
       - name: tungstenfabric/tf-dpdk
         override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
@@ -337,8 +329,6 @@
       - tungstenfabric/tf-api-client
       - tungstenfabric/tf-build
       - tungstenfabric/tf-controller
-      - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_19_11
       - name: tungstenfabric/tf-dpdk
         override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
@@ -366,8 +356,6 @@
       - tungstenfabric/tf-api-client
       - tungstenfabric/tf-build
       - tungstenfabric/tf-controller
-      - name: Juniper/contrail-dpdk
-        override-checkout: contrail_dpdk_19_11
       - name: tungstenfabric/tf-dpdk
         override-checkout: contrail_dpdk_19_11
       - tungstenfabric/tf-third-party
