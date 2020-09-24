@@ -115,6 +115,34 @@
         - contrail-vnc-build-package-centos74
 
 - project-template:
+    name: vrouter-systests
+    check:
+      jobs:
+        - contrail-vnc-build-package-centos74
+        - contrail-build-containers-centos7:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-ub18-vrouter:
+            dependencies:
+              - contrail-build-containers-centos7
+        - contrail-build-test-containers:
+            dependencies:
+              - contrail-vnc-build-package-centos74
+        - contrail-sanity-centos7-kolla-queens:
+            dependencies:
+              - contrail-build-test-containers
+              - contrail-build-containers-centos7
+        - contrail-sanity-centos7-k8s:
+            dependencies:
+              - contrail-build-test-containers
+              - contrail-build-containers-centos7
+
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - contrail-vnc-build-package-centos74
+
+- project-template:
     name: helm-systests
     check:
       jobs:
@@ -399,6 +427,7 @@
       - systests
       - unittests-cpp11
       - build-cpp11
+      - vrouter-systests
 - project:
     name: Juniper/contrail-third-party
     templates:
