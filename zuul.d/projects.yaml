@@ -32,6 +32,16 @@
         - noop
 
 - project-template:
+    name: build-ub18-vrouter
+    check:
+      jobs:
+        - contrail-ub18-vrouter
+    gate:
+      queue: contrail-vnc
+      jobs:
+        - noop
+
+- project-template:
     name: unittests-webui
     check:
       jobs:
@@ -399,6 +409,7 @@
       - systests
       - unittests-cpp11
       - build-cpp11
+      - build-ub18-vrouter
 - project:
     name: Juniper/contrail-third-party
     templates:
