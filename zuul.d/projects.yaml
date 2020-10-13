@@ -884,11 +884,13 @@
         - build-third-party-rpms-centos7:
             files:
               - upstream/rpm/.*
+	    voting: True
     gate:
       jobs:
         - build-third-party-rpms-centos7:
             files:
               - upstream/rpm/.*
+	    voting: True
     post-merge:
       jobs:
         - publish-third-party-packages
