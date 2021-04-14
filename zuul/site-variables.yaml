@@ -32,7 +32,9 @@ contrail_rh_satellite: 'svl-artifactory.juniper.net/artifactory/contrail-rh-sate
 contrail_pypi_mirror: 'svl-artifactory.juniper.net/artifactory/api/pypi/contrail-pypi/simple'
 contrail_maven: 'svl-artifactory.juniper.net/artifactory/api/contrail-maven'
 docker_registry:
-  fqdn: 10.84.5.81
+  fqdn: 10.84.5.90
   port: 5000
+package_server:
+  fqdn: pulp-server.englab.juniper.net
 nightly_registry:
   fqdn: svl-artifactory.juniper.net
