@@ -87,6 +87,7 @@
     - future
     - tox
     - gevent==1.4.0
+    - greenlet<2.0.0
     - geventhttpclient
 
 - name: install python3
