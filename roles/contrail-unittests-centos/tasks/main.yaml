@@ -86,7 +86,7 @@
   with_items:
     - future
     - tox
-    - gevent==1.4.0
+    - gevent<1.5.0
     - greenlet<2.0.0
     - geventhttpclient
 
